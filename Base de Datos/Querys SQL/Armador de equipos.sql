@@ -12,7 +12,7 @@ CREATE TABLE atributo
 (
 	atr_id int,
 	atr_name varchar(50),			--Nombre del attributo
-	str_drescription varchar(200),	--Breve descripcion
+	atr_drescription varchar(200),	--Breve descripcion
 	primary key (atr_id) 
 )
 
