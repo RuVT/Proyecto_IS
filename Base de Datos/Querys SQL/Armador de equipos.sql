@@ -13,6 +13,7 @@ CREATE TABLE atributo
 	atr_id int,
 	atr_name varchar(50),			--Nombre del attributo
 	atr_drescription varchar(200),	--Breve descripcion
+	atr_group varchar(50)
 	primary key (atr_id) 
 )
 
@@ -27,15 +28,38 @@ CREATE TABLE individuo
 	primary key (ind_id)
 )
 
+--Exitiran una tabla de equipos con todos los equipos que se hayan formado anteriormente y su informacion
+CREATE TABLE equipo
+(
+	equ_id int not null,
+	equ_name varchar(50) null,
+	equ_dateOfCreation date
+	primary key (equ_id)	
+)
+
+--Esta tabla contendra la relacion entre los indivisuos y los equipos
+CREATE TABLE participacionEquipo
+(
+	par_id int not null,
+	ind_id int,
+	equ_id int,
+	par_dateOfJoin date not null
+	primary key(par_id)
+	foreign key (ind_id) references atributo(ind_id),
+	foreign key (equ_id) references atributo(equ_id)
+)
+
 --Las opciones con las posibles respuestas al evaluar un atributo/caracteristica de alguien
 --Es util cuando no puedes medir cosas con numeros (mucho, poco, bueno, malo, regular)
 CREATE TABLE opcion
 (
-	opc_id int identity(1,1),
-	atr_id int,						--id del atributo al que pertenece la opcion
-	opc_value varchar(50)			
+	opc_id int identity(1,1) not null,
+	atr_id int null,						--id del atributo al que pertenece la opcion
+	atr_group int null,
+	opc_value varchar(50)
 	primary key (opc_id)
-	foreign key (atr_id) references atributo(atr_id) 
+	foreign key (atr_id) references atributo(atr_id),
+	foreign key (atr_group) references atributo(atr_group) 
 )
 
 --El tipo de relacion es solo un listado con todas los posoibles tipos relacionesque se pueden tener
@@ -67,8 +91,10 @@ CREATE TABLE evaluacion
 (
 	eva_id int,						
 	ind_idExaminer int,				--Evaluador
-	ind_idExamined int,				--Evaluado
-	rel_id int,						--Id de la relacion (solo personas relacionadas pueden evaluarse)
+	ind_idExamined int null,		--Evaluado
+	equ_id int null,				--Tabien se pordran evalur equipos
+	rel_id int null,				--Id de la relacion (solo personas relacionadas pueden evaluarse)
+	par_id int null,				--Id de la relacion con el equipo (solo integrantes de equipos pueden evaluar)
 	atr_id int,						--id del atributo a evaluar
 	eva_value float,				--valor numerico de la evaluacion
 	opc_id int null,				--valor no numerico, id de la opcion seleccionada
@@ -76,6 +102,8 @@ CREATE TABLE evaluacion
 	primary key (eva_id)
 	foreign key (ind_idExaminer) references individuo(ind_id),
 	foreign key (ind_idExamined) references individuo(ind_id),
+	foreign key (equ_id) references individuo(equ_id),
+	foreign key (par_id) references individuo(par_id),
 	foreign key (rel_id) references relacion (rel_id)
 )
 

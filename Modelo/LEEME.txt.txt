@@ -1,0 +1,45 @@
+IMPORTANTE!!
+Este archivo contiene informacion util para entender el modelo y las clases 
+dentro del Modelo_v1.uml y en la carpeta ClasesGeneradas.
+
+--------Abrir el archivo Modelo_v1.uml-----------
+Para abrir el archivo sin posibles errores recomiendo usar StarUML 1 en su version 5.0.2
+Link de la pagina:
+	http://sourceforge.net/projects/staruml/
+
+--------ESTRUCTURA Y DEFINICIONES -----------------
+El proyecto esta dividido en 2 partes principales:
+	-Clases SQL:
+		*Su trabajo es realizar toda aquella tarea referente a ABC en la base de datos
+		*Existe una clase por cada tabla importante en la base de datos, su trabajo es tener los comandos 
+		 especificos las operaciones para cada tabla, ademas sirben de contenedor de los datos
+		*Existe una clase Manager encargada de realizar las conexiones, executar comandos SQL y llenar tablas 
+	-Clases GUI:
+		*Son todas las interfaces con las que el usuario podra interactuar
+		*Existen dos tipos de clases GUI:
+			+Las pantallas o ventanas GUI: 
+				>cumplen con un proposito especifico en general (pantalla de registro, pantalla principal)
+				>Se forma de varios elementos GUI
+			+Los elementos GUI:
+				>comple con una accion o tarea y solo una (un elemento GUI para desplegar datos de usuario)
+		*IMPORTANTE!!
+		 Las clase GUI puede que no contengan nada de diseño directamente pero se pueden heredar sus 
+		 metodos a otra clase que contenga el diseño final (SERAN INDEPENDIENTES AL DISEÑO)
+
+Dentro de Modelo_v1.uml en Logical View viene separadas estas dos partes, en seguida se explicaran algunas de estas clases
+
+---------CLASES--------
+GUI_inicial		Sera la primara pantalla que el usuario verá, en ella se podra hacer login o acceder a la
+			ventana de GUI_Registro
+
+GUI_Registro		Una ventana que permitira lleva acabo e proceso de registro
+
+GUI_pantallaPrincipal	Ventana a la que el usuario accedera luego de registrarse
+
+GUI_Evaluacion		Ventana donde se realizaran las evalueciones de individuos
+
+GUI_Relaciones		
+
+
+
+
