@@ -49,6 +49,17 @@ CREATE TABLE participacionEquipo
 	foreign key (equ_id) references atributo(equ_id)
 )
 
+CREATE TABLE comentario
+(
+	com_id int identity(1,1) not null,
+	com_text varchar(1000) not null,
+	ind_idSender int not null,
+	ind_idResiver in not null,
+	primary key(com_id)
+	foreign key(ind_idSender) references individio(ind_id),
+	foreign key(ind_idResiver) references individio(ind_id)
+)
+
 --Las opciones con las posibles respuestas al evaluar un atributo/caracteristica de alguien
 --Es util cuando no puedes medir cosas con numeros (mucho, poco, bueno, malo, regular)
 CREATE TABLE opcion

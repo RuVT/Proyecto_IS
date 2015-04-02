@@ -13,7 +13,8 @@ El proyecto esta dividido en 2 partes principales:
 		*Su trabajo es realizar toda aquella tarea referente a ABC en la base de datos
 		*Existe una clase por cada tabla importante en la base de datos, su trabajo es tener los comandos 
 		 especificos las operaciones para cada tabla, ademas sirben de contenedor de los datos
-		*Existe una clase Manager encargada de realizar las conexiones, executar comandos SQL y llenar tablas 
+		*Existe una clase Manager (que es estatica) encargada de realizar las conexiones, 
+		 executar comandos SQL y llenar tablas 
 	-Clases GUI:
 		*Son todas las interfaces con las que el usuario podra interactuar
 		*Existen dos tipos de clases GUI:
@@ -28,7 +29,11 @@ El proyecto esta dividido en 2 partes principales:
 
 Dentro de Modelo_v1.uml en Logical View viene separadas estas dos partes, en seguida se explicaran algunas de estas clases
 
----------CLASES--------
+---------CLASES GUI--------		
+							VENTANAS
+GUI_base		Sera la clase de la que todas la demas heredaran el diseño 
+			(Esta sera la clase creada por el diseñador... Jacuinde es lo tuyo)
+
 GUI_inicial		Sera la primara pantalla que el usuario verá, en ella se podra hacer login o acceder a la
 			ventana de GUI_Registro
 
@@ -38,7 +43,28 @@ GUI_pantallaPrincipal	Ventana a la que el usuario accedera luego de registrarse
 
 GUI_Evaluacion		Ventana donde se realizaran las evalueciones de individuos
 
-GUI_Relaciones		
+GUI_Relaciones		Ventana que permitira buscar Individuos y agregar relaciones, tambien mostrar relaciones
+
+GUI_DatosUsuario	Tipica ventana para modificar datos de usuario o configurar opciones
+
+
+							ELEMENTOS
+GUI_BaseElement		Similar, sera el elemento del que todos heredaran el diseño
+
+LoginElement		Sera el elemento que realice la operacion de login
+
+UserDataElement		Heredara de LoginElement, su trabajo es el permitir la operacion de Logup 
+			(registrarse, poner nombre de usuarios y contraseña)
+
+PersonalDataElement	Muestra los datos basicos de un individuo y permite cambiarlos
+
+RelationshipData	Muestra las informacion de las relaciones 
+
+AbilitiesDataElement 	Muestra la informacion referente a una habilidad de un individuo, como ha sido calificada 
+			y permite seleccionar una de las opciones para calificarla
+
+CommentElement		Permite hacer comentarios al evaluar a un individuo
+
 
 
 

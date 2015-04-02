@@ -1,4 +1,8 @@
-public class SQL_Evaluacion : SQL_Object{
+
+
+
+public class SQL_Evaluacion : SQL_Object
+{
 	public object eva_id ;
 	public object ind_idExaminer ;
 	public object ind_idExamined ;
@@ -7,4 +11,10 @@ public class SQL_Evaluacion : SQL_Object{
 	public object eva_value ;
 	public object opc_id ;
 	public object eva_date ;
+	public void searchEvaluacionByIndividuo(SQL_Individuo individuo)
+	{
+	}
+	public void createNewevaluacionInDB()
+	{
+	}
 }
