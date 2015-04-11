@@ -4416,10 +4416,11 @@
 <XPD:ATTR name="Name" type="string">updateRelacionInDB</XPD:ATTR>
 <XPD:REF name="Owner">12SPcykRdUuezzFcI2JrYwAA</XPD:REF>
 </XPD:OBJ>
-<XPD:ATTR name="#TypedParameters" type="integer">3</XPD:ATTR>
+<XPD:ATTR name="#TypedParameters" type="integer">4</XPD:ATTR>
 <XPD:REF name="TypedParameters[0]">lsBD3uVttEmOoefwWrnUcwAA</XPD:REF>
 <XPD:REF name="TypedParameters[1]">EOHzFxfNCkaJJCWGnlI0+AAA</XPD:REF>
-<XPD:REF name="TypedParameters[2]">60enF2CWTEaxIhnnEhi1GwAA</XPD:REF>
+<XPD:REF name="TypedParameters[2]" pathname="person">60enF2CWTEaxIhnnEhi1GwAA</XPD:REF>
+<XPD:REF name="TypedParameters[3]">O/30t+1Gcky1gBwCQGvR9QAA</XPD:REF>
 <XPD:ATTR name="#Attributes" type="integer">5</XPD:ATTR>
 <XPD:OBJ name="Attributes[0]" type="UMLAttribute" guid="cthUhNN7dk6bpTZDbyMR+QAA">
 <XPD:ATTR name="Name" type="string">id</XPD:ATTR>
@@ -6439,9 +6440,10 @@
 </XPD:OBJ>
 <XPD:OBJ name="Operations[3]" type="UMLOperation" guid="DVofMDZek0mbqHajcE06AwAA">
 <XPD:ATTR name="Name" type="string">removeRelation</XPD:ATTR>
+<XPD:ATTR name="StereotypeName" type="string">static</XPD:ATTR>
 <XPD:REF name="Owner">8ABOeteOD0G/PHxjp4fNdgAA</XPD:REF>
 <XPD:ATTR name="#Parameters" type="integer">1</XPD:ATTR>
-<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="60enF2CWTEaxIhnnEhi1GwAA">
+<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="O/30t+1Gcky1gBwCQGvR9QAA">
 <XPD:ATTR name="Name" type="string">person</XPD:ATTR>
 <XPD:REF name="BehavioralFeature">DVofMDZek0mbqHajcE06AwAA</XPD:REF>
 <XPD:REF name="Type_">12SPcykRdUuezzFcI2JrYwAA</XPD:REF>
@@ -6551,6 +6553,12 @@
 <XPD:ATTR name="Name" type="string">loadAbilitiesData</XPD:ATTR>
 <XPD:ATTR name="StereotypeName" type="string">static</XPD:ATTR>
 <XPD:REF name="Owner">vP0Gq8v0pEqR5TO+1AVK3gAA</XPD:REF>
+<XPD:ATTR name="#Parameters" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="UQa2Y7a7xEaBo/6ryC4UmQAA">
+<XPD:ATTR name="Name" type="string">data</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">DataTable</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">D/WKHT3050CsSHZnAu7F0AAA</XPD:REF>
+</XPD:OBJ>
 <XPD:ATTR name="#CallActions" type="integer">1</XPD:ATTR>
 <XPD:REF name="CallActions[0]">8lxOhFMSpEC+xScS7TA+4gAA</XPD:REF>
 </XPD:OBJ>
