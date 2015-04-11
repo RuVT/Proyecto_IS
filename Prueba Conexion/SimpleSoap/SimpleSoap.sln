@@ -1,0 +1,17 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleSoap", "SimpleSoap\SimpleSoap.csproj", "{74BFC6C9-9C22-4C40-A735-8B3C2337BB54}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{74BFC6C9-9C22-4C40-A735-8B3C2337BB54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74BFC6C9-9C22-4C40-A735-8B3C2337BB54}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74BFC6C9-9C22-4C40-A735-8B3C2337BB54}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74BFC6C9-9C22-4C40-A735-8B3C2337BB54}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
