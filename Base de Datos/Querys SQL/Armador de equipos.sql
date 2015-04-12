@@ -3,9 +3,9 @@
 --Tomenlo como un bosquejo hecho a la carrera
 
 --1ro Creamos la base de datos, el nombre lo invente y se puede cambiar
-CREATE DATABASE [TEAM{STAR}TER]
-
-USE [TEAM{STAR}TER]
+CREATE DATABASE [MrTmaker]
+Go
+USE [MrTmaker]
 
 --Esta tabla contendra ina lista de todos los atributos generales que alguien puede tener
 CREATE TABLE atributo
@@ -45,8 +45,8 @@ CREATE TABLE participacionEquipo
 	equ_id int,
 	par_dateOfJoin date not null
 	primary key(par_id)
-	foreign key (ind_id) references atributo(ind_id),
-	foreign key (equ_id) references atributo(equ_id)
+	foreign key (ind_id) references individuo(ind_id),
+	foreign key (equ_id) references equipo(equ_id)
 )
 
 CREATE TABLE comentario
@@ -54,10 +54,10 @@ CREATE TABLE comentario
 	com_id int identity(1,1) not null,
 	com_text varchar(1000) not null,
 	ind_idSender int not null,
-	ind_idResiver in not null,
-	primary key(com_id)
-	foreign key(ind_idSender) references individio(ind_id),
-	foreign key(ind_idResiver) references individio(ind_id)
+	ind_idResiver int not null,
+	primary key(com_id),
+	foreign key(ind_idSender) references individuo(ind_id),
+	foreign key(ind_idResiver) references individuo(ind_id)
 )
 
 --Las opciones con las posibles respuestas al evaluar un atributo/caracteristica de alguien
@@ -66,11 +66,11 @@ CREATE TABLE opcion
 (
 	opc_id int identity(1,1) not null,
 	atr_id int null,						--id del atributo al que pertenece la opcion
-	atr_group int null,
+	atr_group varchar(50) null,
 	opc_value varchar(50)
 	primary key (opc_id)
-	foreign key (atr_id) references atributo(atr_id),
-	foreign key (atr_group) references atributo(atr_group) 
+	foreign key (atr_id) references atributo(atr_id)
+	--foreign key (atr_group) references atributo(atr_group) 
 )
 
 --El tipo de relacion es solo un listado con todas los posoibles tipos relacionesque se pueden tener
@@ -113,8 +113,8 @@ CREATE TABLE evaluacion
 	primary key (eva_id)
 	foreign key (ind_idExaminer) references individuo(ind_id),
 	foreign key (ind_idExamined) references individuo(ind_id),
-	foreign key (equ_id) references individuo(equ_id),
-	foreign key (par_id) references individuo(par_id),
+	foreign key (equ_id) references equipo(equ_id),
+	foreign key (par_id) references participacionEquipo(par_id),
 	foreign key (rel_id) references relacion (rel_id)
 )
 
