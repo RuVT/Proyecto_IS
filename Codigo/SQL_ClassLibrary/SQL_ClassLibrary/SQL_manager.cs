@@ -13,6 +13,8 @@ namespace SQL_ClassLibrary
         private static SqlConnection Connection;
         private static bool CloseConnectionAfterAction { get; set; }
 
+        public SqlCommand comando = null;
+
         public static void Init(string conection_string)
         {
             CloseConnectionAfterAction = true;
