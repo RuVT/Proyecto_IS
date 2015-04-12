@@ -138,10 +138,11 @@ CREATE TABLE usuario
 	usu_password varchar(50) not null,	--contraseña
 	usu_level int not null,				--Nivel de privilegios (usuario comun, admin, jefe)
 	ind_id int null						--Id del individio
-	primary key (usu_id)
+	primary key (usu_id),
 	foreign key (ind_id) references individuo (ind_id)
 )
-
+CREATE INDEX index_account
+ON usuario (usu_account)
 /*
 Estandar de nombres: como se daran cuenta utilice mayormente las 3 primeras letras de las tablas origen
 					para el inicio de los nombres segido de un _ y una palabra  especifica en ingles,

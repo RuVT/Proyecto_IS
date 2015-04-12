@@ -19,6 +19,7 @@ namespace SQL_ClassLibrary
         }
         public SQL_TipoRelacion load(DataTable data)
         {
+
         }
     }
 }

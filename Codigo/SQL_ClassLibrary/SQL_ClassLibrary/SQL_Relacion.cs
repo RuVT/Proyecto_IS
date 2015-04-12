@@ -13,7 +13,7 @@ namespace SQL_ClassLibrary
         public object ind_idIni;
         public object ind_idFin;
         public object rel_val;
-        public void SQL_Relacion()
+        public SQL_Relacion()
         {
         }
         public List<SQL_Relacion> getRelations(SQL_Usuario user)

@@ -38,7 +38,7 @@ namespace SQL_ClassLibrary
         {
             return Connection;
         }
-        public void executeCommand(SqlCommand command)
+        public static void executeCommand(SqlCommand command)
         {
             openConection();
             command.Connection = Connection;
@@ -49,7 +49,7 @@ namespace SQL_ClassLibrary
             catch (Exception) { }
             closeConection();
         }
-        public void executeCommand(string query)
+        public static void executeCommand(string query)
         {
             SqlCommand command=new SqlCommand(query);
             executeCommand(command);
