@@ -89,16 +89,18 @@ namespace SQL_ClassLibrary
 
             comando.Parameters.AddWithValue("@ind_id", _id);
 
-            SQL_manager.executeCommand(comando);
-            
+           DataTable dato_I=SQL_manager.readTable(comando);
+           return Load(dato_I)[0];
+           
         }
-        public static List<SQL_Individuo> load(DataTable data)
+        public static List<SQL_Individuo> Load(DataTable data)
         {
             List<SQL_Individuo> lista_I = new List<SQL_Individuo>();
             foreach (DataRow x in data.Rows)
             {
-                lista_I.Add(load(x));
+                lista_I.Add(Load(x));
             }
+            return lista_I;
             
         }
         public static SQL_Individuo Load(DataRow dato)

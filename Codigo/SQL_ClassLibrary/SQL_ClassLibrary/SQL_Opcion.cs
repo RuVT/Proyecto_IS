@@ -26,6 +26,7 @@ namespace SQL_ClassLibrary
         }
         public SQL_Opcion load(DataTable data)
         {
+
         }
 
 
