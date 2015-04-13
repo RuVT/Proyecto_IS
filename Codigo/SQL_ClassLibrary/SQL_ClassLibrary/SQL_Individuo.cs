@@ -93,6 +93,7 @@ namespace SQL_ClassLibrary
            return Load(dato_I)[0];
            
         }
+       
         public static List<SQL_Individuo> Load(DataTable data)
         {
             List<SQL_Individuo> lista_I = new List<SQL_Individuo>();
