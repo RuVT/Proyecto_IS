@@ -33,7 +33,7 @@ namespace SQL_ClassLibrary
         public void createNewUsuarioInDB()
         {
             SqlCommand command=new SqlCommand();
-            command.CommandText=@"Inser into usuario(usu_account,usu_password,usu_level) 
+            command.CommandText=@"Insert into usuario(usu_account,usu_password,usu_level) 
                                     values(@usu_account,@usu_password,@usu_level)";
             command.Parameters.AddWithValue("@usu_account", name);
             command.Parameters.AddWithValue("@usu_password", password);

@@ -12,7 +12,7 @@ namespace SQL_ClassLibrary
         public int atr_id;
         public string atr_name;
         public string atr_drescription;
-        public int atr_group;
+        public string atr_group;
         public List<SQL_Atributo> getAllAtributos()
         {
         }
@@ -26,6 +26,9 @@ namespace SQL_ClassLibrary
             {
                 SQL_Atributo nuevo = new SQL_Atributo();
                 nuevo.atr_drescription = row.Field<string>("atr_drescription");
+                nuevo.atr_group = row.Field<string>("atr_group");
+                nuevo.atr_id = row.Field<int>("atr_id");
+                nuevo.atr_name = row.Field<string>("atr_name");
                 //....
                 lista.Add(nuevo);
             }
