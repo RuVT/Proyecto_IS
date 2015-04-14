@@ -15,9 +15,13 @@ namespace SQL_ClassLibrary
         public string atr_group;
         public List<SQL_Atributo> getAllAtributos()
         {
+            DataTable table = SQL_manager.readTable("Select * from atributo ");
+            return load(table);
         }
         public SQL_Atributo getAtributoByID(int id)
         {
+            DataTable table = SQL_manager.readTable("Select * from atributo where atr_id = " + id);
+            return load(table).First();
         }
         public List<SQL_Atributo> load(DataTable table)
         {
