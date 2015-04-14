@@ -40,15 +40,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SQL_Atributo.cs" />
+    <Compile Include="SQL_Comentario.cs" />
+    <Compile Include="SQL_Equipo.cs" />
     <Compile Include="SQL_Evaluacion.cs" />
     <Compile Include="SQL_Habilidad.cs" />
     <Compile Include="SQL_Individuo.cs" />
     <Compile Include="SQL_manager.cs" />
     <Compile Include="SQL_Object.cs" />
     <Compile Include="SQL_Opcion.cs" />
+    <Compile Include="SQL_ParticipacionEquipo.cs" />
     <Compile Include="SQL_Relacion.cs" />
     <Compile Include="SQL_TipoRelacion.cs" />
     <Compile Include="SQL_Usuario.cs" />
