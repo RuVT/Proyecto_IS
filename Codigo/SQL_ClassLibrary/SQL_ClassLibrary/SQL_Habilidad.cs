@@ -15,7 +15,7 @@ namespace SQL_ClassLibrary
         public List<SQL_Habilidad> getHabilidadByIndividuo(SQL_Individuoo individuo)
         {
         }
-        public List<SQL_Habilidad> load(DataTeble table)
+        public List<SQL_Habilidad> load(DataTable table)
         {
         }
         public SQL_Opcion getOpcion()
