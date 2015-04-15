@@ -1,0 +1,16 @@
+C:\Users\MarioMijes\Desktop\Archivo 2015\Xamarin Pi\IS_Eva\IS_Eva\bin\Release\IS_Eva.dll
+C:\Users\MarioMijes\Desktop\Archivo 2015\Xamarin Pi\IS_Eva\IS_Eva\bin\Release\IS_Eva.pdb
+C:\Users\MarioMijes\Desktop\Archivo 2015\Xamarin Pi\IS_Eva\IS_Eva\bin\Release\IS_Eva.IS_Eva.apk
+C:\Users\MarioMijes\Desktop\Archivo 2015\Xamarin Pi\IS_Eva\IS_Eva\bin\Release\IS_Eva.IS_Eva-Signed.apk
+C:\Users\MarioMijes\Desktop\Archivo 2015\Xamarin Pi\IS_Eva\IS_Eva\obj\Release\IS_Eva.dll
+C:\Users\MarioMijes\Desktop\Archivo 2015\Xamarin Pi\IS_Eva\IS_Eva\obj\Release\IS_Eva.pdb
+C:\Users\MarioMijes\Desktop\Archivo 2015\Xamarin Pi\IS_Eva\IS_Eva\obj\Release\android\bin\IS_Eva.IS_Eva.apk
+C:\Users\MarioMijes\Desktop\Archivo 2015\Xamarin Pi\IS_Eva\IS_Eva\obj\Release\res\layout\main.xml
+C:\Users\MarioMijes\Desktop\Archivo 2015\Xamarin Pi\IS_Eva\IS_Eva\obj\Release\res\values\strings.xml
+C:\Users\MarioMijes\Desktop\Archivo 2015\Xamarin Pi\IS_Eva\IS_Eva\obj\Release\res\drawable-hdpi\icon.png
+C:\Users\MarioMijes\Desktop\Archivo 2015\Xamarin Pi\IS_Eva\IS_Eva\obj\Release\res\drawable-mdpi\icon.png
+C:\Users\MarioMijes\Desktop\Archivo 2015\Xamarin Pi\IS_Eva\IS_Eva\obj\Release\res\drawable-xhdpi\icon.png
+C:\Users\MarioMijes\Desktop\Archivo 2015\Xamarin Pi\IS_Eva\IS_Eva\obj\Release\res\drawable-xxhdpi\icon.png
+C:\Users\MarioMijes\Desktop\Archivo 2015\Xamarin Pi\IS_Eva\IS_Eva\obj\Release\res\drawable-xxxhdpi\icon.png
+C:\Users\MarioMijes\Desktop\Archivo 2015\Xamarin Pi\IS_Eva\IS_Eva\obj\Release\R.cs.flag
+C:\Users\MarioMijes\Desktop\Archivo 2015\Xamarin Pi\IS_Eva\IS_Eva\obj\Release\uploadflags.txt

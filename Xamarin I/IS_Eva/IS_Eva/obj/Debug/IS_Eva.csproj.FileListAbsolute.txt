@@ -1,0 +1,17 @@
+C:\Users\MarioMijes\Desktop\Archivo 2015\Xamarin Pi\IS_Eva\IS_Eva\bin\Debug\IS_Eva.dll
+C:\Users\MarioMijes\Desktop\Archivo 2015\Xamarin Pi\IS_Eva\IS_Eva\bin\Debug\IS_Eva.pdb
+C:\Users\MarioMijes\Desktop\Archivo 2015\Xamarin Pi\IS_Eva\IS_Eva\bin\Debug\IS_Eva.dll.mdb
+C:\Users\MarioMijes\Desktop\Archivo 2015\Xamarin Pi\IS_Eva\IS_Eva\bin\Debug\IS_Eva.IS_Eva.apk
+C:\Users\MarioMijes\Desktop\Archivo 2015\Xamarin Pi\IS_Eva\IS_Eva\bin\Debug\IS_Eva.IS_Eva-Signed.apk
+C:\Users\MarioMijes\Desktop\Archivo 2015\Xamarin Pi\IS_Eva\IS_Eva\obj\Debug\IS_Eva.dll
+C:\Users\MarioMijes\Desktop\Archivo 2015\Xamarin Pi\IS_Eva\IS_Eva\obj\Debug\IS_Eva.pdb
+C:\Users\MarioMijes\Desktop\Archivo 2015\Xamarin Pi\IS_Eva\IS_Eva\obj\Debug\android\bin\IS_Eva.IS_Eva.apk
+C:\Users\MarioMijes\Desktop\Archivo 2015\Xamarin Pi\IS_Eva\IS_Eva\obj\Debug\res\layout\main.xml
+C:\Users\MarioMijes\Desktop\Archivo 2015\Xamarin Pi\IS_Eva\IS_Eva\obj\Debug\res\values\strings.xml
+C:\Users\MarioMijes\Desktop\Archivo 2015\Xamarin Pi\IS_Eva\IS_Eva\obj\Debug\res\drawable-hdpi\icon.png
+C:\Users\MarioMijes\Desktop\Archivo 2015\Xamarin Pi\IS_Eva\IS_Eva\obj\Debug\res\drawable-mdpi\icon.png
+C:\Users\MarioMijes\Desktop\Archivo 2015\Xamarin Pi\IS_Eva\IS_Eva\obj\Debug\res\drawable-xhdpi\icon.png
+C:\Users\MarioMijes\Desktop\Archivo 2015\Xamarin Pi\IS_Eva\IS_Eva\obj\Debug\res\drawable-xxhdpi\icon.png
+C:\Users\MarioMijes\Desktop\Archivo 2015\Xamarin Pi\IS_Eva\IS_Eva\obj\Debug\res\drawable-xxxhdpi\icon.png
+C:\Users\MarioMijes\Desktop\Archivo 2015\Xamarin Pi\IS_Eva\IS_Eva\obj\Debug\R.cs.flag
+C:\Users\MarioMijes\Desktop\Archivo 2015\Xamarin Pi\IS_Eva\IS_Eva\obj\Debug\uploadflags.txt
