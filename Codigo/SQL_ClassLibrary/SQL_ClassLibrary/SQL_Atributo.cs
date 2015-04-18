@@ -4,10 +4,11 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SQL_ClassLibrary.ServiceInterface;
 
 namespace SQL_ClassLibrary
 {
-    public class SQL_Atributo : SQL_Object
+    public class SQL_Atributo : SQL_Object, IAtributo
     {
         public int atr_id;
         public string atr_name;

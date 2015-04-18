@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
+using SQL_ClassLibrary.ServiceInterface;
 namespace SQL_ClassLibrary
 {
 
-    public class SQL_Evaluacion : SQL_Object
+    public class SQL_Evaluacion : SQL_Object, IEvaluacion
     {
         public object eva_id;
         public object ind_idExaminer;
@@ -45,5 +46,7 @@ namespace SQL_ClassLibrary
 
             SQL_manager.executeCommand(comando);
         }
+        public void deleteEvaulacionInDB()
+        { }
     }
 }

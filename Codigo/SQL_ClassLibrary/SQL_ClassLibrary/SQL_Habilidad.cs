@@ -5,10 +5,10 @@ using System.Data;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
-
+using SQL_ClassLibrary.ServiceInterface;
 namespace SQL_ClassLibrary
 {
-    public class SQL_Habilidad : SQL_Object
+    public class SQL_Habilidad : SQL_Object, IHabilidad
     {
         public int hab_id;
         public int ind_id;

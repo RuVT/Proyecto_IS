@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQL_ClassLibrary", "SQL_ClassLibrary\SQL_ClassLibrary.csproj", "{275C88B6-0E94-4D91-B3AD-15F1DAFF01DF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ErrorManager", "ErrorManager\ErrorManager.csproj", "{92B6B691-D5D8-4B75-AAC8-7B196E54C652}"
