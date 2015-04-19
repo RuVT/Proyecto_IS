@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
+using SQL_ClassLibrary.ServiceInterface;
 
 namespace SQL_ClassLibrary
 {
@@ -19,6 +20,7 @@ namespace SQL_ClassLibrary
         public void SQL_TipoRelacion()
         {
         }
+
         public List<SQL_TipoRelacion> getRelationsType()
         {
             comando.CommandText = "select *" +
@@ -34,6 +36,7 @@ namespace SQL_ClassLibrary
             return lista_T;
 
         }
+
         public static SQL_TipoRelacion Load(DataRow dato)
         {
             SQL_TipoRelacion Sql_T = new SQL_TipoRelacion();
@@ -52,6 +55,15 @@ namespace SQL_ClassLibrary
             DataTable dato_I = SQL_manager.readTable(comando);
             return Load(dato_I);
         }
+
+        public void addNewTipoRelacionInBD()
+        { }
+
+        public void updateTipoRelacionInBD()
+        { }
+
+        public void deleteTipoRelacionInDB()
+        { }
 
     }
 }

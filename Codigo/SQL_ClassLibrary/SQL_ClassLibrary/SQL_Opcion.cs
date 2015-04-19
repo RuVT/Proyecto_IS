@@ -5,10 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
+using SQL_ClassLibrary.ServiceInterface;
 
 namespace SQL_ClassLibrary
 {
-    public class SQL_Opcion : SQL_Object
+    public class SQL_Opcion : SQL_Object, IOpcion
     {
         public int opc_id;
         public int atr_id;
@@ -16,8 +17,6 @@ namespace SQL_ClassLibrary
         public string opc_value;
 
         SqlCommand comando = new SqlCommand();
-
-
 
         public List<SQL_Opcion> getAllOptions(/*SQL_Atributo atributo*/)
         {

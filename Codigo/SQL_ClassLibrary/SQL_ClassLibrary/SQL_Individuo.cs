@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
+using SQL_ClassLibrary.ServiceInterface;
 
 namespace SQL_ClassLibrary
 {
