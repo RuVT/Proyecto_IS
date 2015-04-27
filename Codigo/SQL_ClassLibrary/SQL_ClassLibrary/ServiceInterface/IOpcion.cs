@@ -17,12 +17,12 @@ namespace SQL_ClassLibrary.ServiceInterface
         [OperationContract]
         SQL_Opcion Load(DataTable data);
         [OperationContract]
-        static SQL_Opcion Load(DataRow dato);
+        SQL_Opcion Load(DataRow dato);
         [OperationContract]
-        public void createNewOpcionInDB();
+        void createNewOpcionInDB();
         [OperationContract]
-        public void updateOpcionInDB();
+        void updateOpcionInDB();
         [OperationContract]
-        public void deleteOpcionInDB();
+        void deleteOpcionInDB();
     }
 }

@@ -14,18 +14,18 @@ namespace SQL_ClassLibrary.ServiceInterface
         [OperationContract]
         List<SQL_Equipo> searchEquiposByName(string name);
         [OperationContract]
-        public List<SQL_Equipo> getAllEquipos();
+        List<SQL_Equipo> getAllEquipos();
         [OperationContract]
-        public SQL_Equipo getEquipoByID(int id);
+        SQL_Equipo getEquipoByID(int id);
         [OperationContract]
-        public List<SQL_Equipo> load(DataTable data);
+        List<SQL_Equipo> load(DataTable data);
         [OperationContract]
-        public SQL_Equipo load(DataRow row);
+        SQL_Equipo load(DataRow row);
         [OperationContract]
-        public void createNewEquipoInDB();
+        void createNewEquipoInDB();
         [OperationContract]
-        public void updateEquipoInDB();
+        void updateEquipoInDB();
         [OperationContract]
-        public void deleteEquipoInDB();
+        void deleteEquipoInDB();
     }
 }

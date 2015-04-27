@@ -11,20 +11,18 @@ namespace SQL_ClassLibrary.ServiceInterface
     public interface IIndividuo
     {
         [OperationContract]
-        public void SQL_Idividuo();
+        void createNewIndividuoInDB();
         [OperationContract]
-        public void createNewIndividuoInDB();
+        void updateIndividuoInDB();
         [OperationContract]
-        public void updateIndividuoInDB();
+        void deleteIndiviuoInDB();
         [OperationContract]
-        public void deleteIndiviuoInDB();
+        List<SQL_Individuo> searchIndividuoByName(string _name);
         [OperationContract]
-        public void searchIndividuoByName(string _name);
+        SQL_Individuo getIndividuoFromDBbyID(int _id);
         [OperationContract]
-        public SQL_Individuo getIndividuoFromDBbyID(int _id);
+        List<SQL_Individuo> Load(DataTable data);
         [OperationContract]
-        public static List<SQL_Individuo> Load(DataTable data);
-        [OperationContract]
-        public static SQL_Individuo Load(DataRow dato);
+        SQL_Individuo Load(DataRow dato);
     }
 }

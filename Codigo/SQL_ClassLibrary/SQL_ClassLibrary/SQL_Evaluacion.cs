@@ -43,8 +43,12 @@ namespace SQL_ClassLibrary
             comando.Parameters.AddWithValue("@eva_value", eva_value);
             comando.Parameters.AddWithValue("@opc_id", opc_id);
             comando.Parameters.AddWithValue("@eva_date", eva_date);
-
             SQL_manager.executeCommand(comando);
+        }
+
+        public void updateEvaluacionInDB()
+        {
+            comando.CommandText = @"UPDATE evaluacion SET ind_idExaminer=@ind_idExaminer, ind_idExamined=@ind_idExamined, ";
         }
         public void deleteEvaulacionInDB()
         { }

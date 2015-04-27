@@ -5,10 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
+using SQL_ClassLibrary.ServiceInterface;
 
 namespace SQL_ClassLibrary
 {
-    public class SQL_Usuario : SQL_Object
+    public class SQL_Usuario : SQL_Object, IUsuario
     {
         private int id;
         private string name;

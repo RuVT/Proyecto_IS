@@ -5,43 +5,84 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SQL_ClassLibrary.ServiceInterface;
+using System.Data.SqlClient;
 
 namespace SQL_ClassLibrary
 {
     public class SQL_Relacion : SQL_Object, IRelacion
     {
-        public object id;
-        public object tipRe_id;
-        public object ind_idIni;
-        public object ind_idFin;
-        public object rel_val;
+        public int rel_id;
+        public int tipRe_id;
+        public int ind_idIni;
+        public int ind_idFin;
+        public double rel_val;
         
-        public SQL_Relacion()
+        public SQL_Relacion(int id=-1, int tip=-1, int ind1=-1, int ind2=-1, double val=-1)
         {
+            rel_id = id;
+            tipRe_id = tip;
+            ind_idIni = ind1;
+            ind_idFin = ind2;
+            rel_val = val;
         }
         
         public List<SQL_Relacion> getRelations(SQL_Individuo person)
         {
+            SqlCommand command = new SqlCommand();
+            command.CommandText = "Select * from relacion where tipRe_id = @tipRe_id";
+            command.Parameters.AddWithValue("@tipRe_id", person.id);
+            DataTable table = SQL_manager.readTable(command);
+            return load(table);
         }
         
-        public SQL_Relacion load(DataTable data)
+        public List<SQL_Relacion> load(DataTable data)
         {
+            List<SQL_Relacion> relaciones = new List<SQL_Relacion>();
+            foreach (DataRow row in data.Rows)
+            {
+                relaciones.Add(load(row));        
+            }
+            return relaciones;
         }
         
         public SQL_Relacion load(DataRow data)
         {
+            return new SQL_Relacion(data.Field<int>("rel_id"),
+                                    data.Field<int>("tipRe_id"),
+                                    data.Field<int>("ind_idIni"),
+                                    data.Field<int>("ind_idFin"),
+                                    data.Field<float>("rel_val"));
         }
         
         public void createNewRelacionInDB()
         {
+            SqlCommand command = new SqlCommand();
+            command.CommandText = @"INSERT INTO relacion(tipRe_id,ind_idIni,ind_idFin) 
+                                                    VALUES(@tipRe_id,@ind_idIni,@ind_idFin)";
+            command.Parameters.AddWithValue("@tipRe_id", tipRe_id);
+            command.Parameters.AddWithValue("@ind_idIni", ind_idIni);
+            command.Parameters.AddWithValue("@ind_idFin", ind_idFin);
+            SQL_manager.executeCommand(command);
         }
         
         public void deleteRelacionInDB()
         {
+            SqlCommand command = new SqlCommand();
+            command.CommandText = @"DELETE FROM relacion WHERE rel_id = @rel_id";
+            command.Parameters.AddWithValue("@rel_id", rel_id);
+            SQL_manager.executeCommand(command);
         }
         
         public void updateRelacionInDB()
         {
+            SqlCommand command = new SqlCommand();
+            command.CommandText = @"UPDATE relacion SET tipRe_id = @tipRe_id ,ind_idIni = @ind_idIni ,
+                                                        ind_idFin = @ind_idFin WHERE rel_id = @rel_id";
+            command.Parameters.AddWithValue("@rel_id", rel_id);
+            command.Parameters.AddWithValue("@tipRe_id", tipRe_id);
+            command.Parameters.AddWithValue("@ind_idIni", ind_idIni);
+            command.Parameters.AddWithValue("@ind_idFin", ind_idFin);
+            SQL_manager.executeCommand(command);
         }
     }
 }

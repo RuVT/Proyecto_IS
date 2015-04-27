@@ -15,6 +15,7 @@ namespace SQL_ClassLibrary
         public DateTime par_dateOfJoin;
         public List<SQL_Individuo> getIndividuosFromEquipo(SQL_Equipo team)
         {
+
         }
         public List<SQL_ParticipacionEquipo> getParticipacionesFromEquipo(SQL_Equipo team)
         {

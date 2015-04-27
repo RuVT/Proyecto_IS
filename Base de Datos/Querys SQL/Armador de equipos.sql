@@ -97,10 +97,11 @@ CREATE TABLE relacion
 	foreign key (ind_idFin) references individuo(ind_id)
 )
 
+
 --Tabla con los registros de las evaluaciones relaizadas
 CREATE TABLE evaluacion
 (
-	eva_id int,						
+	eva_id int identity(1,1),						
 	ind_idExaminer int,				--Evaluador
 	ind_idExamined int null,		--Evaluado
 	equ_id int null,				--Tabien se pordran evalur equipos

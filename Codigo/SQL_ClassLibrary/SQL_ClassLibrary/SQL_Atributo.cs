@@ -8,7 +8,7 @@ using SQL_ClassLibrary.ServiceInterface;
 
 namespace SQL_ClassLibrary
 {
-    public class SQL_Atributo : SQL_Object, IAtributo
+    public class SQL_Atributo : IAtributo
     {
         public int atr_id;
         public string atr_name;

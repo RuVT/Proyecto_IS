@@ -10,9 +10,11 @@ namespace SQL_ClassLibrary.ServiceInterface
     public interface IComentario
     {
         [OperationContract]
-        SQL_Comentario getComentarioFromIndoviduo(SQL_Individuo person);
+        List<SQL_Comentario> getComentarioFromIndoviduo(SQL_Individuo person);
         [OperationContract]
-        void getComentarioToIndoviduo(SQL_Individuo person);
+        List<SQL_Comentario> getComentarioToIndoviduo(SQL_Individuo person);
+        [OperationContract]
+        List<SQL_Comentario> getComentario(SQL_Individuo sender,SQL_Individuo resiver);
         [OperationContract]
         void createNewComentarioInB();
         [OperationContract]

@@ -12,20 +12,20 @@ namespace SQL_ClassLibrary.ServiceInterface
     public interface IUsuario
     {
         [OperationContract]
-        public void createNewUsuarioInDB();
+        void createNewUsuarioInDB();
         [OperationContract]
-        public void deleteUsuarioInDB();
+        void deleteUsuarioInDB();
         [OperationContract]
-        public static SQL_Usuario load(DataTable data);
+        SQL_Usuario load(DataTable data);
         [OperationContract]
-        public void updateUsuarioInDB();
+        void updateUsuarioInDB();
         [OperationContract]
-        public static bool userExist(string _name);
+        bool userExist(string _name);
         [OperationContract]
-        private bool passwordIsCorrect(string _password);
+        bool passwordIsCorrect(string _password);
         [OperationContract]
-        private static SQL_Usuario getUsuarioByName(string _name);
+        SQL_Usuario getUsuarioByName(string _name);
         [OperationContract]
-        public static bool login(string _name, string _password);
+        bool login(string _name, string _password);
     }
 }
