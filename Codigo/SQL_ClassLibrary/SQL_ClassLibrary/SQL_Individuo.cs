@@ -20,7 +20,7 @@ namespace SQL_ClassLibrary
         public int telephone;
         public string email;
 
-        SqlCommand comando = new SqlCommand();
+        static SqlCommand comando = new SqlCommand();
 
         public void SQL_Idividuo()
         {
@@ -82,7 +82,7 @@ namespace SQL_ClassLibrary
 
             SQL_manager.executeCommand(comando);
         }
-        public SQL_Individuo getIndividuoFromDBbyID(int _id)
+        public static SQL_Individuo getIndividuoFromDBbyID(int _id)
         {
             comando.CommandText = "select *" +
                                  " From individuo" +
