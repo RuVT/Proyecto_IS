@@ -8,7 +8,7 @@ using System.Data.SqlClient;
 using SQL_ClassLibrary.ServiceInterface;
 namespace SQL_ClassLibrary
 {
-    public class SQL_Habilidad : SQL_Object, IHabilidad
+    public class SQL_Habilidad :  IHabilidad
     {
         public int hab_id;
         public int ind_id;
@@ -20,7 +20,7 @@ namespace SQL_ClassLibrary
             DataTable table = SQL_manager.readTable("Select * from habilidad where ind_id =" + individuo);
             return load(table);
         }
-        public List<SQL_Habilidad> load(DataTable table)
+        public static List<SQL_Habilidad> load(DataTable table)
         {
             List<SQL_Habilidad> lista = new List<SQL_Habilidad>();
             foreach (DataRow row in table.Rows)
@@ -35,8 +35,20 @@ namespace SQL_ClassLibrary
             }
             return lista;
         }
-        public SQL_Opcion getOpcion()
+
+        public void createNewHabilidadInDB()
         {
+            throw new NotImplementedException();
+        }
+
+        public void updateHanilidadInDB()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void deleteHabilidadInDB()
+        {
+            throw new NotImplementedException();
         }
     }
 }

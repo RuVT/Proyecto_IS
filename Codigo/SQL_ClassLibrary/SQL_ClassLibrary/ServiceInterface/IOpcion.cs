@@ -13,11 +13,7 @@ namespace SQL_ClassLibrary.ServiceInterface
         [OperationContract]
         List<SQL_Opcion> getAllOptions();
         [OperationContract]
-        List<SQL_Opcion> getOpcionByGroup(string group);
-        [OperationContract]
-        SQL_Opcion Load(DataTable data);
-        [OperationContract]
-        SQL_Opcion Load(DataRow dato);
+        List<SQL_Opcion> getOpcionByGroup(string group);       
         [OperationContract]
         void createNewOpcionInDB();
         [OperationContract]

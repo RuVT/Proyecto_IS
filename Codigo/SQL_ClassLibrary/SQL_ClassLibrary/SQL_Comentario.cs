@@ -38,13 +38,13 @@ namespace SQL_ClassLibrary
             return tempCom;
         }
 
-        public static List<SQL_Comentario> getComentarioToIndoviduo(SQL_Individuo person)
+        public List<SQL_Comentario> getComentarioToIndoviduo(SQL_Individuo person)
         {
             DataTable table = SQL_manager.readTable("Select * from comentario where ind_idResiver = " + person.id);
             return load(table);
         }
 
-        List<SQL_Comentario> getComentario(SQL_Individuo sender, SQL_Individuo resiver)
+        public List<SQL_Comentario> getComentario(SQL_Individuo sender, SQL_Individuo resiver)
         {
             DataTable table = SQL_manager.readTable("Select * from comentario where ind_idSender = " + sender.id + " and ind_idResiver = "+resiver.id);
             return load(table);
@@ -67,6 +67,7 @@ namespace SQL_ClassLibrary
                                     where com_id = @com_id";
             command.Parameters.AddWithValue("@com_text", this.com_text);
             command.Parameters.AddWithValue("@ind_idSender", this.ind_idSender);
+
             command.Parameters.AddWithValue("@ind_idResiver", this.ind_idResiver);
             command.Parameters.AddWithValue("@com_id", this.com_id);
             SQL_manager.executeCommand(command);

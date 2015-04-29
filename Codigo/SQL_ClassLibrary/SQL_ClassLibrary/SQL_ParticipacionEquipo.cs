@@ -8,7 +8,7 @@ using System.Data.SqlClient;
 using System.Data;
 namespace SQL_ClassLibrary
 {
-    public class SQL_ParticipacionEquipo : SQL_Object, IParticipacionEquipo
+    public class SQL_ParticipacionEquipo : IParticipacionEquipo
     {
         public int par_id;
         public int ind_id;
@@ -16,7 +16,7 @@ namespace SQL_ClassLibrary
         public DateTime par_dateOfJoin;
         SqlCommand comando = new SqlCommand();
 
-        public static SQL_ParticipacionEquipo Load1(DataRow dato)
+        public static SQL_ParticipacionEquipo load(DataRow dato)
         {
             SQL_ParticipacionEquipo Sql_P = new SQL_ParticipacionEquipo();
             Sql_P.par_id = dato.Field<int>("par_id");
@@ -27,6 +27,15 @@ namespace SQL_ClassLibrary
             return Sql_P;
         }
 
+        public static List<SQL_ParticipacionEquipo> load(DataTable data)
+        {
+            List<SQL_ParticipacionEquipo> temp = new List<SQL_ParticipacionEquipo>();
+            foreach (DataRow row in data.Rows)
+            {
+                temp.Add(load(row));
+            }
+            return temp;
+        }
 
         public List<SQL_Individuo> getIndividuosFromEquipo(SQL_Equipo team)
         {
@@ -39,10 +48,10 @@ namespace SQL_ClassLibrary
             DataTable dato_I = SQL_manager.readTable(comando);
 
             List<SQL_Individuo> lista_I = new List<SQL_Individuo>();
-
+            SQL_Individuo temp = new SQL_Individuo();
             foreach (DataRow x in dato_I.Rows)
             {
-                lista_I.Add(SQL_Individuo.getIndividuoFromDBbyID((int)x["ind_id"]));
+                lista_I.Add(temp.getIndividuoFromDBbyID((int)x["ind_id"]));
             }
             return lista_I;
 
@@ -60,15 +69,16 @@ namespace SQL_ClassLibrary
             List<SQL_ParticipacionEquipo> lista_P = new List<SQL_ParticipacionEquipo>();
             foreach (DataRow x in dato_P.Rows)
             {
-                lista_P.Add(Load1(x));
+                lista_P.Add(load(x));
             }
             return lista_P;
         }
-        public void getAllParticipaciones()
+        public List<SQL_ParticipacionEquipo> getAllParticipaciones()
         {
             comando.CommandText = "select *" +
                                 " From participacionEquipo";
-
+            DataTable table=SQL_manager.readTable(comando);
+            return load(table);
         }
         public List<SQL_ParticipacionEquipo> getParticipacionFromIndividuo(SQL_Individuo person)
         {
@@ -83,7 +93,7 @@ namespace SQL_ClassLibrary
             List<SQL_ParticipacionEquipo> lista_P = new List<SQL_ParticipacionEquipo>();
             foreach (DataRow x in dato_P.Rows)
             {
-                lista_P.Add(Load1(x));
+                lista_P.Add(load(x));
             }
             return lista_P;
 

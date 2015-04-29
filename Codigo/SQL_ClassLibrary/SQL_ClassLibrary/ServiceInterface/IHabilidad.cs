@@ -14,10 +14,6 @@ namespace SQL_ClassLibrary.ServiceInterface
         [OperationContract]
         List<SQL_Habilidad> getHabilidadByIndividuo(SQL_Individuo individuo);
         [OperationContract]
-        List<SQL_Habilidad> load(DataTable table);
-        [OperationContract]
-        SQL_Habilidad load(DataRow row);
-        [OperationContract]
         void createNewHabilidadInDB();
         [OperationContract]
         void updateHanilidadInDB();

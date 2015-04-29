@@ -9,7 +9,7 @@ using SQL_ClassLibrary.ServiceInterface;
 
 namespace SQL_ClassLibrary
 {
-    public class SQL_Individuo : SQL_Object
+    public class SQL_Individuo : IIndividuo
     {
         public int id;
         private string name;
@@ -72,7 +72,7 @@ namespace SQL_ClassLibrary
 
             SQL_manager.executeCommand(comando);
         }
-        public void searchIndividuoByName(string _name)
+        public List<SQL_Individuo> searchIndividuoByName(string _name)
         {
             comando.CommandText = "select *"+
                                   " From individuo"+
@@ -80,9 +80,10 @@ namespace SQL_ClassLibrary
 
             comando.Parameters.AddWithValue("@ind_name", _name);
 
-            SQL_manager.executeCommand(comando);
+            DataTable table =SQL_manager.readTable(comando);
+            return Load(table);
         }
-        public static SQL_Individuo getIndividuoFromDBbyID(int _id)
+        public SQL_Individuo getIndividuoFromDBbyID(int _id)
         {
             comando.CommandText = "select *" +
                                  " From individuo" +
@@ -91,11 +92,10 @@ namespace SQL_ClassLibrary
             comando.Parameters.AddWithValue("@ind_id", _id);
 
            DataTable dato_I=SQL_manager.readTable(comando);
-           return Load(dato_I)[0];
-           
+           return Load(dato_I)[0];       
         }
        
-        public static List<SQL_Individuo> Load(DataTable data)
+        public List<SQL_Individuo> Load(DataTable data)
         {
             List<SQL_Individuo> lista_I = new List<SQL_Individuo>();
             foreach (DataRow x in data.Rows)
@@ -105,7 +105,7 @@ namespace SQL_ClassLibrary
             return lista_I;
             
         }
-        public static SQL_Individuo Load(DataRow dato)
+        public SQL_Individuo Load(DataRow dato)
         {
             SQL_Individuo Sql_I = new SQL_Individuo();
             Sql_I.id = dato.Field<int>("ind_id");

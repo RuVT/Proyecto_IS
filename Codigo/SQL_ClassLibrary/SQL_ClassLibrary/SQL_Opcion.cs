@@ -9,7 +9,7 @@ using SQL_ClassLibrary.ServiceInterface;
 
 namespace SQL_ClassLibrary
 {
-    public class SQL_Opcion : SQL_Object, IOpcion
+    public class SQL_Opcion : IOpcion
     {
         public int opc_id;
         public int atr_id;
@@ -108,5 +108,6 @@ namespace SQL_ClassLibrary
 
             SQL_manager.executeCommand(comando);
         }
+
     }
 }

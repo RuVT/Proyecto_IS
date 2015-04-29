@@ -19,8 +19,8 @@ namespace SQL_ClassLibrary.ServiceInterface
         [OperationContract]
         void addNewTipoRelacionInBD();
         [OperationContract]
-        public void updateTipoRelacionInBD();
+        void updateTipoRelacionInBD();
         [OperationContract]
-        public void deleteTipoRelacionInDB();
+        void deleteTipoRelacionInDB();
     }
 }

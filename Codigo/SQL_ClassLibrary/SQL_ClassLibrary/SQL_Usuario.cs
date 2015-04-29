@@ -9,7 +9,7 @@ using SQL_ClassLibrary.ServiceInterface;
 
 namespace SQL_ClassLibrary
 {
-    public class SQL_Usuario : SQL_Object, IUsuario
+    public class SQL_Usuario : IUsuario
     {
         private int id;
         private string name;
@@ -61,7 +61,7 @@ namespace SQL_ClassLibrary
                     tempUser.name = row.Field<string>("usu_account");
                     tempUser.password = row.Field<string>("usu_password");
                     tempUser.type = row.Field<string>("usu_level");
-                    loadData(row, "ind_id", tempUser.ind_id);
+                    tempUser.ind_id=row.Field<int>("ind_id");
                     return tempUser;
                 }
                 else
@@ -83,7 +83,7 @@ namespace SQL_ClassLibrary
             command.Parameters.AddWithValue("@ind_id", ind_id);
             SQL_manager.executeCommand(command);
         }
-        public static bool userExist(string _name)
+        public bool userExist(string _name)
         {
             DataTable table = SQL_manager.readTable("Select usu_account from usuario where usu_account=" + _name);
             if (table.Rows.Count>=0)
@@ -91,20 +91,20 @@ namespace SQL_ClassLibrary
             else
                 return true;
         }
-        private bool passwordIsCorrect(string _password)
+        public bool passwordIsCorrect(string _password)
         {
             if (password == _password)
                 return true;
             else
                 return false;
         }
-        private static SQL_Usuario getUsuarioByName(string _name)
+        public SQL_Usuario getUsuarioByName(string _name)
         {
             DataTable table = SQL_manager.readTable("Select * from usuario where usu_account=" + _name);
             SQL_Usuario tempUser = load(table);
             return tempUser;
         }
-        public static bool login(string _name, string _password)
+        public bool login(string _name, string _password)
         {
             if (userExist(_name))
             {

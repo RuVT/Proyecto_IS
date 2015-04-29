@@ -15,9 +15,7 @@ namespace SQL_ClassLibrary.ServiceInterface
         void createNewUsuarioInDB();
         [OperationContract]
         void deleteUsuarioInDB();
-        [OperationContract]
-        SQL_Usuario load(DataTable data);
-        [OperationContract]
+        [OperationContract]       
         void updateUsuarioInDB();
         [OperationContract]
         bool userExist(string _name);

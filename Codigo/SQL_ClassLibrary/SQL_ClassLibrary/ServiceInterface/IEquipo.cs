@@ -17,11 +17,6 @@ namespace SQL_ClassLibrary.ServiceInterface
         List<SQL_Equipo> getAllEquipos();
         [OperationContract]
         SQL_Equipo getEquipoByID(int id);
-        [OperationContract]
-        List<SQL_Equipo> load(DataTable data);
-        [OperationContract]
-        SQL_Equipo load(DataRow row);
-        [OperationContract]
         void createNewEquipoInDB();
         [OperationContract]
         void updateEquipoInDB();

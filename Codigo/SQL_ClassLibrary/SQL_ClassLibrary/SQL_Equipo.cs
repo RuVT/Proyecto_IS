@@ -9,7 +9,7 @@ using SQL_ClassLibrary.ServiceInterface;
 
 namespace SQL_ClassLibrary
 {
-    public class SQL_Equipo : SQL_Object, IEquipo
+    public class SQL_Equipo :  IEquipo
     {
         public int equ_id;
         public string equ_name;

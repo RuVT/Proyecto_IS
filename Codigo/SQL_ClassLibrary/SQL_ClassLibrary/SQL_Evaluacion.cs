@@ -5,30 +5,60 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using SQL_ClassLibrary.ServiceInterface;
+using System.Data;
 namespace SQL_ClassLibrary
 {
 
-    public class SQL_Evaluacion : SQL_Object, IEvaluacion
+    public class SQL_Evaluacion : IEvaluacion
     {
-        public object eva_id;
-        public object ind_idExaminer;
-        public object ind_idExamined;
-        public object rel_id;
-        public object atr_id;
-        public object eva_value;
-        public object opc_id;
-        public object eva_date;
+        public int eva_id;
+        public int ind_idExaminer;
+        public int ind_idExamined;
+        public int rel_id;
+        public int atr_id;
+        public double eva_value;
+        public int opc_id;
+        public DateTime eva_date;
+        public int equ_id;
+        public int par_id;
 
         SqlCommand comando = new SqlCommand();
 
-        public void searchEvaluacionByIndividuo(SQL_Individuo individuo)
+        public List<SQL_Evaluacion> searchEvaluacionByIndividuo(SQL_Individuo individuo)
         {
             comando.CommandText = "select *"+
                                   " from evaluacion" +
                                   " where ind_idExamined=@id";
 
             comando.Parameters.AddWithValue("@id", individuo.id);
-            SQL_manager.executeCommand(comando);
+            DataTable table=SQL_manager.readTable(comando);
+            return load(table);
+        }
+
+        public static List<SQL_Evaluacion> load(DataTable table)
+        {
+            List<SQL_Evaluacion> temp = new List<SQL_Evaluacion>();
+            foreach (DataRow row in table.Rows)
+            {
+                temp.Add(load(row)); 
+            }
+            return temp;
+        }
+
+        public static SQL_Evaluacion load(DataRow row)
+        {
+            SQL_Evaluacion temp=new SQL_Evaluacion();
+            temp.eva_id = row.Field<int>("eva_id");
+            temp.ind_idExaminer = row.Field<int>("ind_idExaminer");
+            temp.ind_idExamined = row.Field<int>("ind_idExamined");
+            temp.equ_id = row.Field<int>("equ_id");
+            temp.rel_id = row.Field<int>("rel_id");
+            temp.par_id = row.Field<int>("par_id");
+            temp.atr_id = row.Field<int>("atr_id");
+            temp.eva_value = row.Field<double>("eva_value");
+            temp.opc_id = row.Field<int>("opc_id");
+            temp.eva_date = row.Field<DateTime>("eva_date");
+            return temp;
         }
         public void createNewevaluacionInDB()
         {

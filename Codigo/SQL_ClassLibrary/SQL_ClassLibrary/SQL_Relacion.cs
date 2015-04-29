@@ -9,7 +9,7 @@ using System.Data.SqlClient;
 
 namespace SQL_ClassLibrary
 {
-    public class SQL_Relacion : SQL_Object, IRelacion
+    public class SQL_Relacion : IRelacion
     {
         public int rel_id;
         public int tipRe_id;
@@ -17,14 +17,14 @@ namespace SQL_ClassLibrary
         public int ind_idFin;
         public double rel_val;
         
-        public SQL_Relacion(int id=-1, int tip=-1, int ind1=-1, int ind2=-1, double val=-1)
-        {
-            rel_id = id;
-            tipRe_id = tip;
-            ind_idIni = ind1;
-            ind_idFin = ind2;
-            rel_val = val;
-        }
+        //public SQL_Relacion(int id=-1, int tip=-1, int ind1=-1, int ind2=-1, double val=-1)
+        //{
+        //    rel_id = id;
+        //    tipRe_id = tip;
+        //    ind_idIni = ind1;
+        //    ind_idFin = ind2;
+        //    rel_val = val;
+        //}
         
         public List<SQL_Relacion> getRelations(SQL_Individuo person)
         {
@@ -47,11 +47,13 @@ namespace SQL_ClassLibrary
         
         public SQL_Relacion load(DataRow data)
         {
-            return new SQL_Relacion(data.Field<int>("rel_id"),
-                                    data.Field<int>("tipRe_id"),
-                                    data.Field<int>("ind_idIni"),
-                                    data.Field<int>("ind_idFin"),
-                                    data.Field<float>("rel_val"));
+            SQL_Relacion temp= new SQL_Relacion();
+            temp.rel_id=data.Field<int>("rel_id");
+            temp.tipRe_id=data.Field<int>("tipRe_id");
+            temp.ind_idIni=data.Field<int>("ind_idIni");
+            temp.ind_idFin=data.Field<int>("ind_idFin");
+            temp.rel_val=data.Field<float>("rel_val");
+            return temp;
         }
         
         public void createNewRelacionInDB()

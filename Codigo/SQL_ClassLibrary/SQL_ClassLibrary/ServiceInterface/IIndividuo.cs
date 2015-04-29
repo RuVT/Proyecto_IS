@@ -20,9 +20,5 @@ namespace SQL_ClassLibrary.ServiceInterface
         List<SQL_Individuo> searchIndividuoByName(string _name);
         [OperationContract]
         SQL_Individuo getIndividuoFromDBbyID(int _id);
-        [OperationContract]
-        List<SQL_Individuo> Load(DataTable data);
-        [OperationContract]
-        SQL_Individuo Load(DataRow dato);
     }
 }
