@@ -15,11 +15,31 @@ namespace SQL_ClassLibrary
 
         public SqlCommand comando = null;
 
-        public static void Init(string conection_string)
+        public static bool Init(string conection_string)
+        {
+            CloseConnectionAfterAction = true;
+            Connection = new SqlConnection(conection_string);
+            try
+            {
+                Connection.Open();
+                return true;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return false;
+            }
+        }
+        public static bool Init()
         {
             CloseConnectionAfterAction = true;
             Connection = tryConections();
+            if (Connection != null)
+                return true;
+            else
+                return false;
         }
+
         public static void openConection()
         {
             if (Connection != null)
@@ -78,7 +98,7 @@ namespace SQL_ClassLibrary
         private static SqlConnection tryConections()
         {
             SqlConnection testCon=new SqlConnection();
-            string [] connectionString = System.IO.File.ReadAllLines("cadena_conexiones");
+            string [] connectionString = System.IO.File.ReadAllLines("cadena_conexiones.txt");
             foreach (string con in connectionString)
             {
                 testCon.ConnectionString=con;
