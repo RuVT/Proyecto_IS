@@ -14,7 +14,7 @@ namespace SQL_ClassLibrary
         private int id;
         private string name;
         private string password;
-        private string type;
+        private int type;
         private int ind_id;
         private static SQL_Usuario user = null;
         private SQL_Usuario()
@@ -22,7 +22,7 @@ namespace SQL_ClassLibrary
             id = -1;
             name = "";
             password = "";
-            type = "";
+            type = -1;
 
         }
         public static SQL_Usuario createUser()
@@ -60,8 +60,11 @@ namespace SQL_ClassLibrary
                     tempUser.id = row.Field<int>("usu_id");
                     tempUser.name = row.Field<string>("usu_account");
                     tempUser.password = row.Field<string>("usu_password");
-                    tempUser.type = row.Field<string>("usu_level");
-                    tempUser.ind_id=row.Field<int>("ind_id");
+                    tempUser.type = row.Field<int>("usu_level");
+                    if (row["ind_id"].ToString() != "")
+                        tempUser.ind_id = row.Field<int>("ind_id");
+                    else
+                        tempUser.ind_id = -1;
                     return tempUser;
                 }
                 else
@@ -85,8 +88,8 @@ namespace SQL_ClassLibrary
         }
         public bool userExist(string _name)
         {
-            DataTable table = SQL_manager.readTable("Select usu_account from usuario where usu_account=" + _name);
-            if (table.Rows.Count>=0)
+            DataTable table = SQL_manager.readTable("Select usu_account from usuario where usu_account= '" + _name+"'");
+            if (table.Rows.Count==0)
                 return false;
             else
                 return true;
@@ -100,7 +103,7 @@ namespace SQL_ClassLibrary
         }
         public SQL_Usuario getUsuarioByName(string _name)
         {
-            DataTable table = SQL_manager.readTable("Select * from usuario where usu_account=" + _name);
+            DataTable table = SQL_manager.readTable("Select * from usuario where usu_account='" + _name+"'");
             SQL_Usuario tempUser = load(table);
             return tempUser;
         }
