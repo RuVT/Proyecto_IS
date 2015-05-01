@@ -63,6 +63,12 @@ namespace SimpleSoap
 			// aapt resource value: 0x7f050000
 			public const int myButton = 2131034112;
 			
+			// aapt resource value: 0x7f050002
+			public const int txtPassword = 2131034114;
+			
+			// aapt resource value: 0x7f050001
+			public const int txtUsuario = 2131034113;
+			
 			static Id()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();

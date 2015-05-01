@@ -44,12 +44,21 @@
     <Reference Include="Mono.Android" />
     <Reference Include="System.Net" />
     <Reference Include="System.Web.Services" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Data" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Web References\localhost\Reference.cs">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\Atributo\Reference.cs">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\Usuario\Reference.cs">
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
   </ItemGroup>
@@ -62,6 +71,25 @@
     <None Include="Web References\localhost\item0.xsd" />
     <None Include="Web References\localhost\ServicioWCF.wsdl" />
     <None Include="Web References\localhost\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\Atributo\atributo.disco" />
+    <None Include="Web References\Atributo\atributo.xsd" />
+    <None Include="Web References\Atributo\SQL_Atributo.wsdl" />
+    <None Include="Web References\Atributo\atributo0.xsd" />
+    <None Include="Web References\Atributo\atributo1.xsd" />
+    <None Include="Web References\Atributo\atributo2.xsd" />
+    <None Include="Web References\Atributo\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\Usuario\usuario.xsd" />
+    <None Include="Web References\Usuario\usuario0.xsd" />
+    <None Include="Web References\Usuario\usuario.disco" />
+    <None Include="Web References\Usuario\SQL_Usuario.wsdl" />
+    <None Include="Web References\Usuario\usuario1.xsd" />
+    <None Include="Web References\Usuario\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -84,6 +112,16 @@
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\localhost</RelPath>
       <UpdateFromURL>http://localhost:8733/Design_Time_Addresses/HostWCF/ServicioWCF/</UpdateFromURL>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://localhost:8733/Design_Time_Addresses/HostWCF/ServicioWCF/atributo">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\Atributo</RelPath>
+      <UpdateFromURL>http://localhost:8733/Design_Time_Addresses/HostWCF/ServicioWCF/atributo</UpdateFromURL>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://192.168.43.5:8733/Design_Time_Addresses/HostWCF/ServicioWCF/usuario">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\Usuario</RelPath>
+      <UpdateFromURL>http://192.168.43.5:8733/Design_Time_Addresses/HostWCF/ServicioWCF/usuario</UpdateFromURL>
     </WebReferenceUrl>
   </ItemGroup>
 </Project>

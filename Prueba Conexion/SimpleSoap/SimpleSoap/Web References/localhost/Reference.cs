@@ -26,7 +26,7 @@ namespace SimpleSoap.localhost {
         
         /// <remarks/>
         public ServicioWCF() {
-			this.Url = "http://192.168.1.73:8733/Design_Time_Addresses/HostWCF/ServicioWCF/";
+			this.Url = "http://192.168.1.111:8733/Design_Time_Addresses/HostWCF/ServicioWCF/";
         }
         
         public ServicioWCF(string url) {
