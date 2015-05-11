@@ -11,14 +11,14 @@ namespace SQL_ClassLibrary.ServiceInterface
     interface IOpcion
     {
         [OperationContract]
-        List<SQL_Opcion> getAllOptions();
+        List<SQL_Opcion> getAllOptions(SQL_Atributo atr);
         [OperationContract]
         List<SQL_Opcion> getOpcionByGroup(string group);       
         [OperationContract]
-        void createNewOpcionInDB();
+        int createNewOpcionInDB(SQL_Opcion op);
         [OperationContract]
-        void updateOpcionInDB();
+        void updateOpcionInDB(SQL_Opcion op);
         [OperationContract]
-        void deleteOpcionInDB();
+        void deleteOpcionInDB(SQL_Opcion op);
     }
 }

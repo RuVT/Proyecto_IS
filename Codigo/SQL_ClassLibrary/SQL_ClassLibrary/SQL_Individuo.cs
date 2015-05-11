@@ -12,68 +12,78 @@ namespace SQL_ClassLibrary
     public class SQL_Individuo : IIndividuo
     {
         public int id;
-        private string name;
-        private string last_name1;
-        private string last_name2;
-        public int years;
+        public string name;
+        public string last_name1;
+        public string last_name2;
+        public DateTime years;
         public string direction;
         public int telephone;
         public string email;
 
-        static SqlCommand comando = new SqlCommand();
+        
 
-        public void SQL_Idividuo()
+        public int createNewIndividuoInDB(SQL_Individuo ind)
         {
+            SqlCommand comando = new SqlCommand();
+            comando.CommandText = "Insert into individuo(ind_name, ind_lastName1, ind_lastName2, ind_years, ind_direction, ind_telephone, ind_email)" +
+                                                " Values (@ind_name, @ind_lastName1, @ind_lastName2, @ind_years, @ind_direction, @ind_telephone, @ind_email)"+
+                                                " Select CAST(SCOPE_IDENTITY() AS int) as ID";
+            if (ind.name == null)
+                ind.name = "";
+            if (ind.last_name1 == null)
+                ind.last_name1 = "";
+            if (ind.last_name2 == null)
+                ind.last_name2 = "";
+            if (ind.direction == null)
+                ind.direction = "";
+            if (ind.email == null)
+                ind.email = "";
+            comando.Parameters.AddWithValue("@ind_name", ind.name);
+            comando.Parameters.AddWithValue("@ind_lastName1", ind.last_name1);
+            comando.Parameters.AddWithValue("@ind_lastName2", ind.last_name2);
+            comando.Parameters.AddWithValue("@ind_years", ind.years);
+            comando.Parameters.AddWithValue("@ind_direction", ind.direction);
+            comando.Parameters.AddWithValue("@ind_telephone", ind.telephone);
+            comando.Parameters.AddWithValue("@ind_email", ind.email);
+            DataTable table = SQL_manager.readTable(comando);
+            int id=table.Rows[0].Field<int>("ID");
+            return id;
         }
-        public void createNewIndividuoInDB()
+        public void updateIndividuoInDB(SQL_Individuo ind)
         {
-            comando.CommandText = "Insert into individuo(ind_id, ind_name, ind_lastName1, ind_lastName2, ind_years, ind_direction, ind_telephone, ind_email)" +
-                                                " Values (@ind_id, @ind_name, @ind_lastName1, @ind_lastName2, @ind_years, @ind_direction, @ind_telephone, @ind_email)";
-
-            comando.Parameters.AddWithValue("@ind_id", id);
-            comando.Parameters.AddWithValue("@ind_name", name);
-            comando.Parameters.AddWithValue("@ind_lastName1", last_name1);
-            comando.Parameters.AddWithValue("@ind_lastName2", last_name2);
-            comando.Parameters.AddWithValue("@ind_years", years);
-            comando.Parameters.AddWithValue("@ind_direction", direction);
-            comando.Parameters.AddWithValue("@ind_telephone", telephone);
-            comando.Parameters.AddWithValue("@ind_email", email);
-
-            SQL_manager.executeCommand(comando);
-        }
-        public void updateIndividuoInDB()
-        {
+            SqlCommand comando = new SqlCommand();
             comando.CommandText = "Update individuo Set" + 
-                                    " ind_id=@ind_id,"+
                                     " ind_name=@ind_name,"+
                                     " ind_lastName1=@ind_lastName1,"+
                                     " ind_lastName2=@ind_lastName2,"+ 
                                     " ind_years=@ind_years, "+
                                     " ind_direction=@ind_direction,"+
                                     " ind_telephone=@ind_telephone,"+
-                                    " ind_email=@ind_email,"+
+                                    " ind_email=@ind_email"+
                                     " where ind_id=@ind_id";
             
-            comando.Parameters.AddWithValue("@ind_id", id);
-            comando.Parameters.AddWithValue("@ind_name", name);
-            comando.Parameters.AddWithValue("@ind_lastName1", last_name1);
-            comando.Parameters.AddWithValue("@ind_lastName2", last_name2);
-            comando.Parameters.AddWithValue("@ind_years", years);
-            comando.Parameters.AddWithValue("@ind_direction", direction);
-            comando.Parameters.AddWithValue("@ind_telephone", telephone);
-            comando.Parameters.AddWithValue("@ind_email", email);
+            comando.Parameters.AddWithValue("@ind_id", ind.id);
+            comando.Parameters.AddWithValue("@ind_name", ind.name);
+            comando.Parameters.AddWithValue("@ind_lastName1", ind.last_name1);
+            comando.Parameters.AddWithValue("@ind_lastName2", ind.last_name2);
+            comando.Parameters.AddWithValue("@ind_years", ind.years);
+            comando.Parameters.AddWithValue("@ind_direction", ind.direction);
+            comando.Parameters.AddWithValue("@ind_telephone", ind.telephone);
+            comando.Parameters.AddWithValue("@ind_email", ind.email);
 
             SQL_manager.executeCommand(comando);
         }
-        public void deleteIndiviuoInDB()
+        public void deleteIndiviuoInDB(SQL_Individuo ind)
         {
+            SqlCommand comando = new SqlCommand();
             comando.CommandText = "Delete From individuo Where ind_id = @ind_id ";
-            comando.Parameters.AddWithValue("@ind_id", id);
+            comando.Parameters.AddWithValue("@ind_id", ind.id);
 
             SQL_manager.executeCommand(comando);
         }
         public List<SQL_Individuo> searchIndividuoByName(string _name)
         {
+            SqlCommand comando = new SqlCommand();
             comando.CommandText = "select *"+
                                   " From individuo"+
                                   " Where ind_name = @ind_name ";
@@ -85,6 +95,7 @@ namespace SQL_ClassLibrary
         }
         public SQL_Individuo getIndividuoFromDBbyID(int _id)
         {
+            SqlCommand comando = new SqlCommand();
             comando.CommandText = "select *" +
                                  " From individuo" +
                                  " Where ind_id = @ind_id ";
@@ -112,7 +123,7 @@ namespace SQL_ClassLibrary
             Sql_I.name = dato.Field<string>("ind_name");
             Sql_I.last_name1 = dato.Field<string>("ind_lastName1");
             Sql_I.last_name2 = dato.Field<string>("ind_lastName2");
-            Sql_I.years = dato.Field<int>("ind_years");
+            Sql_I.years = dato.Field<DateTime>("ind_years");
             Sql_I.direction = dato.Field<string>("ind_direction");
             Sql_I.telephone = dato.Field<int>("ind_telephone");
             Sql_I.email = dato.Field<string>("ind_email");

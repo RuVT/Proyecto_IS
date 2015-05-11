@@ -18,10 +18,10 @@ namespace SQL_ClassLibrary.ServiceInterface
         [OperationContract]
         List<SQL_ParticipacionEquipo> getParticipacionFromIndividuo(SQL_Individuo person);
         [OperationContract]
-        void createNewParticipacionInDB();
+        int createNewParticipacionInDB(SQL_ParticipacionEquipo pa);
         [OperationContract]
-        void updateNewParticipacionInDB();
+        void updateNewParticipacionInDB(SQL_ParticipacionEquipo pa);
         [OperationContract]
-        void deleteParticipacionInDB();
+        void deleteParticipacionInDB(SQL_ParticipacionEquipo pa);
     }
 }

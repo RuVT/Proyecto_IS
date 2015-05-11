@@ -54,27 +54,28 @@ namespace SQL_ClassLibrary
             return team;
         }
 
-        public void createNewEquipoInDB()
+        public int createNewEquipoInDB(SQL_Equipo eq)
         {
             SqlCommand command = new SqlCommand();
             command.CommandText = @"Insert into equipo(equ_name,equ_dateOfCreation)
-                                        values(@equ_name,@equ_dateOfCreation)";
-            command.Parameters.AddWithValue("@equ_name", equ_name);
-            command.Parameters.AddWithValue("@equ_dateOfCreation", equ_dateOfCreation);
-            SQL_manager.executeCommand(command);
+                                        values(@equ_name,@equ_dateOfCreation)
+                                        Select CAST(SCOPE_IDENTITY() AS int) as ID";
+            command.Parameters.AddWithValue("@equ_name", eq.equ_name);
+            command.Parameters.AddWithValue("@equ_dateOfCreation", eq.equ_dateOfCreation);
+            return SQL_manager.readTable(command).Rows[0].Field<int>("ID");
         }
-        public void updateEquipoInDB()
+        public void updateEquipoInDB(SQL_Equipo eq)
         {
-            SqlCommand command = new SqlCommand();
-            command.CommandText = @"update equipo set equ_name = @equ_name,equ_dateOfCreation = @equ_dateOfCreation
-                                        where equ_id";
-            command.Parameters.AddWithValue("@equ_name", equ_name);
-            command.Parameters.AddWithValue("@equ_dateOfCreation", equ_dateOfCreation);
-            SQL_manager.executeCommand(command);
+                SqlCommand command = new SqlCommand();
+                command.CommandText = @"update equipo set equ_name = @equ_name,equ_dateOfCreation = @equ_dateOfCreation
+                                            where equ_id";
+                command.Parameters.AddWithValue("@equ_name",eq.equ_name);
+                command.Parameters.AddWithValue("@equ_dateOfCreation", eq.equ_dateOfCreation);
+                SQL_manager.executeCommand(command);
         }
-        public void deleteEquipoInDB()
+        public void deleteEquipoInDB(SQL_Equipo eq)
         {
-            SQL_manager.executeCommand("delete from equipo where equ_id = " + equ_id);
+            SQL_manager.executeCommand("delete from equipo where equ_id = " + eq.equ_id);
         }
     }
 }

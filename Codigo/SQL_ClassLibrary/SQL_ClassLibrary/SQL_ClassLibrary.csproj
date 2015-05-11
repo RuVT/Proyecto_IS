@@ -34,6 +34,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
@@ -49,6 +50,7 @@
     <Compile Include="ServiceInterface\IEquipo.cs" />
     <Compile Include="ServiceInterface\IEvaluacion.cs" />
     <Compile Include="ServiceInterface\IHabilidad.cs" />
+    <Compile Include="ServiceInterface\IImagen.cs" />
     <Compile Include="ServiceInterface\IIndividuo.cs" />
     <Compile Include="ServiceInterface\IOpcion.cs" />
     <Compile Include="ServiceInterface\IParticipacionEquipo.cs" />
@@ -60,6 +62,7 @@
     <Compile Include="SQL_Equipo.cs" />
     <Compile Include="SQL_Evaluacion.cs" />
     <Compile Include="SQL_Habilidad.cs" />
+    <Compile Include="SQL_Imagen.cs" />
     <Compile Include="SQL_Individuo.cs" />
     <Compile Include="SQL_manager.cs" />
     <Compile Include="SQL_Object.cs" />

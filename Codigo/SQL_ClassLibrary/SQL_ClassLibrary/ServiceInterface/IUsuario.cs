@@ -12,11 +12,11 @@ namespace SQL_ClassLibrary.ServiceInterface
     public interface IUsuario
     {
         [OperationContract]
-        void createNewUsuarioInDB();
+        int createNewUsuarioInDB(SQL_Usuario user);
         [OperationContract]
-        void deleteUsuarioInDB();
-        [OperationContract]       
-        void updateUsuarioInDB();
+        void deleteUsuarioInDB(SQL_Usuario user);
+        [OperationContract]
+        void updateUsuarioInDB(SQL_Usuario user);
         [OperationContract]
         bool userExist(string _name);
         [OperationContract]

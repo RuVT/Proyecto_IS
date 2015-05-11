@@ -12,15 +12,11 @@ namespace SQL_ClassLibrary.ServiceInterface
     {
         [OperationContract]
         List<SQL_TipoRelacion> getRelationsType();
-        //[OperationContract]
-        //SQL_TipoRelacion Load(DataRow data);
-        //[OperationContract]
-        //SQL_TipoRelacion Load(DataTable data);
         [OperationContract]
-        void addNewTipoRelacionInBD();
+        void addNewTipoRelacionInBD(SQL_TipoRelacion ti);
         [OperationContract]
-        void updateTipoRelacionInBD();
+        void updateTipoRelacionInBD(SQL_TipoRelacion ti);
         [OperationContract]
-        void deleteTipoRelacionInDB();
+        void deleteTipoRelacionInDB(SQL_TipoRelacion ti);
     }
 }

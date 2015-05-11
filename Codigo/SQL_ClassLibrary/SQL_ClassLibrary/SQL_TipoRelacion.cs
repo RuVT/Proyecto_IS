@@ -23,8 +23,7 @@ namespace SQL_ClassLibrary
 
         public List<SQL_TipoRelacion> getRelationsType()
         {
-            comando.CommandText = "select *" +
-                               " From tipoRelacion";
+            comando.CommandText = "select * From tipoRelacion";
 
             DataTable dato_T = SQL_manager.readTable(comando);
 
@@ -52,29 +51,29 @@ namespace SQL_ClassLibrary
             return lista_T;
         }
 
-        public void addNewTipoRelacionInBD()
+        public void addNewTipoRelacionInBD(SQL_TipoRelacion ti)
         {
             comando.CommandText = @"INSERT INTO tipoRelacion(tipRe_type,tipRe_Description) 
                                                     VALUES (@tipRe_type, @tipRe_Description)";
-            comando.Parameters.AddWithValue("@tipRe_type", tipRe_id);
-            comando.Parameters.AddWithValue("@tipRe_Description", tipRe_id);
+            comando.Parameters.AddWithValue("@tipRe_type", ti.tipRe_id);
+            comando.Parameters.AddWithValue("@tipRe_Description", ti.tipRe_id);
             SQL_manager.executeCommand(comando);
         }
 
-        public void updateTipoRelacionInBD()
+        public void updateTipoRelacionInBD(SQL_TipoRelacion ti)
         {
             comando.CommandText = @"UPDATE tipoRelacion SET tipRe_type = @tipRe_type, tipRe_Description = @tipRe_Description 
                                                         WHERE tipRe_id = @tipRe_id ";
-            comando.Parameters.AddWithValue("@tipRe_id", tipRe_id);
-            comando.Parameters.AddWithValue("@tipRe_type", tipRe_id);
-            comando.Parameters.AddWithValue("@tipRe_Description", tipRe_id);
+            comando.Parameters.AddWithValue("@tipRe_id", ti.tipRe_id);
+            comando.Parameters.AddWithValue("@tipRe_type", ti.tipRe_id);
+            comando.Parameters.AddWithValue("@tipRe_Description", ti.tipRe_id);
             SQL_manager.executeCommand(comando);
         }
 
-        public void deleteTipoRelacionInDB()
+        public void deleteTipoRelacionInDB(SQL_TipoRelacion ti)
         {
             comando.CommandText = @"DELETE FROM tipoRelacion  WHERE tipRe_id = @tipRe_id";
-            comando.Parameters.AddWithValue("@tipRe_id", tipRe_id);
+            comando.Parameters.AddWithValue("@tipRe_id", ti.tipRe_id);
             SQL_manager.executeCommand(comando);
         }
 

@@ -99,31 +99,32 @@ namespace SQL_ClassLibrary
 
 
         }
-        public void createNewParticipacionInDB()
+        public int createNewParticipacionInDB(SQL_ParticipacionEquipo pa)
         {
             comando.CommandText = @"INSERT INTO participacionEquipo(ind_id,equ_id,par_dateOfJoin) 
-                                                    VALUES (@ind_id,@equ_id,@par_dateOfJoin)";
+                                    VALUES (@ind_id,@equ_id,@par_dateOfJoin) 
+                                    Select CAST(SCOPE_IDENTITY() AS int) as ID";
             
-            comando.Parameters.AddWithValue("@ind_id", ind_id);
-            comando.Parameters.AddWithValue("@equ_id", equ_id);
-            comando.Parameters.AddWithValue("@par_dateOfJoin", par_dateOfJoin);
+            comando.Parameters.AddWithValue("@ind_id", pa.ind_id);
+            comando.Parameters.AddWithValue("@equ_id", pa.equ_id);
+            comando.Parameters.AddWithValue("@par_dateOfJoin", pa.par_dateOfJoin);
 
-            SQL_manager.executeCommand(comando);
+            return SQL_manager.readTable(comando).Rows[0].Field<int>("ID");
         }
-        public void updateNewParticipacionInDB()
+        public void updateNewParticipacionInDB(SQL_ParticipacionEquipo pa)
         {
             comando.CommandText = @"UPDATE participacionEquipo SET ind_id = @ind_id, equ_id = @equ_id, par_dateOfJoin=@par_dateOfJoin
                                                         WHERE par_id = @par_id ";
        
-            comando.Parameters.AddWithValue("@ind_id", ind_id);
-            comando.Parameters.AddWithValue("@equ_id", equ_id);
-            comando.Parameters.AddWithValue("@par_dateOfJoin", par_dateOfJoin);
+            comando.Parameters.AddWithValue("@ind_id", pa.ind_id);
+            comando.Parameters.AddWithValue("@equ_id", pa.equ_id);
+            comando.Parameters.AddWithValue("@par_dateOfJoin", pa.par_dateOfJoin);
             SQL_manager.executeCommand(comando);
         }
-        public void deleteParticipacionInDB()
+        public void deleteParticipacionInDB(SQL_ParticipacionEquipo pa)
         {
             comando.CommandText = @"DELETE FROM participacionEquipo  WHERE par_id = @par_id";
-            comando.Parameters.AddWithValue("@par_id", par_id);
+            comando.Parameters.AddWithValue("@par_id", pa.par_id);
             SQL_manager.executeCommand(comando);
         }
     }

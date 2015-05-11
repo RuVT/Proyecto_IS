@@ -17,10 +17,10 @@ namespace SQL_ClassLibrary.ServiceInterface
         List<SQL_Equipo> getAllEquipos();
         [OperationContract]
         SQL_Equipo getEquipoByID(int id);
-        void createNewEquipoInDB();
+        int createNewEquipoInDB(SQL_Equipo eq);
         [OperationContract]
-        void updateEquipoInDB();
+        void updateEquipoInDB(SQL_Equipo eq);
         [OperationContract]
-        void deleteEquipoInDB();
+        void deleteEquipoInDB(SQL_Equipo eq);
     }
 }

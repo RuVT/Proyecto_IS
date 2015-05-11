@@ -60,27 +60,41 @@ namespace SQL_ClassLibrary
             temp.eva_date = row.Field<DateTime>("eva_date");
             return temp;
         }
-        public void createNewevaluacionInDB()
+        public int createNewevaluacionInDB(SQL_Evaluacion ev)
         {
             comando.CommandText = "Insert into evaluacion(eva_id, ind_idExaminer, ind_idExamined, rel_id, atr_id, eva_value, opc_id, eva_date)" +
-                                                " Values (@eva_id, @ind_idExaminer, @ind_idExamined, @rel_id, @atr_id, @eva_value, @opc_id, @eva_date)";
+                                                " Values (@eva_id, @ind_idExaminer, @ind_idExamined, @rel_id, @atr_id, @eva_value, @opc_id, @eva_date)"+
+                                                " Select CAST(SCOPE_IDENTITY() AS int) as ID";
 
-            comando.Parameters.AddWithValue("@eva_id", eva_id);
-            comando.Parameters.AddWithValue("@ind_idExaminer", ind_idExaminer);
-            comando.Parameters.AddWithValue("@ind_idExamined", ind_idExamined);
-            comando.Parameters.AddWithValue("@rel_id", rel_id);
-            comando.Parameters.AddWithValue("@atr_id", atr_id);
-            comando.Parameters.AddWithValue("@eva_value", eva_value);
-            comando.Parameters.AddWithValue("@opc_id", opc_id);
-            comando.Parameters.AddWithValue("@eva_date", eva_date);
+            comando.Parameters.AddWithValue("@eva_id", ev.eva_id);
+            comando.Parameters.AddWithValue("@ind_idExaminer", ev.ind_idExaminer);
+            comando.Parameters.AddWithValue("@ind_idExamined", ev.ind_idExamined);
+            comando.Parameters.AddWithValue("@rel_id", ev.rel_id);
+            comando.Parameters.AddWithValue("@atr_id", ev.atr_id);
+            comando.Parameters.AddWithValue("@eva_value", ev.eva_value);
+            comando.Parameters.AddWithValue("@opc_id", ev.opc_id);
+            comando.Parameters.AddWithValue("@eva_date", ev.eva_date);
+            return SQL_manager.readTable(comando).Rows[0].Field<int>("ID");
+        }
+
+        public void updateEvaluacionInDB(SQL_Evaluacion ev)
+        {
+            comando.CommandText = @"UPDATE evaluacion SET ind_idExaminer=@ind_idExaminer, ind_idExamined=@ind_idExamined, rel_id=@rel_id,atr_id=@atr_id, eva_value=@eva_value, opc_id=@opc_id, eva_date=@eva_date where eva_id=@eva_id";
+            comando.Parameters.AddWithValue("@eva_id", ev.eva_id);
+            comando.Parameters.AddWithValue("@ind_idExaminer", ev.ind_idExaminer);
+            comando.Parameters.AddWithValue("@ind_idExamined", ev.ind_idExamined);
+            comando.Parameters.AddWithValue("@rel_id", ev.rel_id);
+            comando.Parameters.AddWithValue("@atr_id", ev.atr_id);
+            comando.Parameters.AddWithValue("@eva_value", ev.eva_value);
+            comando.Parameters.AddWithValue("@opc_id", ev.opc_id);
+            comando.Parameters.AddWithValue("@eva_date", ev.eva_date);
             SQL_manager.executeCommand(comando);
         }
-
-        public void updateEvaluacionInDB()
+        public void deleteEvaulacionInDB(SQL_Evaluacion ev)
         {
-            comando.CommandText = @"UPDATE evaluacion SET ind_idExaminer=@ind_idExaminer, ind_idExamined=@ind_idExamined, ";
+            comando.CommandText = @"DELETE FROM evaluacion  WHERE eva_id=@eva_id";
+            comando.Parameters.AddWithValue("@eva_id", ev.eva_id);
+            SQL_manager.executeCommand(comando);
         }
-        public void deleteEvaulacionInDB()
-        { }
     }
 }

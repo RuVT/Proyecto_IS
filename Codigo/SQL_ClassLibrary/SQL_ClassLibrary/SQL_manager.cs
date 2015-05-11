@@ -68,7 +68,7 @@ namespace SQL_ClassLibrary
             {
                 command.ExecuteNonQuery();
             }
-            catch (Exception) { }
+            catch (Exception e) { Console.WriteLine(e.Message); }
             closeConection();
         }
         public static void executeCommand(string query)
@@ -86,7 +86,7 @@ namespace SQL_ClassLibrary
             {
                 adapter.Fill(table);
             }
-            catch (Exception) { return null; }
+            catch (Exception e) { Console.WriteLine(e.Message);  return null; }
             closeConection();
             return table;
         }

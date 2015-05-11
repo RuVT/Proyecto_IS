@@ -56,34 +56,35 @@ namespace SQL_ClassLibrary
             return temp;
         }
         
-        public void createNewRelacionInDB()
+        public int createNewRelacionInDB(SQL_Relacion re)
         {
             SqlCommand command = new SqlCommand();
             command.CommandText = @"INSERT INTO relacion(tipRe_id,ind_idIni,ind_idFin) 
-                                                    VALUES(@tipRe_id,@ind_idIni,@ind_idFin)";
-            command.Parameters.AddWithValue("@tipRe_id", tipRe_id);
-            command.Parameters.AddWithValue("@ind_idIni", ind_idIni);
-            command.Parameters.AddWithValue("@ind_idFin", ind_idFin);
-            SQL_manager.executeCommand(command);
+                                    VALUES(@tipRe_id,@ind_idIni,@ind_idFin)
+                                    Select CAST(SCOPE_IDENTITY() AS int) as ID";
+            command.Parameters.AddWithValue("@tipRe_id", re.tipRe_id);
+            command.Parameters.AddWithValue("@ind_idIni", re.ind_idIni);
+            command.Parameters.AddWithValue("@ind_idFin", re.ind_idFin);
+            return SQL_manager.readTable(command).Rows[0].Field<int>("ID");
         }
-        
-        public void deleteRelacionInDB()
+
+        public void deleteRelacionInDB(SQL_Relacion re)
         {
             SqlCommand command = new SqlCommand();
             command.CommandText = @"DELETE FROM relacion WHERE rel_id = @rel_id";
-            command.Parameters.AddWithValue("@rel_id", rel_id);
+            command.Parameters.AddWithValue("@rel_id", re.rel_id);
             SQL_manager.executeCommand(command);
         }
-        
-        public void updateRelacionInDB()
+
+        public void updateRelacionInDB(SQL_Relacion re)
         {
             SqlCommand command = new SqlCommand();
             command.CommandText = @"UPDATE relacion SET tipRe_id = @tipRe_id ,ind_idIni = @ind_idIni ,
                                                         ind_idFin = @ind_idFin WHERE rel_id = @rel_id";
-            command.Parameters.AddWithValue("@rel_id", rel_id);
-            command.Parameters.AddWithValue("@tipRe_id", tipRe_id);
-            command.Parameters.AddWithValue("@ind_idIni", ind_idIni);
-            command.Parameters.AddWithValue("@ind_idFin", ind_idFin);
+            command.Parameters.AddWithValue("@rel_id", re.rel_id);
+            command.Parameters.AddWithValue("@tipRe_id", re.tipRe_id);
+            command.Parameters.AddWithValue("@ind_idIni", re.ind_idIni);
+            command.Parameters.AddWithValue("@ind_idFin", re.ind_idFin);
             SQL_manager.executeCommand(command);
         }
     }

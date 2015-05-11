@@ -16,10 +16,10 @@ namespace SQL_ClassLibrary.ServiceInterface
         [OperationContract]
         List<SQL_Comentario> getComentario(SQL_Individuo sender,SQL_Individuo resiver);
         [OperationContract]
-        void createNewComentarioInB();
+        int createNewComentarioInB(SQL_Comentario co);
         [OperationContract]
-        void updateComentarioInDB();
+        void updateComentarioInDB(SQL_Comentario co);
         [OperationContract]
-        void deleteComentarioInDB();
+        void deleteComentarioInDB(SQL_Comentario co);
     }
 }

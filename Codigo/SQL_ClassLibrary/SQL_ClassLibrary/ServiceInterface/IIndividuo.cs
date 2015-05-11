@@ -11,11 +11,11 @@ namespace SQL_ClassLibrary.ServiceInterface
     public interface IIndividuo
     {
         [OperationContract]
-        void createNewIndividuoInDB();
+        int createNewIndividuoInDB(SQL_Individuo ind);
         [OperationContract]
-        void updateIndividuoInDB();
+        void updateIndividuoInDB(SQL_Individuo ind);
         [OperationContract]
-        void deleteIndiviuoInDB();
+        void deleteIndiviuoInDB(SQL_Individuo ind);
         [OperationContract]
         List<SQL_Individuo> searchIndividuoByName(string _name);
         [OperationContract]

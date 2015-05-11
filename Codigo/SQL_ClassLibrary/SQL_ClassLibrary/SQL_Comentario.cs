@@ -50,33 +50,33 @@ namespace SQL_ClassLibrary
             return load(table);
         }
 
-        public void createNewComentarioInB()
+        public int createNewComentarioInB(SQL_Comentario co)
         {
             SqlCommand command = new SqlCommand();
             command.CommandText = @"insert into comentario(com_text,ind_idSender,ind_idResiver)
-                                    values (@com_text,@ind_idSender,@ind_idResiver)";
-            command.Parameters.AddWithValue("@com_text", this.com_text);
-            command.Parameters.AddWithValue("@ind_idSender", this.ind_idSender);
-            command.Parameters.AddWithValue("@ind_idResiver", this.ind_idResiver);
-            SQL_manager.executeCommand(command);
+                                    values (@com_text,@ind_idSender,@ind_idResiver)
+                                    Select CAST(SCOPE_IDENTITY() AS int) as ID";
+            command.Parameters.AddWithValue("@com_text", co.com_text);
+            command.Parameters.AddWithValue("@ind_idSender", co.ind_idSender);
+            command.Parameters.AddWithValue("@ind_idResiver", co.ind_idResiver);
+            return SQL_manager.readTable(command).Rows[0].Field<int>("ID");
         }
-        public void updateComentarioInDB()
+        public void updateComentarioInDB(SQL_Comentario co)
         {
             SqlCommand command = new SqlCommand();
             command.CommandText = @"update comentario set com_text=@com_text,ind_idSender=@ind_idSender,ind_idResiver=@ind_idResiver
                                     where com_id = @com_id";
-            command.Parameters.AddWithValue("@com_text", this.com_text);
-            command.Parameters.AddWithValue("@ind_idSender", this.ind_idSender);
+            command.Parameters.AddWithValue("@com_text", co.com_text);
+            command.Parameters.AddWithValue("@ind_idSender", co.ind_idSender);
 
-            command.Parameters.AddWithValue("@ind_idResiver", this.ind_idResiver);
-            command.Parameters.AddWithValue("@com_id", this.com_id);
+            command.Parameters.AddWithValue("@ind_idResiver", co.ind_idResiver);
             SQL_manager.executeCommand(command);
         }
-        public void deleteComentarioInDB()
+        public void deleteComentarioInDB(SQL_Comentario co)
         {
             SqlCommand command = new SqlCommand();
             command.CommandText = @"delete from comentario where com_id = @com_id";            
-            command.Parameters.AddWithValue("@com_id", this.com_id);
+            command.Parameters.AddWithValue("@com_id", co.com_id);
             SQL_manager.executeCommand(command);
         }
     }

@@ -3,28 +3,27 @@
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="C:\Program Files (x86)\MSBuild\Xamarin\Android\Xamarin.Android.Common.targets" line="1009" column="7" />
-      <Breakpoint file="C:\Users\Ruben\Documents\PROGRAMACION\GitHub\Proyecto_IS\Android\MrTMaker\MrTMaker\Registro.cs" line="72" column="32" />
-      <Breakpoint file="C:\Users\Ruben\Documents\PROGRAMACION\GitHub\Proyecto_IS\Android\MrTMaker\MrTMaker\Registro.cs" line="43" column="14" />
-      <Breakpoint file="C:\Users\Ruben\Documents\PROGRAMACION\GitHub\Proyecto_IS\Android\MrTMaker\MrTMaker\Registro.cs" line="46" column="19" />
-      <Breakpoint file="C:\Users\Ruben\Documents\PROGRAMACION\GitHub\Proyecto_IS\Android\MrTMaker\MrTMaker\Web References\usuario\Reference.cs" line="39" column="1" />
+      <Breakpoint file="C:\Users\Ruben\Documents\PROGRAMACION\GitHub\Proyecto_IS\Android\MrTMaker\MrTMaker\Registro.cs" line="44" column="14" />
+      <Breakpoint file="C:\Users\Ruben\Documents\PROGRAMACION\GitHub\Proyecto_IS\Android\MrTMaker\MrTMaker\Registro.cs" line="47" column="19" />
+      <Breakpoint file="C:\Users\Ruben\Documents\PROGRAMACION\GitHub\Proyecto_IS\Android\MrTMaker\MrTMaker\Registro.cs" line="102" column="1" />
+      <Breakpoint file="C:\Users\Ruben\Documents\PROGRAMACION\GitHub\Proyecto_IS\Android\MrTMaker\MrTMaker\Web References\imagen\Reference.cs" line="62" column="1" />
+      <Breakpoint file="C:\Users\Ruben\Documents\PROGRAMACION\GitHub\Proyecto_IS\Android\MrTMaker\MrTMaker\Web References\imagen\Reference.cs" line="63" column="1" />
+      <Breakpoint file="C:\Users\Ruben\Documents\PROGRAMACION\GitHub\Proyecto_IS\Android\MrTMaker\MrTMaker\Web References\imagen\Reference.cs" line="66" column="1" />
+      <Breakpoint file="C:\Users\Ruben\Documents\PROGRAMACION\GitHub\Proyecto_IS\Android\MrTMaker\MrTMaker\Web References\imagen\Reference.cs" line="65" column="1" />
+      <Breakpoint file="C:\Users\Ruben\Documents\PROGRAMACION\GitHub\Proyecto_IS\Android\MrTMaker\MrTMaker\Perfil.cs" line="55" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.B6NNGM45NZKFQOHQ" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="MrTMaker\Registro.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="MrTMaker\Perfil.cs">
     <Files>
-      <File FileName="MrTMaker\Registro.cs" Line="67" Column="3" />
-      <File FileName="MrTMaker\Login.cs" Line="24" Column="43" />
-      <File FileName="MrTMaker\Menu.cs" Line="37" Column="48" />
-      <File FileName="MrTMaker\BuscarPersona.cs" Line="16" Column="35" />
-      <File FileName="MrTMaker\Perfil.cs" Line="25" Column="10" />
-      <File FileName="c:\Users\Ruben\Documents\PROGRAMACION\GitHub\Proyecto_IS\Android\MrTMaker\MrTMaker\Web References\usuario\Reference.cs" Line="39" Column="1" />
+      <File FileName="MrTMaker\Registro.cs" Line="47" Column="1" />
+      <File FileName="MrTMaker\Login.cs" Line="54" Column="49" />
+      <File FileName="MrTMaker\Menu.cs" Line="37" Column="51" />
+      <File FileName="MrTMaker\BuscarPersona.cs" Line="1" Column="1" />
+      <File FileName="MrTMaker\Perfil.cs" Line="55" Column="1" />
+      <File FileName="MrTMaker\Web References\imagen\Reference.cs" Line="67" Column="10" />
     </Files>
-    <Pads>
-      <Pad Id="MonoDevelop.Debugger.WatchPad">
-        <State />
-      </Pad>
-    </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.ItemProperties.Buscar__Personas AndroidDesignerPreferredDevice="Nexus 4" />
   <MonoDevelop.Ide.ItemProperties.MrTMaker AndroidDesignerPreferredDevice="Nexus S" />
+  <MonoDevelop.Ide.ItemProperties.Buscar__Personas AndroidDesignerPreferredDevice="Nexus 4" />
 </Properties>

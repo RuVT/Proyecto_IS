@@ -14,10 +14,12 @@ namespace SQL_ClassLibrary.ServiceInterface
         [OperationContract]
         List<SQL_Habilidad> getHabilidadByIndividuo(SQL_Individuo individuo);
         [OperationContract]
-        void createNewHabilidadInDB();
+        int createNewHabilidadInDB(SQL_Habilidad ha);
         [OperationContract]
-        void updateHanilidadInDB();
+        void updateHanilidadInDB(SQL_Habilidad ha);
         [OperationContract]
-        void deleteHabilidadInDB();
+        void deleteHabilidadInDB(SQL_Habilidad ha);
+        [OperationContract]
+        bool IndividuoTieneAtributo(SQL_Atributo atr);
     }
 }

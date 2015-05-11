@@ -11,40 +11,29 @@ namespace SQL_ClassLibrary
 {
     public class SQL_Usuario : IUsuario
     {
-        private int id;
-        private string name;
-        private string password;
-        private int type;
-        private int ind_id;
-        private static SQL_Usuario user = null;
-        private SQL_Usuario()
-        {
-            id = -1;
-            name = "";
-            password = "";
-            type = -1;
+        public int id;
+        public string name;
+        public string password;
+        public int type;
+        public int ind_id;
 
-        }
-        public static SQL_Usuario createUser()
-        {
-            if(user==null)
-                user=new SQL_Usuario();
-            return user;
-        }
-        public void createNewUsuarioInDB()
+        public int createNewUsuarioInDB(SQL_Usuario user)
         {
             SqlCommand command=new SqlCommand();
             command.CommandText=@"Insert into usuario(usu_account,usu_password,usu_level) 
-                                    values(@usu_account,@usu_password,@usu_level)";
-            command.Parameters.AddWithValue("@usu_account", name);
-            command.Parameters.AddWithValue("@usu_password", password);
-            command.Parameters.AddWithValue("@usu_level", type);            
-            SQL_manager.executeCommand(command);
+                                    values(@usu_account,@usu_password,@usu_level)
+                                    Select CAST(SCOPE_IDENTITY() AS int) as ID";
+            command.Parameters.AddWithValue("@usu_account", user.name);
+            command.Parameters.AddWithValue("@usu_password", user.password);
+            command.Parameters.AddWithValue("@usu_level", user.type);            
+            DataTable table=SQL_manager.readTable(command);
+            return table.Rows[0].Field<int>("ID");
         }
-        public void deleteUsuarioInDB()
+        public void deleteUsuarioInDB(SQL_Usuario user)
         {
             SqlCommand command = new SqlCommand();
-            command.CommandText = "Delete from usuario where @usu_id and @usu_account";
+            command.CommandText = "Delete from usuario where usu_id=@usu_id";
+            command.Parameters.AddWithValue("@usu_id", user.id);
             SQL_manager.executeCommand(command);
         }
         
@@ -56,7 +45,7 @@ namespace SQL_ClassLibrary
                 if (data.Rows.Count >= 0)
                 {
                     row = data.Rows[0];
-                    SQL_Usuario tempUser = createUser();
+                    SQL_Usuario tempUser = new SQL_Usuario();
                     tempUser.id = row.Field<int>("usu_id");
                     tempUser.name = row.Field<string>("usu_account");
                     tempUser.password = row.Field<string>("usu_password");
@@ -73,17 +62,18 @@ namespace SQL_ClassLibrary
             else
                 return null;
         }
-        public void updateUsuarioInDB()
+        public void updateUsuarioInDB(SQL_Usuario user)
         {
             SqlCommand command = new SqlCommand();
             command.CommandText = @"update usuario set usu_account=@usu_account,
                                                        usu_password=@usu_password,
                                                        usu_level=@usu_level,
-                                                       ind_id=@ind_id";
-            command.Parameters.AddWithValue("@usu_account", name);
-            command.Parameters.AddWithValue("@usu_password", password);
-            command.Parameters.AddWithValue("@usu_level", type);
-            command.Parameters.AddWithValue("@ind_id", ind_id);
+                                                       ind_id=@ind_id where usu_id=@usu_id";
+            command.Parameters.AddWithValue("@usu_account", user.name);
+            command.Parameters.AddWithValue("@usu_password", user.password);
+            command.Parameters.AddWithValue("@usu_level", user.type);
+            command.Parameters.AddWithValue("@ind_id", user.ind_id);
+            command.Parameters.AddWithValue("@usu_id", user.id);
             SQL_manager.executeCommand(command);
         }
         public bool userExist(string _name)

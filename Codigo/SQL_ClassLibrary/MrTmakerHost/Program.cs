@@ -26,6 +26,7 @@ namespace MrTmakerHost
                 Hosts.Add(new ServiceHost(typeof(SQL_ClassLibrary.SQL_Relacion)));
                 Hosts.Add(new ServiceHost(typeof(SQL_ClassLibrary.SQL_TipoRelacion)));
                 Hosts.Add(new ServiceHost(typeof(SQL_ClassLibrary.SQL_Usuario)));
+                Hosts.Add(new ServiceHost(typeof(SQL_ClassLibrary.SQL_Imagen)));
 
                 foreach (ServiceHost host in Hosts)
                     host.Open();

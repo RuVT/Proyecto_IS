@@ -36,19 +36,42 @@ namespace SQL_ClassLibrary
             return lista;
         }
 
-        public void createNewHabilidadInDB()
+        public int createNewHabilidadInDB(SQL_Habilidad ha)
         {
-            throw new NotImplementedException();
+            SqlCommand command = new SqlCommand();
+            command.CommandText = @"Insert into habilidad(ind_id,atr_id) values(@ind_id,@atr_id)
+                                    Select CAST(SCOPE_IDENTITY() AS int) as ID";
+            command.Parameters.AddWithValue("@ind_id", ha.ind_id);
+            command.Parameters.AddWithValue("@atr_id", ha.atr_id);
+            return SQL_manager.readTable(command).Rows[0].Field<int>("ID");
         }
 
-        public void updateHanilidadInDB()
+        public void updateHanilidadInDB(SQL_Habilidad ha)
         {
-            throw new NotImplementedException();
+            SqlCommand command = new SqlCommand();
+            command.CommandText = @"Insert into habilidad(ind_id,atr_id) values(@ind_id,@atr_id)
+                                    Select CAST(SCOPE_IDENTITY() AS int) as ID";
+            command.Parameters.AddWithValue("@ind_id", ha.ind_id);
+            command.Parameters.AddWithValue("@atr_id", ha.atr_id);
         }
 
-        public void deleteHabilidadInDB()
+        public void deleteHabilidadInDB(SQL_Habilidad ha)
         {
-            throw new NotImplementedException();
+            SqlCommand command = new SqlCommand();
+            command.CommandText = @"delete from habilidad where hab_id=@hab_id";
+            command.Parameters.AddWithValue("@hab_id", ha.hab_id);
+            SQL_manager.executeCommand(command);
+        }
+
+        public bool IndividuoTieneAtributo(SQL_Atributo atr)
+        {
+            SqlCommand command = new SqlCommand();
+            command.CommandText = @"Select * from habilidad where atr_id=@atr_id";
+            command.Parameters.AddWithValue("@atr_id", atr.atr_id);
+            if (SQL_manager.readTable(command).Rows.Count > 0)
+                return true;
+            else
+                return false;
         }
     }
 }

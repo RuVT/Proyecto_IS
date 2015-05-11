@@ -3,16 +3,28 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IS_Eva", "IS_Eva\IS_Eva.csproj", "{75BE62D6-CFF2-4235-9D3E-499C388E0914}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VistaLogin", "..\VistaLogin\VistaLogin\VistaLogin.csproj", "{802E11B4-2023-41FD-AF18-252539AD8056}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleSoap", "..\..\Prueba Conexion\SimpleSoap\SimpleSoap\SimpleSoap.csproj", "{74BFC6C9-9C22-4C40-A735-8B3C2337BB54}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{74BFC6C9-9C22-4C40-A735-8B3C2337BB54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74BFC6C9-9C22-4C40-A735-8B3C2337BB54}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74BFC6C9-9C22-4C40-A735-8B3C2337BB54}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74BFC6C9-9C22-4C40-A735-8B3C2337BB54}.Release|Any CPU.Build.0 = Release|Any CPU
 		{75BE62D6-CFF2-4235-9D3E-499C388E0914}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{75BE62D6-CFF2-4235-9D3E-499C388E0914}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{75BE62D6-CFF2-4235-9D3E-499C388E0914}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{75BE62D6-CFF2-4235-9D3E-499C388E0914}.Release|Any CPU.Build.0 = Release|Any CPU
+		{802E11B4-2023-41FD-AF18-252539AD8056}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{802E11B4-2023-41FD-AF18-252539AD8056}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{802E11B4-2023-41FD-AF18-252539AD8056}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{802E11B4-2023-41FD-AF18-252539AD8056}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		Policies = $0

@@ -12,15 +12,11 @@ namespace SQL_ClassLibrary.ServiceInterface
     {
         [OperationContract]
         List<SQL_Relacion> getRelations(SQL_Individuo person);
-        //[OperationContract]
-        //SQL_Relacion load(DataTable data);
-        //[OperationContract]
-        //SQL_Relacion load(DataRow data);
         [OperationContract]
-        void createNewRelacionInDB();
+        int createNewRelacionInDB(SQL_Relacion re);
         [OperationContract]
-        void deleteRelacionInDB();
+        void deleteRelacionInDB(SQL_Relacion re);
         [OperationContract]
-        void updateRelacionInDB();
+        void updateRelacionInDB(SQL_Relacion re);
     }
 }

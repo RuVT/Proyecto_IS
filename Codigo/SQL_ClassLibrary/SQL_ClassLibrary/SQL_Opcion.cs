@@ -18,14 +18,13 @@ namespace SQL_ClassLibrary
 
         SqlCommand comando = new SqlCommand();
 
-        public List<SQL_Opcion> getAllOptions(/*SQL_Atributo atributo*/)
+        public List<SQL_Opcion> getAllOptions(SQL_Atributo atr)
         {
 
-            comando.CommandText = "select *" +
-                             " From tipoRelacion";// +
-            //                 " where atr_group=@atr_group";
-
-            //comando.Parameters.AddWithValue("@atr_group", atributo);
+            comando.CommandText = @"select * from opcion where atr_id=@atr_id 
+                                    or atr_group=@atr_group";
+            comando.Parameters.AddWithValue("@atr_id", atr.atr_id);
+            comando.Parameters.AddWithValue("@atr_group", atr.atr_group);
             DataTable dato_O = SQL_manager.readTable(comando);
 
             List<SQL_Opcion> lista_O = new List<SQL_Opcion>();
@@ -34,7 +33,6 @@ namespace SQL_ClassLibrary
                 lista_O.Add(Load(x));
             }
             return lista_O;
-
         }
 
         public List<SQL_Opcion> getOpcionByGroup(string group)
@@ -73,19 +71,20 @@ namespace SQL_ClassLibrary
             return Sql_O;
         }
 
-        public void createNewOpcionInDB()
+        public int createNewOpcionInDB(SQL_Opcion op)
         {
             comando.CommandText = "Insert into opcion(opc_id, atr_id, atr_group, opc_value)" +
-                                            " Values (@opc_id, @atr_id, @atr_group, @opc_value)";
+                                            " Values (@opc_id, @atr_id, @atr_group, @opc_value)"+
+                                            " Select CAST(SCOPE_IDENTITY() AS int) as ID";
 
-            comando.Parameters.AddWithValue("@opc_id", opc_id);
-            comando.Parameters.AddWithValue("@atr_id", atr_id);
-            comando.Parameters.AddWithValue("@atr_group", atr_group);
-            comando.Parameters.AddWithValue("@opc_value", opc_value);
+            comando.Parameters.AddWithValue("@opc_id", op.opc_id);
+            comando.Parameters.AddWithValue("@atr_id", op.atr_id);
+            comando.Parameters.AddWithValue("@atr_group", op.atr_group);
+            comando.Parameters.AddWithValue("@opc_value", op.opc_value);
 
-                        SQL_manager.executeCommand(comando);
+            return SQL_manager.readTable(comando).Rows[0].Field<int>("ID");
         }
-        public void updateOpcionInDB()
+        public void updateOpcionInDB(SQL_Opcion op)
         {
             comando.CommandText = "Update opcion Set" +
                                    " opc_id=@opc_id," +
@@ -94,17 +93,17 @@ namespace SQL_ClassLibrary
                                    " opc_value=@opc_value," +
                                    " where opc_id=@opc_id";
             
-            comando.Parameters.AddWithValue("@opc_id", opc_id);
-            comando.Parameters.AddWithValue("@atr_id", atr_id);
-            comando.Parameters.AddWithValue("@atr_group", atr_group);
-            comando.Parameters.AddWithValue("@opc_value", opc_value);
+            comando.Parameters.AddWithValue("@opc_id", op.opc_id);
+            comando.Parameters.AddWithValue("@atr_id", op.atr_id);
+            comando.Parameters.AddWithValue("@atr_group", op.atr_group);
+            comando.Parameters.AddWithValue("@opc_value", op.opc_value);
 
             SQL_manager.executeCommand(comando);
         }
-        public void deleteOpcionInDB()
+        public void deleteOpcionInDB(SQL_Opcion op)
         {
             comando.CommandText = "Delete From opcion Where opc_id = @opc_id ";
-            comando.Parameters.AddWithValue("@opc_id", opc_id);
+            comando.Parameters.AddWithValue("@opc_id", op.opc_id);
 
             SQL_manager.executeCommand(comando);
         }

@@ -14,10 +14,10 @@ namespace SQL_ClassLibrary.ServiceInterface
         [OperationContract]
         List<SQL_Evaluacion> searchEvaluacionByIndividuo(SQL_Individuo individuo);
         [OperationContract]
-        void createNewevaluacionInDB();
+        int createNewevaluacionInDB(SQL_Evaluacion ev);
         [OperationContract]
-        void updateEvaluacionInDB();
+        void updateEvaluacionInDB(SQL_Evaluacion ev);
         [OperationContract]
-        void deleteEvaulacionInDB();
+        void deleteEvaulacionInDB(SQL_Evaluacion ev);
     }
 }
