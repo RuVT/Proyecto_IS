@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:8733/Design_Time_Addresses/HostWCF/ServicioWCF/individuo?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SQL_ClassLibrary" />
+  <xs:element name="createNewIndividuoInDB">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SQL_ClassLibrary" minOccurs="0" name="ind" nillable="true" type="q1:SQL_Individuo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="createNewIndividuoInDBResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="createNewIndividuoInDBResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updateIndividuoInDB">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SQL_ClassLibrary" minOccurs="0" name="ind" nillable="true" type="q2:SQL_Individuo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updateIndividuoInDBResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deleteIndiviuoInDB">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/SQL_ClassLibrary" minOccurs="0" name="ind" nillable="true" type="q3:SQL_Individuo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deleteIndiviuoInDBResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="searchIndividuoByName">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_name" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="searchIndividuoByNameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/SQL_ClassLibrary" minOccurs="0" name="searchIndividuoByNameResult" nillable="true" type="q4:ArrayOfSQL_Individuo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getIndividuoFromDBbyID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getIndividuoFromDBbyIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/SQL_ClassLibrary" minOccurs="0" name="getIndividuoFromDBbyIDResult" nillable="true" type="q5:SQL_Individuo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

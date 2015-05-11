@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:8733/Design_Time_Addresses/HostWCF/ServicioWCF/habilidad?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SQL_ClassLibrary" />
+  <xs:element name="getHabilidadByIndividuo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SQL_ClassLibrary" minOccurs="0" name="individuo" nillable="true" type="q1:SQL_Individuo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getHabilidadByIndividuoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SQL_ClassLibrary" minOccurs="0" name="getHabilidadByIndividuoResult" nillable="true" type="q2:ArrayOfSQL_Habilidad" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="createNewHabilidadInDB">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/SQL_ClassLibrary" minOccurs="0" name="ha" nillable="true" type="q3:SQL_Habilidad" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="createNewHabilidadInDBResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="createNewHabilidadInDBResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updateHanilidadInDB">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/SQL_ClassLibrary" minOccurs="0" name="ha" nillable="true" type="q4:SQL_Habilidad" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updateHanilidadInDBResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deleteHabilidadInDB">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/SQL_ClassLibrary" minOccurs="0" name="ha" nillable="true" type="q5:SQL_Habilidad" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deleteHabilidadInDBResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IndividuoTieneAtributo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/SQL_ClassLibrary" minOccurs="0" name="atr" nillable="true" type="q6:SQL_Atributo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IndividuoTieneAtributoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IndividuoTieneAtributoResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

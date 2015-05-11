@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:8733/Design_Time_Addresses/HostWCF/ServicioWCF/usuario?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SQL_ClassLibrary" />
+  <xs:element name="createNewUsuarioInDB">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SQL_ClassLibrary" minOccurs="0" name="user" nillable="true" type="q1:SQL_Usuario" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="createNewUsuarioInDBResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="createNewUsuarioInDBResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deleteUsuarioInDB">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SQL_ClassLibrary" minOccurs="0" name="user" nillable="true" type="q2:SQL_Usuario" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deleteUsuarioInDBResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updateUsuarioInDB">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/SQL_ClassLibrary" minOccurs="0" name="user" nillable="true" type="q3:SQL_Usuario" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updateUsuarioInDBResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="userExist">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_name" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="userExistResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userExistResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="passwordIsCorrect">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_password" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="passwordIsCorrectResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="passwordIsCorrectResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getUsuarioByName">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_name" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getUsuarioByNameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/SQL_ClassLibrary" minOccurs="0" name="getUsuarioByNameResult" nillable="true" type="q4:SQL_Usuario" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="login">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_name" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_password" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="loginResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="loginResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

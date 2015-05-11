@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#ffd9d9d9">
+    <FrameLayout
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="166.5dp"
+        android:id="@+id/frameLayout1"
+        android:background="@drawable/Mr" />
+    <TextView
+        android:text="Escribe el Nombre de la Persona que Buscas:"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView1"
+        android:layout_marginTop="12.8dp"
+        android:textColor="#ff000000" />
+    <MultiAutoCompleteTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/multiAutoCompleteTextView1"
+        android:layout_marginTop="12.8dp"
+        android:textColor="#ff000000"
+        android:text="Nombre" />
+    <Button
+        android:text="Buscar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/Buscar"
+        android:layout_marginTop="16.7dp"
+        android:background="#ffb71d15" />
+</LinearLayout>

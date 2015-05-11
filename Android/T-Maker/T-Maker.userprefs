@@ -1,0 +1,13 @@
+﻿<Properties StartupItem="T-Maker\T-Maker.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.Ejemplo" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="T-Maker\MainActivity.cs">
+    <Files>
+      <File FileName="T-Maker\MainActivity.cs" Line="70" Column="70" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.T-Maker AndroidDesignerPreferredDevice="Nexus 4" AndroidDesignerPreferredTheme="Theme.DeviceDefault.DialogWhenLarge.NoActionBar" />
+</Properties>

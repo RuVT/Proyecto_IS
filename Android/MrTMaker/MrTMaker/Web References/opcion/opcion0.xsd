@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SQL_ClassLibrary" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SQL_ClassLibrary" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="SQL_Atributo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="atr_drescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="atr_group" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="atr_id" type="xs:int" />
+      <xs:element minOccurs="0" name="atr_name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SQL_Atributo" nillable="true" type="tns:SQL_Atributo" />
+  <xs:complexType name="ArrayOfSQL_Opcion">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SQL_Opcion" nillable="true" type="tns:SQL_Opcion" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSQL_Opcion" nillable="true" type="tns:ArrayOfSQL_Opcion" />
+  <xs:complexType name="SQL_Opcion">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="atr_group" type="xs:int" />
+      <xs:element minOccurs="0" name="atr_id" type="xs:int" />
+      <xs:element minOccurs="0" name="opc_id" type="xs:int" />
+      <xs:element minOccurs="0" name="opc_value" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SQL_Opcion" nillable="true" type="tns:SQL_Opcion" />
+</xs:schema>

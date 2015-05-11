@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="SQL_Usuario" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:8733/Design_Time_Addresses/HostWCF/ServicioWCF/usuario?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:8733/Design_Time_Addresses/HostWCF/ServicioWCF/usuario?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:8733/Design_Time_Addresses/HostWCF/ServicioWCF/usuario?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SQL_ClassLibrary" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IUsuario_createNewUsuarioInDB_InputMessage">
+    <wsdl:part name="parameters" element="tns:createNewUsuarioInDB" />
+  </wsdl:message>
+  <wsdl:message name="IUsuario_createNewUsuarioInDB_OutputMessage">
+    <wsdl:part name="parameters" element="tns:createNewUsuarioInDBResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUsuario_deleteUsuarioInDB_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteUsuarioInDB" />
+  </wsdl:message>
+  <wsdl:message name="IUsuario_deleteUsuarioInDB_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteUsuarioInDBResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUsuario_updateUsuarioInDB_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateUsuarioInDB" />
+  </wsdl:message>
+  <wsdl:message name="IUsuario_updateUsuarioInDB_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateUsuarioInDBResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUsuario_userExist_InputMessage">
+    <wsdl:part name="parameters" element="tns:userExist" />
+  </wsdl:message>
+  <wsdl:message name="IUsuario_userExist_OutputMessage">
+    <wsdl:part name="parameters" element="tns:userExistResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUsuario_passwordIsCorrect_InputMessage">
+    <wsdl:part name="parameters" element="tns:passwordIsCorrect" />
+  </wsdl:message>
+  <wsdl:message name="IUsuario_passwordIsCorrect_OutputMessage">
+    <wsdl:part name="parameters" element="tns:passwordIsCorrectResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUsuario_getUsuarioByName_InputMessage">
+    <wsdl:part name="parameters" element="tns:getUsuarioByName" />
+  </wsdl:message>
+  <wsdl:message name="IUsuario_getUsuarioByName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getUsuarioByNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUsuario_login_InputMessage">
+    <wsdl:part name="parameters" element="tns:login" />
+  </wsdl:message>
+  <wsdl:message name="IUsuario_login_OutputMessage">
+    <wsdl:part name="parameters" element="tns:loginResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IUsuario">
+    <wsdl:operation name="createNewUsuarioInDB">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUsuario/createNewUsuarioInDB" message="tns:IUsuario_createNewUsuarioInDB_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUsuario/createNewUsuarioInDBResponse" message="tns:IUsuario_createNewUsuarioInDB_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteUsuarioInDB">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUsuario/deleteUsuarioInDB" message="tns:IUsuario_deleteUsuarioInDB_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUsuario/deleteUsuarioInDBResponse" message="tns:IUsuario_deleteUsuarioInDB_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateUsuarioInDB">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUsuario/updateUsuarioInDB" message="tns:IUsuario_updateUsuarioInDB_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUsuario/updateUsuarioInDBResponse" message="tns:IUsuario_updateUsuarioInDB_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="userExist">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUsuario/userExist" message="tns:IUsuario_userExist_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUsuario/userExistResponse" message="tns:IUsuario_userExist_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="passwordIsCorrect">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUsuario/passwordIsCorrect" message="tns:IUsuario_passwordIsCorrect_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUsuario/passwordIsCorrectResponse" message="tns:IUsuario_passwordIsCorrect_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getUsuarioByName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUsuario/getUsuarioByName" message="tns:IUsuario_getUsuarioByName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUsuario/getUsuarioByNameResponse" message="tns:IUsuario_getUsuarioByName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="login">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUsuario/login" message="tns:IUsuario_login_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUsuario/loginResponse" message="tns:IUsuario_login_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IUsuario" type="tns:IUsuario">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="createNewUsuarioInDB">
+      <soap:operation soapAction="http://tempuri.org/IUsuario/createNewUsuarioInDB" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteUsuarioInDB">
+      <soap:operation soapAction="http://tempuri.org/IUsuario/deleteUsuarioInDB" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateUsuarioInDB">
+      <soap:operation soapAction="http://tempuri.org/IUsuario/updateUsuarioInDB" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="userExist">
+      <soap:operation soapAction="http://tempuri.org/IUsuario/userExist" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="passwordIsCorrect">
+      <soap:operation soapAction="http://tempuri.org/IUsuario/passwordIsCorrect" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUsuarioByName">
+      <soap:operation soapAction="http://tempuri.org/IUsuario/getUsuarioByName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="login">
+      <soap:operation soapAction="http://tempuri.org/IUsuario/login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SQL_Usuario">
+    <wsdl:port name="BasicHttpBinding_IUsuario" binding="tns:BasicHttpBinding_IUsuario">
+      <soap:address location="http://localhost:8733/Design_Time_Addresses/HostWCF/ServicioWCF/usuario/usuario" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

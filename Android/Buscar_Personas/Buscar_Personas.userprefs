@@ -1,0 +1,9 @@
+﻿<Properties StartupItem="Buscar_Personas\Buscar_Personas.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.SelectDevice" />
+  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.Buscar__Personas AndroidDesignerPreferredDevice="Nexus 4" />
+</Properties>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:8733/Design_Time_Addresses/HostWCF/ServicioWCF/relacion?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SQL_ClassLibrary" />
+  <xs:element name="getRelations">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SQL_ClassLibrary" minOccurs="0" name="person" nillable="true" type="q1:SQL_Individuo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getRelationsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SQL_ClassLibrary" minOccurs="0" name="getRelationsResult" nillable="true" type="q2:ArrayOfSQL_Relacion" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="createNewRelacionInDB">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/SQL_ClassLibrary" minOccurs="0" name="re" nillable="true" type="q3:SQL_Relacion" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="createNewRelacionInDBResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="createNewRelacionInDBResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deleteRelacionInDB">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/SQL_ClassLibrary" minOccurs="0" name="re" nillable="true" type="q4:SQL_Relacion" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deleteRelacionInDBResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updateRelacionInDB">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/SQL_ClassLibrary" minOccurs="0" name="re" nillable="true" type="q5:SQL_Relacion" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updateRelacionInDBResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

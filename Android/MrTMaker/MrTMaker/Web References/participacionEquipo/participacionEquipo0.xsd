@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:8733/Design_Time_Addresses/HostWCF/ServicioWCF/participacionEquipo?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SQL_ClassLibrary" />
+  <xs:element name="getIndividuosFromEquipo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SQL_ClassLibrary" minOccurs="0" name="team" nillable="true" type="q1:SQL_Equipo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getIndividuosFromEquipoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SQL_ClassLibrary" minOccurs="0" name="getIndividuosFromEquipoResult" nillable="true" type="q2:ArrayOfSQL_Individuo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getParticipacionesFromEquipo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/SQL_ClassLibrary" minOccurs="0" name="team" nillable="true" type="q3:SQL_Equipo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getParticipacionesFromEquipoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/SQL_ClassLibrary" minOccurs="0" name="getParticipacionesFromEquipoResult" nillable="true" type="q4:ArrayOfSQL_ParticipacionEquipo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getAllParticipaciones">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getAllParticipacionesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/SQL_ClassLibrary" minOccurs="0" name="getAllParticipacionesResult" nillable="true" type="q5:ArrayOfSQL_ParticipacionEquipo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getParticipacionFromIndividuo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/SQL_ClassLibrary" minOccurs="0" name="person" nillable="true" type="q6:SQL_Individuo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getParticipacionFromIndividuoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/SQL_ClassLibrary" minOccurs="0" name="getParticipacionFromIndividuoResult" nillable="true" type="q7:ArrayOfSQL_ParticipacionEquipo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="createNewParticipacionInDB">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/SQL_ClassLibrary" minOccurs="0" name="pa" nillable="true" type="q8:SQL_ParticipacionEquipo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="createNewParticipacionInDBResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="createNewParticipacionInDBResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updateNewParticipacionInDB">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/SQL_ClassLibrary" minOccurs="0" name="pa" nillable="true" type="q9:SQL_ParticipacionEquipo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updateNewParticipacionInDBResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deleteParticipacionInDB">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/SQL_ClassLibrary" minOccurs="0" name="pa" nillable="true" type="q10:SQL_ParticipacionEquipo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deleteParticipacionInDBResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DiscoveryClientResultsFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Results>
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.ContractReference" url="http://localhost:8733/Design_Time_Addresses/HostWCF/ServicioWCF/opcion?wsdl" filename="SQL_Opcion.wsdl" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://localhost:8733/Design_Time_Addresses/HostWCF/ServicioWCF/opcion?xsd=xsd0" filename="opcion.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://localhost:8733/Design_Time_Addresses/HostWCF/ServicioWCF/opcion?xsd=xsd2" filename="opcion0.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://localhost:8733/Design_Time_Addresses/HostWCF/ServicioWCF/opcion?xsd=xsd1" filename="opcion1.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.DiscoveryDocumentReference" url="http://localhost:8733/Design_Time_Addresses/HostWCF/ServicioWCF/opcion?disco" filename="opcion.disco" />
+  </Results>
+</DiscoveryClientResultsFile>

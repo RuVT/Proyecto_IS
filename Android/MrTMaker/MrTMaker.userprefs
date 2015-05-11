@@ -1,0 +1,30 @@
+﻿<Properties StartupItem="MrTMaker\MrTMaker.csproj">
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="C:\Program Files (x86)\MSBuild\Xamarin\Android\Xamarin.Android.Common.targets" line="1009" column="7" />
+      <Breakpoint file="C:\Users\Ruben\Documents\PROGRAMACION\GitHub\Proyecto_IS\Android\MrTMaker\MrTMaker\Registro.cs" line="72" column="32" />
+      <Breakpoint file="C:\Users\Ruben\Documents\PROGRAMACION\GitHub\Proyecto_IS\Android\MrTMaker\MrTMaker\Registro.cs" line="43" column="14" />
+      <Breakpoint file="C:\Users\Ruben\Documents\PROGRAMACION\GitHub\Proyecto_IS\Android\MrTMaker\MrTMaker\Registro.cs" line="46" column="19" />
+      <Breakpoint file="C:\Users\Ruben\Documents\PROGRAMACION\GitHub\Proyecto_IS\Android\MrTMaker\MrTMaker\Web References\usuario\Reference.cs" line="39" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.B6NNGM45NZKFQOHQ" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="MrTMaker\Registro.cs">
+    <Files>
+      <File FileName="MrTMaker\Registro.cs" Line="67" Column="3" />
+      <File FileName="MrTMaker\Login.cs" Line="24" Column="43" />
+      <File FileName="MrTMaker\Menu.cs" Line="37" Column="48" />
+      <File FileName="MrTMaker\BuscarPersona.cs" Line="16" Column="35" />
+      <File FileName="MrTMaker\Perfil.cs" Line="25" Column="10" />
+      <File FileName="c:\Users\Ruben\Documents\PROGRAMACION\GitHub\Proyecto_IS\Android\MrTMaker\MrTMaker\Web References\usuario\Reference.cs" Line="39" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.Buscar__Personas AndroidDesignerPreferredDevice="Nexus 4" />
+  <MonoDevelop.Ide.ItemProperties.MrTMaker AndroidDesignerPreferredDevice="Nexus S" />
+</Properties>

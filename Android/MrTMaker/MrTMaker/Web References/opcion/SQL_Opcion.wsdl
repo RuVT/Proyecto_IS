@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="SQL_Opcion" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:8733/Design_Time_Addresses/HostWCF/ServicioWCF/opcion?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:8733/Design_Time_Addresses/HostWCF/ServicioWCF/opcion?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:8733/Design_Time_Addresses/HostWCF/ServicioWCF/opcion?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SQL_ClassLibrary" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IOpcion_getAllOptions_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAllOptions" />
+  </wsdl:message>
+  <wsdl:message name="IOpcion_getAllOptions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAllOptionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOpcion_getOpcionByGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:getOpcionByGroup" />
+  </wsdl:message>
+  <wsdl:message name="IOpcion_getOpcionByGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getOpcionByGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOpcion_createNewOpcionInDB_InputMessage">
+    <wsdl:part name="parameters" element="tns:createNewOpcionInDB" />
+  </wsdl:message>
+  <wsdl:message name="IOpcion_createNewOpcionInDB_OutputMessage">
+    <wsdl:part name="parameters" element="tns:createNewOpcionInDBResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOpcion_updateOpcionInDB_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateOpcionInDB" />
+  </wsdl:message>
+  <wsdl:message name="IOpcion_updateOpcionInDB_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateOpcionInDBResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOpcion_deleteOpcionInDB_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteOpcionInDB" />
+  </wsdl:message>
+  <wsdl:message name="IOpcion_deleteOpcionInDB_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteOpcionInDBResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IOpcion">
+    <wsdl:operation name="getAllOptions">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOpcion/getAllOptions" message="tns:IOpcion_getAllOptions_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOpcion/getAllOptionsResponse" message="tns:IOpcion_getAllOptions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getOpcionByGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOpcion/getOpcionByGroup" message="tns:IOpcion_getOpcionByGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOpcion/getOpcionByGroupResponse" message="tns:IOpcion_getOpcionByGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="createNewOpcionInDB">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOpcion/createNewOpcionInDB" message="tns:IOpcion_createNewOpcionInDB_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOpcion/createNewOpcionInDBResponse" message="tns:IOpcion_createNewOpcionInDB_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateOpcionInDB">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOpcion/updateOpcionInDB" message="tns:IOpcion_updateOpcionInDB_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOpcion/updateOpcionInDBResponse" message="tns:IOpcion_updateOpcionInDB_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteOpcionInDB">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOpcion/deleteOpcionInDB" message="tns:IOpcion_deleteOpcionInDB_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOpcion/deleteOpcionInDBResponse" message="tns:IOpcion_deleteOpcionInDB_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IOpcion" type="tns:IOpcion">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getAllOptions">
+      <soap:operation soapAction="http://tempuri.org/IOpcion/getAllOptions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getOpcionByGroup">
+      <soap:operation soapAction="http://tempuri.org/IOpcion/getOpcionByGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createNewOpcionInDB">
+      <soap:operation soapAction="http://tempuri.org/IOpcion/createNewOpcionInDB" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateOpcionInDB">
+      <soap:operation soapAction="http://tempuri.org/IOpcion/updateOpcionInDB" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteOpcionInDB">
+      <soap:operation soapAction="http://tempuri.org/IOpcion/deleteOpcionInDB" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SQL_Opcion">
+    <wsdl:port name="BasicHttpBinding_IOpcion" binding="tns:BasicHttpBinding_IOpcion">
+      <soap:address location="http://localhost:8733/Design_Time_Addresses/HostWCF/ServicioWCF/opcion/opcion" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

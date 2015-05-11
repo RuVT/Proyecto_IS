@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:minWidth="25px"
+    android:minHeight="25px"
+    android:scrollbars="vertical"
+    android:overScrollMode="always"
+    android:scrollbarStyle="insideOverlay">
+    <ScrollView
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/scrollView1">
+        <TableLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:stretchColumns="1">
+            <TextView
+                android:text="Nombre de la persona Evaluada"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:layout_width="257.8dp"
+                android:layout_height="25.3dp"
+                android:id="@+id/nombre_evaluado" />
+            <TextView
+                android:text="Id de la Persona Evaluada"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:layout_width="match_parent"
+                android:layout_height="22.8dp"
+                android:id="@+id/textView2" />
+            <TextView
+                android:text="Compromiso"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView3"
+                android:layout_marginTop="0.0dp" />
+            <SeekBar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/compromiso"
+                android:max="10" />
+            <TextView
+                android:text="0"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/T_C" />
+            <TextView
+                android:text="Organización"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView3"
+                android:layout_marginTop="0.0dp" />
+            <SeekBar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/organización"
+                android:max="10" />
+            <TextView
+                android:text="0"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/T_O" />
+            <TextView
+                android:text="Tolerancia"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView3"
+                android:layout_marginTop="0.0dp" />
+            <SeekBar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/Tolerancia"
+                android:max="10" />
+            <TextView
+                android:text="0"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/T_T" />
+            <TextView
+                android:text="Iniciativa"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView3"
+                android:layout_marginTop="0.0dp" />
+            <SeekBar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/Iniciativa"
+                android:max="10" />
+            <TextView
+                android:text="0"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/T_I" />
+            <TextView
+                android:text="Puntualidad"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView3"
+                android:layout_marginTop="0.0dp" />
+            <SeekBar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/Puntualidad"
+                android:max="10" />
+            <TextView
+                android:text="0"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/T_P" />
+            <TextView
+                android:text="Nivel de Colaborador"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView3"
+                android:layout_marginTop="0.0dp" />
+            <SeekBar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/Nivel_C"
+                android:max="10" />
+            <TextView
+                android:text="0"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/T_N" />
+            <Button
+                android:text="Listo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/Evaluar"
+                android:layout_marginLeft="100dp"
+                android:layout_marginRight="100dp"
+                android:layout_marginTop="0.0dp" />
+        </TableLayout>
+    </ScrollView>
+</LinearLayout>
