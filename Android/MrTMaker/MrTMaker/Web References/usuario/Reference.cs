@@ -26,7 +26,7 @@ namespace MrTMaker.usuario {
         
         /// <remarks/>
         public SQL_Usuario() {
-			this.Url = "http://192.168.1.67:8733/Design_Time_Addresses/HostWCF/ServicioWCF/usuario/usuario";
+			this.Url = "http://192.168.43.5:8733/Design_Time_Addresses/HostWCF/ServicioWCF/usuario/usuario";
         }
         
         public SQL_Usuario(string url) {

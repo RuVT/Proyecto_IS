@@ -26,7 +26,7 @@ namespace MrTMaker.imagen {
         
         /// <remarks/>
         public SQL_Imagen() {
-			this.Url = "http://192.168.1.67:8733/Design_Time_Addresses/HostWCF/ServicioWCF/imagen/imagen";
+			this.Url = "http://192.168.43.5:8733/Design_Time_Addresses/HostWCF/ServicioWCF/imagen/imagen";
         }
         
         public SQL_Imagen(string url) {

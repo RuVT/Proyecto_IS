@@ -86,9 +86,9 @@ namespace SQL_ClassLibrary
             SqlCommand comando = new SqlCommand();
             comando.CommandText = "select *"+
                                   " From individuo"+
-                                  " Where ind_name = @ind_name ";
+                                  " Where ind_name like  '%"+_name+"%' ";
 
-            comando.Parameters.AddWithValue("@ind_name", _name);
+            //comando.Parameters.AddWithValue("@ind_name", _name);
 
             DataTable table =SQL_manager.readTable(comando);
             return Load(table);

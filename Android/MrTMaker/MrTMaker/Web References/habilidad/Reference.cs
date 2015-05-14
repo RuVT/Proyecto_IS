@@ -26,7 +26,7 @@ namespace MrTMaker.habilidad {
         
         /// <remarks/>
         public SQL_Habilidad() {
-			this.Url = "http://192.168.1.67:8733/Design_Time_Addresses/HostWCF/ServicioWCF/habilidad/habilid" +
+			this.Url = "http://192.168.43.5:8733/Design_Time_Addresses/HostWCF/ServicioWCF/habilidad/habilid" +
                 "ad";
         }
         

@@ -26,7 +26,7 @@ namespace MrTMaker.evaluacion {
         
         /// <remarks/>
         public SQL_Evaluacion() {
-			this.Url = "http://192.168.1.67:8733/Design_Time_Addresses/HostWCF/ServicioWCF/evaluacion/evalua" +
+			this.Url = "http://192.168.43.5:8733/Design_Time_Addresses/HostWCF/ServicioWCF/evaluacion/evalua" +
                 "cion";
         }
         

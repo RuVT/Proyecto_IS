@@ -26,7 +26,7 @@ namespace MrTMaker.individuo {
         
         /// <remarks/>
         public SQL_Individuo() {
-			this.Url = "http://192.168.1.67:8733/Design_Time_Addresses/HostWCF/ServicioWCF/individuo/individ" +
+			this.Url = "http://192.168.43.5:8733/Design_Time_Addresses/HostWCF/ServicioWCF/individuo/individ" +
                 "uo";
         }
         

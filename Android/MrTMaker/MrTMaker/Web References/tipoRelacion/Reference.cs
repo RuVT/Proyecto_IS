@@ -27,7 +27,7 @@ namespace MrTMaker.tipoRelacion {
         
         /// <remarks/>
         public SQL_TipoRelacion() {
-			this.Url = "http://192.168.1.67:8733/Design_Time_Addresses/HostWCF/ServicioWCF/tipoRelacion/tipo" +
+			this.Url = "http://192.168.43.5:8733/Design_Time_Addresses/HostWCF/ServicioWCF/tipoRelacion/tipo" +
                 "Relacion";
         }
         

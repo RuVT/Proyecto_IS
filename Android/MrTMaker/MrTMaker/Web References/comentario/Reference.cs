@@ -26,7 +26,7 @@ namespace MrTMaker.comentario {
         
         /// <remarks/>
         public SQL_Comentario() {
-			this.Url = "http://192.168.1.67:8733/Design_Time_Addresses/HostWCF/ServicioWCF/comentario/coment" +
+			this.Url = "http://192.168.43.5:8733/Design_Time_Addresses/HostWCF/ServicioWCF/comentario/coment" +
                 "ario";
         }
         

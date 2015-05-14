@@ -26,7 +26,7 @@ namespace MrTMaker.relacion {
         
         /// <remarks/>
         public SQL_Relacion() {
-			this.Url = "http://192.168.1.67:8733/Design_Time_Addresses/HostWCF/ServicioWCF/relacion/relacion" +
+			this.Url = "http://192.168.43.5:8733/Design_Time_Addresses/HostWCF/ServicioWCF/relacion/relacion" +
                 "";
         }
         

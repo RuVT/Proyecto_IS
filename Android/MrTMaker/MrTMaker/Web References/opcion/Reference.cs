@@ -26,7 +26,7 @@ namespace MrTMaker.opcion {
         
         /// <remarks/>
         public SQL_Opcion() {
-			this.Url = "http://192.168.1.67:8733/Design_Time_Addresses/HostWCF/ServicioWCF/opcion/opcion";
+			this.Url = "http://192.168.43.5:8733/Design_Time_Addresses/HostWCF/ServicioWCF/opcion/opcion";
         }
         
         public SQL_Opcion(string url) {

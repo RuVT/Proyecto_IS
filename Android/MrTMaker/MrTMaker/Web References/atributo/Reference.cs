@@ -27,7 +27,7 @@ namespace MrTMaker.atributo {
         
         /// <remarks/>
         public SQL_Atributo() {
-			this.Url = "http://192.168.1.67:8733/Design_Time_Addresses/HostWCF/ServicioWCF/atributo/atributo" +
+			this.Url = "http://192.168.43.5:8733/Design_Time_Addresses/HostWCF/ServicioWCF/atributo/atributo" +
                 "";
         }
         
