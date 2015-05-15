@@ -26,7 +26,7 @@ CREATE TABLE imagen
 CREATE TABLE imagen
 (
 	ima_id int identity(1,1) not null,
-	ima_dat binary,
+	ima_dat image,
 	ind_id int
 	primary key (ima_id),
 	foreign key (ind_id) references individuo(ind_id)	

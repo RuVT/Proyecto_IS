@@ -168,8 +168,8 @@ namespace MrTMaker
 			// aapt resource value: 0x7f050033
 			public const int imageView2 = 2131034163;
 			
-			// aapt resource value: 0x7f05001f
-			public const int imgppic = 2131034143;
+			// aapt resource value: 0x7f05001e
+			public const int imagenUsuario = 2131034142;
 			
 			// aapt resource value: 0x7f05003c
 			public const int ivPersona = 2131034172;
@@ -246,8 +246,8 @@ namespace MrTMaker
 			// aapt resource value: 0x7f050018
 			public const int txtUsuario = 2131034136;
 			
-			// aapt resource value: 0x7f05001e
-			public const int txtnombre = 2131034142;
+			// aapt resource value: 0x7f05001f
+			public const int txtnombre = 2131034143;
 			
 			static Id()
 			{

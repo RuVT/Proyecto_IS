@@ -81,24 +81,24 @@ namespace MrTMaker
 			bool operacion = true;
 			mensajero.createNewIndividuoInDB (ind, out usu.ind_id, out operacion);
 			ind.id = usu.ind_id;
-			//CrearImagen (ind);
+			CrearImagen (ind);
 			usu.ind_idSpecified = true;
 		}
 
 		protected void CrearImagen(individuo.SQL_Individuo1 ind)
 		{
-			Bitmap bm=BitmapFactory.DecodeResource (Resources,Resource.Drawable.MrTMaker);
-
-			System.IO.MemoryStream stream = new System.IO.MemoryStream();
-			bm.Compress(Bitmap.CompressFormat.Png, 50, stream);
-			byte[] byteArray = stream.ToArray();
+//			Bitmap bm=BitmapFactory.DecodeResource (Resources,Resource.Drawable.MrTMaker);
+//
+//			System.IO.MemoryStream stream = new System.IO.MemoryStream();
+//			bm.Compress(Bitmap.CompressFormat.Png, 50, stream);
+//			byte[] byteArray = stream.ToArray();
 
 			imagen.SQL_Imagen mensajero = new MrTMaker.imagen.SQL_Imagen ();
 			imagen.SQL_Imagen1 ima = new MrTMaker.imagen.SQL_Imagen1 ();
 			ima.ind_id = ind.id;
 			ima.ind_idSpecified = true;
 			bool proceso = true;
-			ima.ima_dat = byteArray;
+//			ima.ima_dat = byteArray;
 			mensajero.createNewImageInDB (ima, out ima.ima_id,out proceso);
 		}
 	}

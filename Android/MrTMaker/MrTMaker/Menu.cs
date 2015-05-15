@@ -10,6 +10,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using Android.Graphics;
 
 namespace MrTMaker
 {
@@ -38,7 +39,21 @@ namespace MrTMaker
 				StartActivity(intent);
 			};
 
+			MostrarDatos ();
 			//btnperfil
+		}
+
+		protected void MostrarDatos()
+		{
+			individuo.SQL_Individuo mensajero = new MrTMaker.individuo.SQL_Individuo ();
+			individuo.SQL_Individuo1 ind=mensajero.getIndividuoFromDBbyID (Login._usuario.ind_id,true);
+			TextView nombre = FindViewById<TextView> (Resource.Id.txtnombre);
+			nombre.Text = ind.name;
+			ImageView foto = FindViewById<ImageView> (Resource.Id.imagenUsuario);
+			imagen.SQL_Imagen mensajero2 = new MrTMaker.imagen.SQL_Imagen ();
+			imagen.SQL_Imagen1 img=mensajero2.getImagenFromIndividio (ind.id, true).First ();
+			Bitmap bm=BitmapFactory.DecodeByteArray(img.ima_dat , 0, img.ima_dat.Length);
+			foto.SetImageBitmap (bm);
 		}
 	}
 }

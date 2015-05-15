@@ -46,10 +46,19 @@ namespace SQL_ClassLibrary
         public int createNewImageInDB(SQL_Imagen ima)
         {
             SqlCommand command = new SqlCommand();
-            command.CommandText = @"Insert into imagen(ima_dat,ind_id) values(@ima_dat,@ind_id)
+            if (ima.ima_dat != null)
+            {
+                command.CommandText = @"Insert into imagen(ima_dat,ind_id) values(@ima_dat,@ind_id)
                                     Select CAST(SCOPE_IDENTITY() AS int) as ID";
-            command.Parameters.AddWithValue("@ima_dat", ima.ima_dat);
-            command.Parameters.AddWithValue("@ind_id", ima.ind_id);
+                command.Parameters.AddWithValue("@ind_id", ima.ind_id);
+                command.Parameters.AddWithValue("@ima_dat", ima.ima_dat);
+            }
+            else
+            {
+                command.CommandText = @"Insert into imagen(ind_id) values(@ind_id)
+                                    Select CAST(SCOPE_IDENTITY() AS int) as ID";
+                command.Parameters.AddWithValue("@ind_id", ima.ind_id);
+            }
 
             return SQL_manager.readTable(command).Rows[0].Field<int>("ID");
         }

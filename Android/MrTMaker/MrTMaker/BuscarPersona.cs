@@ -10,6 +10,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using Android.Graphics;
 
 namespace MrTMaker
 {
@@ -39,6 +40,17 @@ namespace MrTMaker
 				View addView = layoutInflater.Inflate(Resource.Layout.viewResultados, null);
 				Button b1 = addView.FindViewById<Button>(Resource.Id.btnPersona);
 				b1.Text=ind.name + " " + ind.last_name1 + " " + ind.last_name2;
+
+				ImageView foto = addView.FindViewById<ImageView> (Resource.Id.ivPersona);
+				imagen.SQL_Imagen mensajero2 = new MrTMaker.imagen.SQL_Imagen ();
+				try
+				{
+					imagen.SQL_Imagen1 img=mensajero2.getImagenFromIndividio (ind.id, true).First ();
+					Bitmap bm=BitmapFactory.DecodeByteArray(img.ima_dat , 0, img.ima_dat.Length);
+					foto.SetImageBitmap (bm);
+				}
+				catch(Exception){
+				}
 				ll.AddView (addView);
 
 			}

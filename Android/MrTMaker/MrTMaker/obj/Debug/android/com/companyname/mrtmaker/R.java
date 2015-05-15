@@ -50,7 +50,7 @@ public final class R {
         public static final int imagaFotoPersonal=0x7f050024;
         public static final int imageView1=0x7f050017;
         public static final int imageView2=0x7f050033;
-        public static final int imgppic=0x7f05001f;
+        public static final int imagenUsuario=0x7f05001e;
         public static final int ivPersona=0x7f05003c;
         public static final int linearLayout1=0x7f050023;
         public static final int llContenedor=0x7f050005;
@@ -76,7 +76,7 @@ public final class R {
         public static final int txtPassword=0x7f050019;
         public static final int txtTelefono=0x7f05002f;
         public static final int txtUsuario=0x7f050018;
-        public static final int txtnombre=0x7f05001e;
+        public static final int txtnombre=0x7f05001f;
     }
     public static final class layout {
         public static final int buscarpersona=0x7f030000;

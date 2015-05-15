@@ -12,6 +12,7 @@ using Android.Views;
 using Android.Widget;
 using Android.Graphics;
 using Java.IO;
+using System.Threading;
 
 namespace MrTMaker
 {
@@ -76,6 +77,10 @@ namespace MrTMaker
 			ind.telephoneSpecified = true;
 
 			mensajero.updateIndividuoInDB (ind);
+			Thread subir = new Thread (new ThreadStart (delegate {
+				GuardarImagen (ind);
+			}));
+			subir.Start ();
 			//GuardarImagen (ind);
 
 		}
@@ -85,16 +90,22 @@ namespace MrTMaker
 			imagen.SQL_Imagen mensajero = new MrTMaker.imagen.SQL_Imagen ();
 			ImageView foto = FindViewById<ImageView> (Resource.Id.imagaFotoPersonal);
 
-			foto.SetWillNotCacheDrawing (true);
+			foto.SetWillNotCacheDrawing (false);
 			foto.BuildDrawingCache ();
 			Bitmap bm = foto.GetDrawingCache (false);
 
 			System.IO.MemoryStream stream = new System.IO.MemoryStream();
-			bm.Compress(Bitmap.CompressFormat.Png, 100, stream);
+			bm.Compress(Bitmap.CompressFormat.Png, 50, stream);
 			byte[] byteArray = stream.ToArray();
-			imagen.SQL_Imagen1 img = mensajero.getImagenFromIndividio(ind.id,true).First();
+
+			imagen.SQL_Imagen1 img = mensajero.getImagenFromIndividio (ind.id, true).First();//mensajero.getImagenFromIndividio(ind.id,true).First();
+			img.ima_idSpecified = true;
 			img.ima_dat = byteArray;
+			//int i;
+			//bool ope = true;
 			mensajero.updateImagenInDB (img);
+			//mensajero.createNewImageInDB (img, out i, out ope);
+
 		}
 
 		protected void LlenarCampos()
@@ -116,14 +127,11 @@ namespace MrTMaker
 			telefono.Text = _individuo.telephone.ToString();
 			fecha.DateTime = _individuo.years;
 
-//			imagen.SQL_Imagen mensajero2 = new MrTMaker.imagen.SQL_Imagen ();
-//			imagen.SQL_Imagen1 ima=mensajero2.getImagenFromIndividio (_individuo.id,true).First();
-//			Bitmap bm=BitmapFactory.DecodeByteArray(ima.ima_dat , 0, ima.ima_dat.Length);
-//			//Bitmap bm = foto.GetDrawingCache ();
-//			foto.SetImageBitmap (bm);
-			//foto.SetWillNotCacheDrawing (true);
-			//foto.BuildDrawingCache ();
+			imagen.SQL_Imagen mensajero2 = new MrTMaker.imagen.SQL_Imagen ();
+			imagen.SQL_Imagen1 ima=mensajero2.getImagenFromIndividio (_individuo.id,true).First();
+			Bitmap bm=BitmapFactory.DecodeByteArray(ima.ima_dat , 0, ima.ima_dat.Length);
 			//Bitmap bm = foto.GetDrawingCache ();
+			foto.SetImageBitmap (bm);
 		}
 	}
 }
