@@ -35,6 +35,7 @@ namespace SQL_ClassLibrary
             DataTable table = SQL_manager.readTable("Select * from equipo where equ_id = " + id);
             return load(table)[0];
         }
+
         public List<SQL_Equipo> load(DataTable data)
         {
             List<SQL_Equipo> teams = new List<SQL_Equipo>();

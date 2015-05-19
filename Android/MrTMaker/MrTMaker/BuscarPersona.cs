@@ -39,6 +39,11 @@ namespace MrTMaker
 				LayoutInflater layoutInflater = (LayoutInflater) BaseContext.GetSystemService(Context.LayoutInflaterService);
 				View addView = layoutInflater.Inflate(Resource.Layout.viewResultados, null);
 				Button b1 = addView.FindViewById<Button>(Resource.Id.btnPersona);
+				b1.Click += delegate {
+					Intent intent=new Intent(this,typeof(DatosIndividuo));
+					intent.PutExtra("ind_id",ind.id);
+					StartActivity(intent);
+				};
 				b1.Text=ind.name + " " + ind.last_name1 + " " + ind.last_name2;
 
 				ImageView foto = addView.FindViewById<ImageView> (Resource.Id.ivPersona);

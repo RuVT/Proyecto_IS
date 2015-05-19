@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#ffd9d9d9">
+    <FrameLayout
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="167.2dp"
+        android:id="@+id/frameLayout1"
+        android:background="@drawable/Mr" />
+    <RadioButton
+        android:text="Personas parecidas a mi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/Igual"
+        android:textSize="20dp"
+        android:drawableTop="#ffffffff"
+        android:textColor="#ff000000"
+        android:textColorHighlight="#ff000000"
+        android:layout_marginLeft="62.7dp" />
+    <RadioButton
+        android:text="Personas distintas a mi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/radioButton1"
+        android:textSize="20dp"
+        android:textColor="#ff000000"
+        android:textColorHighlight="#ff000000"
+        android:layout_marginLeft="62.7dp" />
+    <Button
+        android:text="Formar Equipo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/button1"
+        android:background="#ffb71d15"
+        android:layout_marginTop="15.4dp" />
+</LinearLayout>

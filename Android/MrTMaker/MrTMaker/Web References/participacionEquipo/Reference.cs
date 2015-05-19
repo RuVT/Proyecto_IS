@@ -26,8 +26,7 @@ namespace MrTMaker.participacionEquipo {
         
         /// <remarks/>
         public SQL_ParticipacionEquipo() {
-			this.Url = "http://192.168.43.5:8733/Design_Time_Addresses/HostWCF/ServicioWCF/participacionEqui" +
-                "po/participacionEquipo";
+			this.Url = "http://192.168.43.5:8733/Design_Time_Addresses/HostWCF/ServicioWCF/participacionEquipo/participacionEquipo";
         }
         
         public SQL_ParticipacionEquipo(string url) {
@@ -38,16 +37,18 @@ namespace MrTMaker.participacionEquipo {
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IParticipacionEquipo/getIndividuosFromEquipo", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         [return: System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
         [return: System.Xml.Serialization.XmlArrayItemAttribute(Namespace="http://schemas.datacontract.org/2004/07/SQL_ClassLibrary")]
-        public SQL_Individuo[] getIndividuosFromEquipo([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] SQL_Equipo team) {
+        public SQL_Individuo[] getIndividuosFromEquipo(int id, [System.Xml.Serialization.XmlIgnoreAttribute()] bool idSpecified) {
             object[] results = this.Invoke("getIndividuosFromEquipo", new object[] {
-                        team});
+                        id,
+                        idSpecified});
             return ((SQL_Individuo[])(results[0]));
         }
         
         /// <remarks/>
-        public System.IAsyncResult BegingetIndividuosFromEquipo(SQL_Equipo team, System.AsyncCallback callback, object asyncState) {
+        public System.IAsyncResult BegingetIndividuosFromEquipo(int id, bool idSpecified, System.AsyncCallback callback, object asyncState) {
             return this.BeginInvoke("getIndividuosFromEquipo", new object[] {
-                        team}, callback, asyncState);
+                        id,
+                        idSpecified}, callback, asyncState);
         }
         
         /// <remarks/>
@@ -60,16 +61,18 @@ namespace MrTMaker.participacionEquipo {
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IParticipacionEquipo/getParticipacionesFromEquipo", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         [return: System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
         [return: System.Xml.Serialization.XmlArrayItemAttribute(Namespace="http://schemas.datacontract.org/2004/07/SQL_ClassLibrary")]
-        public SQL_ParticipacionEquipo1[] getParticipacionesFromEquipo([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] SQL_Equipo team) {
+        public SQL_ParticipacionEquipo1[] getParticipacionesFromEquipo(int id, [System.Xml.Serialization.XmlIgnoreAttribute()] bool idSpecified) {
             object[] results = this.Invoke("getParticipacionesFromEquipo", new object[] {
-                        team});
+                        id,
+                        idSpecified});
             return ((SQL_ParticipacionEquipo1[])(results[0]));
         }
         
         /// <remarks/>
-        public System.IAsyncResult BegingetParticipacionesFromEquipo(SQL_Equipo team, System.AsyncCallback callback, object asyncState) {
+        public System.IAsyncResult BegingetParticipacionesFromEquipo(int id, bool idSpecified, System.AsyncCallback callback, object asyncState) {
             return this.BeginInvoke("getParticipacionesFromEquipo", new object[] {
-                        team}, callback, asyncState);
+                        id,
+                        idSpecified}, callback, asyncState);
         }
         
         /// <remarks/>
@@ -102,16 +105,18 @@ namespace MrTMaker.participacionEquipo {
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IParticipacionEquipo/getParticipacionFromIndividuo", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         [return: System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
         [return: System.Xml.Serialization.XmlArrayItemAttribute(Namespace="http://schemas.datacontract.org/2004/07/SQL_ClassLibrary")]
-        public SQL_ParticipacionEquipo1[] getParticipacionFromIndividuo([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] SQL_Individuo person) {
+        public SQL_ParticipacionEquipo1[] getParticipacionFromIndividuo(int id, [System.Xml.Serialization.XmlIgnoreAttribute()] bool idSpecified) {
             object[] results = this.Invoke("getParticipacionFromIndividuo", new object[] {
-                        person});
+                        id,
+                        idSpecified});
             return ((SQL_ParticipacionEquipo1[])(results[0]));
         }
         
         /// <remarks/>
-        public System.IAsyncResult BegingetParticipacionFromIndividuo(SQL_Individuo person, System.AsyncCallback callback, object asyncState) {
+        public System.IAsyncResult BegingetParticipacionFromIndividuo(int id, bool idSpecified, System.AsyncCallback callback, object asyncState) {
             return this.BeginInvoke("getParticipacionFromIndividuo", new object[] {
-                        person}, callback, asyncState);
+                        id,
+                        idSpecified}, callback, asyncState);
         }
         
         /// <remarks/>
@@ -185,25 +190,45 @@ namespace MrTMaker.participacionEquipo {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/SQL_ClassLibrary")]
-    public partial class SQL_Equipo {
-        
-        /// <comentarios/>
-        public System.DateTime equ_dateOfCreation;
-        
-        /// <comentarios/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool equ_dateOfCreationSpecified;
-        
-        /// <comentarios/>
-        public int equ_id;
-        
-        /// <comentarios/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool equ_idSpecified;
+    public partial class SQL_Individuo {
         
         /// <comentarios/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string equ_name;
+        public string direction;
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string email;
+        
+        /// <comentarios/>
+        public int id;
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool idSpecified;
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string last_name1;
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string last_name2;
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string name;
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string telephone;
+        
+        /// <comentarios/>
+        public System.DateTime years;
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool yearsSpecified;
     }
     
     /// <comentarios/>
@@ -241,43 +266,5 @@ namespace MrTMaker.participacionEquipo {
         /// <comentarios/>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
         public bool par_idSpecified;
-    }
-    
-    /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("XamarinStudio", "4.0.0.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/SQL_ClassLibrary")]
-    public partial class SQL_Individuo {
-        
-        /// <comentarios/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string direction;
-        
-        /// <comentarios/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string email;
-        
-        /// <comentarios/>
-        public int id;
-        
-        /// <comentarios/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool idSpecified;
-        
-        /// <comentarios/>
-        public int telephone;
-        
-        /// <comentarios/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool telephoneSpecified;
-        
-        /// <comentarios/>
-        public int years;
-        
-        /// <comentarios/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool yearsSpecified;
     }
 }

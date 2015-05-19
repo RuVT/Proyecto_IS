@@ -26,8 +26,7 @@ namespace MrTMaker.evaluacion {
         
         /// <remarks/>
         public SQL_Evaluacion() {
-			this.Url = "http://192.168.43.5:8733/Design_Time_Addresses/HostWCF/ServicioWCF/evaluacion/evalua" +
-                "cion";
+			this.Url = "http://192.168.43.5:8733/Design_Time_Addresses/HostWCF/ServicioWCF/evaluacion/evaluacion";
         }
         
         public SQL_Evaluacion(string url) {
@@ -38,16 +37,18 @@ namespace MrTMaker.evaluacion {
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IEvaluacion/searchEvaluacionByIndividuo", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         [return: System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
         [return: System.Xml.Serialization.XmlArrayItemAttribute(Namespace="http://schemas.datacontract.org/2004/07/SQL_ClassLibrary")]
-        public SQL_Evaluacion1[] searchEvaluacionByIndividuo([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] SQL_Individuo individuo) {
+        public SQL_Evaluacion1[] searchEvaluacionByIndividuo(int id, [System.Xml.Serialization.XmlIgnoreAttribute()] bool idSpecified) {
             object[] results = this.Invoke("searchEvaluacionByIndividuo", new object[] {
-                        individuo});
+                        id,
+                        idSpecified});
             return ((SQL_Evaluacion1[])(results[0]));
         }
         
         /// <remarks/>
-        public System.IAsyncResult BeginsearchEvaluacionByIndividuo(SQL_Individuo individuo, System.AsyncCallback callback, object asyncState) {
+        public System.IAsyncResult BeginsearchEvaluacionByIndividuo(int id, bool idSpecified, System.AsyncCallback callback, object asyncState) {
             return this.BeginInvoke("searchEvaluacionByIndividuo", new object[] {
-                        individuo}, callback, asyncState);
+                        id,
+                        idSpecified}, callback, asyncState);
         }
         
         /// <remarks/>
@@ -113,44 +114,64 @@ namespace MrTMaker.evaluacion {
         public void EnddeleteEvaulacionInDB(System.IAsyncResult asyncResult) {
             this.EndInvoke(asyncResult);
         }
-    }
-    
-    /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("XamarinStudio", "4.0.0.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/SQL_ClassLibrary")]
-    public partial class SQL_Individuo {
         
-        /// <comentarios/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string direction;
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IEvaluacion/searchEvaluacion", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public SQL_Evaluacion1 searchEvaluacion(int examiner_id, [System.Xml.Serialization.XmlIgnoreAttribute()] bool examiner_idSpecified, int examined_id, [System.Xml.Serialization.XmlIgnoreAttribute()] bool examined_idSpecified) {
+            object[] results = this.Invoke("searchEvaluacion", new object[] {
+                        examiner_id,
+                        examiner_idSpecified,
+                        examined_id,
+                        examined_idSpecified});
+            return ((SQL_Evaluacion1)(results[0]));
+        }
         
-        /// <comentarios/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string email;
+        /// <remarks/>
+        public System.IAsyncResult BeginsearchEvaluacion(int examiner_id, bool examiner_idSpecified, int examined_id, bool examined_idSpecified, System.AsyncCallback callback, object asyncState) {
+            return this.BeginInvoke("searchEvaluacion", new object[] {
+                        examiner_id,
+                        examiner_idSpecified,
+                        examined_id,
+                        examined_idSpecified}, callback, asyncState);
+        }
         
-        /// <comentarios/>
-        public int id;
+        /// <remarks/>
+        public SQL_Evaluacion1 EndsearchEvaluacion(System.IAsyncResult asyncResult) {
+            object[] results = this.EndInvoke(asyncResult);
+            return ((SQL_Evaluacion1)(results[0]));
+        }
         
-        /// <comentarios/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool idSpecified;
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IEvaluacion/searchEvaluacionByIndividuoAtributo", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public SQL_Evaluacion1 searchEvaluacionByIndividuoAtributo(int examiner_id, [System.Xml.Serialization.XmlIgnoreAttribute()] bool examiner_idSpecified, int examined_id, [System.Xml.Serialization.XmlIgnoreAttribute()] bool examined_idSpecified, int atr_id, [System.Xml.Serialization.XmlIgnoreAttribute()] bool atr_idSpecified) {
+            object[] results = this.Invoke("searchEvaluacionByIndividuoAtributo", new object[] {
+                        examiner_id,
+                        examiner_idSpecified,
+                        examined_id,
+                        examined_idSpecified,
+                        atr_id,
+                        atr_idSpecified});
+            return ((SQL_Evaluacion1)(results[0]));
+        }
         
-        /// <comentarios/>
-        public int telephone;
+        /// <remarks/>
+        public System.IAsyncResult BeginsearchEvaluacionByIndividuoAtributo(int examiner_id, bool examiner_idSpecified, int examined_id, bool examined_idSpecified, int atr_id, bool atr_idSpecified, System.AsyncCallback callback, object asyncState) {
+            return this.BeginInvoke("searchEvaluacionByIndividuoAtributo", new object[] {
+                        examiner_id,
+                        examiner_idSpecified,
+                        examined_id,
+                        examined_idSpecified,
+                        atr_id,
+                        atr_idSpecified}, callback, asyncState);
+        }
         
-        /// <comentarios/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool telephoneSpecified;
-        
-        /// <comentarios/>
-        public int years;
-        
-        /// <comentarios/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool yearsSpecified;
+        /// <remarks/>
+        public SQL_Evaluacion1 EndsearchEvaluacionByIndividuoAtributo(System.IAsyncResult asyncResult) {
+            object[] results = this.EndInvoke(asyncResult);
+            return ((SQL_Evaluacion1)(results[0]));
+        }
     }
     
     /// <comentarios/>

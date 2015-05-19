@@ -13,19 +13,34 @@ using Android.Widget;
 using Android.Graphics;
 using Java.IO;
 using System.Threading;
+using System.Globalization;
+using Android.Provider;
+using Android.Content.PM;
 
 namespace MrTMaker
 {
 	[Activity (Label = "Perfil")]			
 	public class Perfil : Activity
 	{
+		LinearLayout contenedor;
+		View perfil;
 		individuo.SQL_Individuo1 _individuo;
+		private ImageView _imageView;
+
 		protected override void OnCreate (Bundle bundle)
 		{
 			base.OnCreate (bundle);
+			this.ActionBar.NavigationMode = ActionBarNavigationMode.Tabs;
+			SetContentView (Resource.Layout.PerfilEstatus);
 
-			SetContentView (Resource.Layout.Perfil);
-			Button buscar = FindViewById<Button> (Resource.Id.btnAbrirImagen);
+			LayoutInflater layoutInflater = (LayoutInflater) BaseContext.GetSystemService(Context.LayoutInflaterService);
+			perfil = layoutInflater.Inflate(Resource.Layout.Perfil, null);
+
+			contenedor = FindViewById<LinearLayout> (Resource.Id.lvContenedor);
+
+			//-----------------------
+			_imageView = perfil.FindViewById<ImageView>(Resource.Id.imagaFotoPersonal);
+			Button buscar = perfil.FindViewById<Button> (Resource.Id.btnAbrirImagen);
 			buscar.Click += delegate {                
 				var imageIntent = new Intent ();
 				imageIntent.SetType ("image/*");
@@ -34,31 +49,47 @@ namespace MrTMaker
 					Intent.CreateChooser (imageIntent, "Select photo"), 0);
 			} ;
 
-			Button guardar = FindViewById<Button> (Resource.Id.btnGuardarIndividuo);
+			Button guardar = perfil.FindViewById<Button> (Resource.Id.btnGuardarIndividuo);
 			guardar.Click += delegate { GuardarInformacion(); } ;
+			LlenarPerfil();
+			//-----------------------------
 
-			LlenarCampos ();
+			ActionBar.Tab tab = ActionBar.NewTab();
+			tab.SetText("Perfil");			;
+			tab.TabSelected += (sender, args) => {
+				contenedor.RemoveViews(0,contenedor.ChildCount);
+				contenedor.AddView(perfil);
+			};
+				ActionBar.AddTab(tab);
+
+			tab = ActionBar.NewTab();
+			tab.SetText("Estatus");
+			tab.TabSelected += (sender, args) => {
+				contenedor.RemoveViews(0,contenedor.ChildCount);
+				LlenarEstatus();
+			};
+				ActionBar.AddTab(tab);
+
 		}
 
 		protected override void OnActivityResult (int requestCode, Result resultCode, Intent data)
 		{
 			base.OnActivityResult (requestCode, resultCode, data);
 
-			if (resultCode == Result.Ok) {
-				var imageView = 
-					FindViewById<ImageView> (Resource.Id.imagaFotoPersonal);
-				imageView.SetImageURI (data.Data);
+			if (resultCode == Result.Ok) 
+			{
+				_imageView.SetImageURI (data.Data);
 			}
 		}
 
 		protected void GuardarInformacion()
 		{
-			EditText nombre = FindViewById<EditText> (Resource.Id.txtNombreReal);
-			EditText apellidoPa = FindViewById<EditText> (Resource.Id.txtApellidoPaterno);
-			EditText apellidoMa = FindViewById<EditText> (Resource.Id.txtApellidoMaterno);
-			EditText mail = FindViewById<EditText> (Resource.Id.txtEmail);
-			DatePicker fecha = FindViewById<DatePicker> (Resource.Id.dpFechaNacimiento);
-			EditText telefono = FindViewById<EditText> (Resource.Id.txtTelefono);
+			EditText nombre = perfil.FindViewById<EditText> (Resource.Id.txtNombreReal);
+			EditText apellidoPa = perfil.FindViewById<EditText> (Resource.Id.txtApellidoPaterno);
+			EditText apellidoMa = perfil.FindViewById<EditText> (Resource.Id.txtApellidoMaterno);
+			EditText mail = perfil.FindViewById<EditText> (Resource.Id.txtEmail);
+			DatePicker fecha = perfil.FindViewById<DatePicker> (Resource.Id.dpFechaNacimiento);
+			EditText telefono = perfil.FindViewById<EditText> (Resource.Id.txtTelefono);
 
 
 			individuo.SQL_Individuo mensajero = new MrTMaker.individuo.SQL_Individuo ();
@@ -73,9 +104,8 @@ namespace MrTMaker
 			ind.email = mail.Text;
 			ind.years = fecha.DateTime;
 			ind.yearsSpecified = true;
-			ind.telephone = int.Parse(telefono.Text);
-			ind.telephoneSpecified = true;
-
+			ind.telephone = telefono.Text;			
+			//int.TryParse(numero,out ind.telephone);
 			mensajero.updateIndividuoInDB (ind);
 			Thread subir = new Thread (new ThreadStart (delegate {
 				GuardarImagen (ind);
@@ -88,7 +118,7 @@ namespace MrTMaker
 		protected void GuardarImagen(individuo.SQL_Individuo1 ind)
 		{
 			imagen.SQL_Imagen mensajero = new MrTMaker.imagen.SQL_Imagen ();
-			ImageView foto = FindViewById<ImageView> (Resource.Id.imagaFotoPersonal);
+			ImageView foto = perfil.FindViewById<ImageView> (Resource.Id.imagaFotoPersonal);
 
 			foto.SetWillNotCacheDrawing (false);
 			foto.BuildDrawingCache ();
@@ -108,15 +138,15 @@ namespace MrTMaker
 
 		}
 
-		protected void LlenarCampos()
+		protected void LlenarPerfil()
 		{
-			EditText nombre = FindViewById<EditText> (Resource.Id.txtNombreReal);
-			EditText apellidoPa = FindViewById<EditText> (Resource.Id.txtApellidoPaterno);
-			EditText apellidoMa = FindViewById<EditText> (Resource.Id.txtApellidoMaterno);
-			EditText mail = FindViewById<EditText> (Resource.Id.txtEmail);
-			DatePicker fecha = FindViewById<DatePicker> (Resource.Id.dpFechaNacimiento);
-			EditText telefono = FindViewById<EditText> (Resource.Id.txtTelefono);	
-			ImageView foto = FindViewById<ImageView> (Resource.Id.imagaFotoPersonal);
+			EditText nombre = perfil.FindViewById<EditText> (Resource.Id.txtNombreReal);
+			EditText apellidoPa = perfil.FindViewById<EditText> (Resource.Id.txtApellidoPaterno);
+			EditText apellidoMa = perfil.FindViewById<EditText> (Resource.Id.txtApellidoMaterno);
+			EditText mail = perfil.FindViewById<EditText> (Resource.Id.txtEmail);
+			DatePicker fecha = perfil.FindViewById<DatePicker> (Resource.Id.dpFechaNacimiento);
+			EditText telefono = perfil.FindViewById<EditText> (Resource.Id.txtTelefono);	
+			ImageView foto = perfil.FindViewById<ImageView> (Resource.Id.imagaFotoPersonal);
 
 			individuo.SQL_Individuo mensajero = new MrTMaker.individuo.SQL_Individuo ();
 			_individuo=mensajero.getIndividuoFromDBbyID (Login._usuario.ind_id,true);
@@ -129,10 +159,30 @@ namespace MrTMaker
 
 			imagen.SQL_Imagen mensajero2 = new MrTMaker.imagen.SQL_Imagen ();
 			imagen.SQL_Imagen1 ima=mensajero2.getImagenFromIndividio (_individuo.id,true).First();
-			Bitmap bm=BitmapFactory.DecodeByteArray(ima.ima_dat , 0, ima.ima_dat.Length);
-			//Bitmap bm = foto.GetDrawingCache ();
-			foto.SetImageBitmap (bm);
+			if (ima.ima_dat != null) {
+				Bitmap bm = BitmapFactory.DecodeByteArray (ima.ima_dat, 0, ima.ima_dat.Length);
+				//Bitmap bm = foto.GetDrawingCache ();
+				foto.SetImageBitmap (bm);
+			}
 		}
+
+		protected void LlenarEstatus()
+		{
+			LayoutInflater layoutInflater = (LayoutInflater) BaseContext.GetSystemService(Context.LayoutInflaterService);	
+			habilidad.SQL_Habilidad mensajero = new MrTMaker.habilidad.SQL_Habilidad ();
+			habilidad.SQL_Habilidad1 [] habilidades=mensajero.getHabilidadByIndividuo (Login._usuario.ind_id,true);
+			foreach (habilidad.SQL_Habilidad1 hab in habilidades) {
+				View habEstatus=layoutInflater.Inflate(Resource.Layout.Estatus, null);
+				TextView info = habEstatus.FindViewById<TextView> (Resource.Id.textEstatus);
+				//info.Text;
+				atributo.SQL_Atributo mensajero2=new MrTMaker.atributo.SQL_Atributo();
+				atributo.SQL_Atributo1 atri=mensajero2.getAtributoByID (hab.atr_id, true);
+				info.Text = "Atributo : " + atri.atr_name + "; Calificacion: " + hab.hab_FinalValue;
+				contenedor.AddView (habEstatus);
+			}
+		}
+
 	}
+
 }
 

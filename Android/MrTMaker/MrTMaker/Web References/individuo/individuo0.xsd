@@ -8,7 +8,7 @@
       <xs:element minOccurs="0" name="last_name1" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="last_name2" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="telephone" type="xs:int" />
+      <xs:element minOccurs="0" name="telephone" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="years" type="xs:dateTime" />
     </xs:sequence>
   </xs:complexType>

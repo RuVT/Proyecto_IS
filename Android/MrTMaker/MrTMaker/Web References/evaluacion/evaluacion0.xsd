@@ -4,21 +4,21 @@
   <xs:element name="searchEvaluacionByIndividuo">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SQL_ClassLibrary" minOccurs="0" name="individuo" nillable="true" type="q1:SQL_Individuo" />
+        <xs:element minOccurs="0" name="id" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="searchEvaluacionByIndividuoResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SQL_ClassLibrary" minOccurs="0" name="searchEvaluacionByIndividuoResult" nillable="true" type="q2:ArrayOfSQL_Evaluacion" />
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SQL_ClassLibrary" minOccurs="0" name="searchEvaluacionByIndividuoResult" nillable="true" type="q1:ArrayOfSQL_Evaluacion" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="createNewevaluacionInDB">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/SQL_ClassLibrary" minOccurs="0" name="ev" nillable="true" type="q3:SQL_Evaluacion" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SQL_ClassLibrary" minOccurs="0" name="ev" nillable="true" type="q2:SQL_Evaluacion" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -32,7 +32,7 @@
   <xs:element name="updateEvaluacionInDB">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/SQL_ClassLibrary" minOccurs="0" name="ev" nillable="true" type="q4:SQL_Evaluacion" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/SQL_ClassLibrary" minOccurs="0" name="ev" nillable="true" type="q3:SQL_Evaluacion" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -44,13 +44,44 @@
   <xs:element name="deleteEvaulacionInDB">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/SQL_ClassLibrary" minOccurs="0" name="ev" nillable="true" type="q5:SQL_Evaluacion" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/SQL_ClassLibrary" minOccurs="0" name="ev" nillable="true" type="q4:SQL_Evaluacion" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="deleteEvaulacionInDBResponse">
     <xs:complexType>
       <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="searchEvaluacion">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="examiner_id" type="xs:int" />
+        <xs:element minOccurs="0" name="examined_id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="searchEvaluacionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/SQL_ClassLibrary" minOccurs="0" name="searchEvaluacionResult" nillable="true" type="q5:SQL_Evaluacion" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="searchEvaluacionByIndividuoAtributo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="examiner_id" type="xs:int" />
+        <xs:element minOccurs="0" name="examined_id" type="xs:int" />
+        <xs:element minOccurs="0" name="atr_id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="searchEvaluacionByIndividuoAtributoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/SQL_ClassLibrary" minOccurs="0" name="searchEvaluacionByIndividuoAtributoResult" nillable="true" type="q6:SQL_Evaluacion" />
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
 </xs:schema>

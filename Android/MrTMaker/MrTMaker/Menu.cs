@@ -26,16 +26,20 @@ namespace MrTMaker
 
 			// Get our button from the layout resource,
 			// and attach an event to it
-			Button button = FindViewById<Button> (Resource.Id.btnbuscar);
+			Button buscar = FindViewById<Button> (Resource.Id.btnbuscar);
 			Button perfil = FindViewById<Button> (Resource.Id.btnperfil);
-//
-			button.Click += delegate {
+			Button equi = FindViewById<Button> (Resource.Id.btnequipo);
+			buscar.Click += delegate {
 				var intent = new Intent(this, typeof(BuscarPersona));			
 				StartActivity(intent);
 			};
 
 			perfil.Click += delegate {
 				var intent = new Intent(this, typeof(Perfil));
+				StartActivity(intent);
+			};
+			equi.Click += delegate {
+				var intent = new Intent(this, typeof(Equipo));
 				StartActivity(intent);
 			};
 
@@ -52,8 +56,16 @@ namespace MrTMaker
 			ImageView foto = FindViewById<ImageView> (Resource.Id.imagenUsuario);
 			imagen.SQL_Imagen mensajero2 = new MrTMaker.imagen.SQL_Imagen ();
 			imagen.SQL_Imagen1 img=mensajero2.getImagenFromIndividio (ind.id, true).First ();
-			Bitmap bm=BitmapFactory.DecodeByteArray(img.ima_dat , 0, img.ima_dat.Length);
-			foto.SetImageBitmap (bm);
+			if (img.ima_dat != null) {
+				Bitmap bm = BitmapFactory.DecodeByteArray (img.ima_dat, 0, img.ima_dat.Length);
+				foto.SetImageBitmap (bm);
+			}
+		}
+			
+		protected override void  OnResume()
+		{  // After a pause OR at startup
+			base.OnResume();
+			MostrarDatos ();
 		}
 	}
 }

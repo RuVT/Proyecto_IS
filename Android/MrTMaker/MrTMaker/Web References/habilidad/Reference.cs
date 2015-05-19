@@ -26,8 +26,8 @@ namespace MrTMaker.habilidad {
         
         /// <remarks/>
         public SQL_Habilidad() {
-			this.Url = "http://192.168.43.5:8733/Design_Time_Addresses/HostWCF/ServicioWCF/habilidad/habilid" +
-                "ad";
+			this.Url = "http://192.168.43.5:8733/Design_Time_Addresses/HostWCF/ServicioWCF/habilidad/habilidad";
+			//this.Url = "http://192.168.1.67:8733/Design_Time_Addresses/HostWCF/ServicioWCF/habilidad/habilidad";
         }
         
         public SQL_Habilidad(string url) {
@@ -38,16 +38,18 @@ namespace MrTMaker.habilidad {
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IHabilidad/getHabilidadByIndividuo", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         [return: System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
         [return: System.Xml.Serialization.XmlArrayItemAttribute(Namespace="http://schemas.datacontract.org/2004/07/SQL_ClassLibrary")]
-        public SQL_Habilidad1[] getHabilidadByIndividuo([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] SQL_Individuo individuo) {
+        public SQL_Habilidad1[] getHabilidadByIndividuo(int id, [System.Xml.Serialization.XmlIgnoreAttribute()] bool idSpecified) {
             object[] results = this.Invoke("getHabilidadByIndividuo", new object[] {
-                        individuo});
+                        id,
+                        idSpecified});
             return ((SQL_Habilidad1[])(results[0]));
         }
         
         /// <remarks/>
-        public System.IAsyncResult BegingetHabilidadByIndividuo(SQL_Individuo individuo, System.AsyncCallback callback, object asyncState) {
+        public System.IAsyncResult BegingetHabilidadByIndividuo(int id, bool idSpecified, System.AsyncCallback callback, object asyncState) {
             return this.BeginInvoke("getHabilidadByIndividuo", new object[] {
-                        individuo}, callback, asyncState);
+                        id,
+                        idSpecified}, callback, asyncState);
         }
         
         /// <remarks/>
@@ -142,72 +144,6 @@ namespace MrTMaker.habilidad {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/SQL_ClassLibrary")]
-    public partial class SQL_Individuo {
-        
-        /// <comentarios/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string direction;
-        
-        /// <comentarios/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string email;
-        
-        /// <comentarios/>
-        public int id;
-        
-        /// <comentarios/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool idSpecified;
-        
-        /// <comentarios/>
-        public int telephone;
-        
-        /// <comentarios/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool telephoneSpecified;
-        
-        /// <comentarios/>
-        public int years;
-        
-        /// <comentarios/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool yearsSpecified;
-    }
-    
-    /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("XamarinStudio", "4.0.0.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/SQL_ClassLibrary")]
-    public partial class SQL_Atributo {
-        
-        /// <comentarios/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string atr_drescription;
-        
-        /// <comentarios/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string atr_group;
-        
-        /// <comentarios/>
-        public int atr_id;
-        
-        /// <comentarios/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool atr_idSpecified;
-        
-        /// <comentarios/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string atr_name;
-    }
-    
-    /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("XamarinStudio", "4.0.0.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(TypeName="SQL_Habilidad", Namespace="http://schemas.datacontract.org/2004/07/SQL_ClassLibrary")]
     public partial class SQL_Habilidad1 {
         
@@ -238,5 +174,33 @@ namespace MrTMaker.habilidad {
         /// <comentarios/>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
         public bool ind_idSpecified;
+    }
+    
+    /// <comentarios/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("XamarinStudio", "4.0.0.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/SQL_ClassLibrary")]
+    public partial class SQL_Atributo {
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string atr_drescription;
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string atr_group;
+        
+        /// <comentarios/>
+        public int atr_id;
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool atr_idSpecified;
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string atr_name;
     }
 }

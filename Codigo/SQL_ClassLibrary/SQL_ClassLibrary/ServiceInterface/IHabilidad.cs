@@ -12,7 +12,7 @@ namespace SQL_ClassLibrary.ServiceInterface
     public interface IHabilidad
     {
         [OperationContract]
-        List<SQL_Habilidad> getHabilidadByIndividuo(SQL_Individuo individuo);
+        List<SQL_Habilidad> getHabilidadByIndividuo(int id);
         [OperationContract]
         int createNewHabilidadInDB(SQL_Habilidad ha);
         [OperationContract]
@@ -20,6 +20,8 @@ namespace SQL_ClassLibrary.ServiceInterface
         [OperationContract]
         void deleteHabilidadInDB(SQL_Habilidad ha);
         [OperationContract]
-        bool IndividuoTieneAtributo(SQL_Atributo atr);
+        bool IndividuoTieneAtributo(int id);
+        [OperationContract]
+        SQL_Habilidad getHabilidadByIndividuoAtributo(int indid, int atrid);
     }
 }

@@ -17,10 +17,18 @@ CREATE TABLE atributo
 	primary key (atr_id) 
 )
 
-CREATE TABLE imagen
+--Los individuos seran las personas
+CREATE TABLE individuo
 (
-	ima_id int identity(1,1) not null,
-	
+	ind_id int identity(1,1) not null,
+	ind_name varchar(50),			--Datos basicos, se pueden agregar mas
+	ind_lastName1 varchar(50),		--Tambien se puede hacer una tabla aparte para otro datos mas especificos
+	ind_lastName2 varchar(50),
+	ind_years date,
+	ind_direction varchar(100),
+	ind_telephone varchar(13),
+	ind_email varchar(50)
+	primary key (ind_id)
 )
 
 CREATE TABLE imagen
@@ -33,20 +41,6 @@ CREATE TABLE imagen
 )
 CREATE INDEX index_img
 ON imagen (ind_id)
-
---Los individuos seran las personas
-CREATE TABLE individuo
-(
-	ind_id int identity(1,1) not null,
-	ind_name varchar(50),			--Datos basicos, se pueden agregar mas
-	ind_lastName1 varchar(50),		--Tambien se puede hacer una tabla aparte para otro datos mas especificos
-	ind_lastName2 varchar(50),
-	ind_years date,
-	ind_direction varchar(100),
-	ind_telephone int,
-	ind_email varchar(50)
-	primary key (ind_id)
-)
 
 --Exitiran una tabla de equipos con todos los equipos que se hayan formado anteriormente y su informacion
 CREATE TABLE equipo
@@ -140,7 +134,7 @@ CREATE TABLE evaluacion
 )
 
 --Destrezas con las que cuenta una persona
-CREATE TABLE habilidad
+/*CREATE TABLE habilidad
 (
 	hab_id int identity(1,1) not null,
 	ind_id int,						--id del individuo
@@ -149,7 +143,16 @@ CREATE TABLE habilidad
 	primary key (hab_id)
 	foreign key (ind_id) references individuo (ind_id),
 	foreign key (atr_id) references atributo (atr_id) 
-)
+)*/
+GO
+CREATE VIEW habilidad
+as
+SELECT ind_id,atr_id,(hab_FinalValue/total) as hab_FinalValue from
+(
+Select COUNT(eva_id) AS total,ind_idExamined as ind_id,atr_id,SUM(eva_value) as hab_FinalValue from evaluacion
+GROUP BY ind_idExamined,atr_id
+) as Origen
+GO
 
 --Tipica tabla con los usuarios y contraseñas
 CREATE TABLE usuario

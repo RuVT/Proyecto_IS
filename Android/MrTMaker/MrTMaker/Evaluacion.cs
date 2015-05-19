@@ -13,92 +13,104 @@ namespace MrTMaker
 {
 	[Activity (Label = "Evaluacion")]			
 	public class Evaluacion : Activity
-	{
-		int v_compromiso = 0;
-		int v_organizacion = 0;
-		int v_tolerancia = 0;
-		int v_iniciativa = 0;
-		int v_puntualidad = 0;
-		int v_nivel = 0;
+	{		
+		int ind_id;
+		LinearLayout contenedor;
+		Dictionary<int, View> atributos = new Dictionary<int, View> ();
+		habilidad.SQL_Habilidad1 [] hab;
 
 		protected override void OnCreate (Bundle bundle)
 		{
-
 			base.OnCreate (bundle);
-
 			// Set our view from the "main" layout resource
 			SetContentView (Resource.Layout.Evaluacion);
-
-			TextView tc = FindViewById<TextView> (Resource.Id.T_C);
-			TextView to = FindViewById<TextView> (Resource.Id.T_O);
-			TextView tt = FindViewById<TextView> (Resource.Id.T_T);
-			TextView ti = FindViewById<TextView> (Resource.Id.T_I);
-			TextView tp = FindViewById<TextView> (Resource.Id.T_P);
-			TextView tn = FindViewById<TextView> (Resource.Id.T_N);
-			SeekBar s1 = FindViewById<SeekBar> (Resource.Id.compromiso);
-			SeekBar s2 = FindViewById<SeekBar> (Resource.Id.organización);
-			SeekBar s3 = FindViewById<SeekBar> (Resource.Id.Tolerancia);
-			SeekBar s4 = FindViewById<SeekBar> (Resource.Id.Iniciativa);
-			SeekBar s5 = FindViewById<SeekBar> (Resource.Id.Puntualidad);
-			SeekBar s6 = FindViewById<SeekBar> (Resource.Id.Nivel_C);
-			Button boton = FindViewById<Button> (Resource.Id.Evaluar);
-
-
-			s1.ProgressChanged += (object sender, SeekBar.ProgressChangedEventArgs e) => {
-				if (e.FromUser) {
-					tc.Text = string.Format ("{0}" ,e.Progress);
-					//v_compromiso = e.Progress;
-				}
+			ind_id=Intent.GetIntExtra ("ind_id", -1);
+			contenedor = FindViewById<LinearLayout> (Resource.Id.llContenidoEvaluacion);
+			MostrarHabilidades ();
+			Button guardar = FindViewById<Button> (Resource.Id.btnGuardarEvaluacion);
+			guardar.Click += delegate {
+				GuardarEvaluacion ();
 			};
-
-			s2.ProgressChanged += (object sender, SeekBar.ProgressChangedEventArgs e) => {
-				if (e.FromUser) {
-					to.Text = string.Format ("{0}" ,e.Progress);
-					//v_organización = e.Progress;
-				}
-			};
-
-			s3.ProgressChanged += (object sender, SeekBar.ProgressChangedEventArgs e) => {
-				if (e.FromUser) {
-					tt.Text = string.Format ("{0}" ,e.Progress);
-					//v_tolerancia = e.Progress;
-				}
-			};
-
-			s4.ProgressChanged += (object sender, SeekBar.ProgressChangedEventArgs e) => {
-				if (e.FromUser) {
-					ti.Text = string.Format ("{0}" ,e.Progress);
-					//v_iniciativa = e.Progress;
-				}
-			};
-
-			s5.ProgressChanged += (object sender, SeekBar.ProgressChangedEventArgs e) => {
-				if (e.FromUser) {
-					tp.Text = string.Format ("{0}" ,e.Progress);
-					//v_puntualidad = e.Progress;
-				}
-			};
-
-			s6.ProgressChanged += (object sender, SeekBar.ProgressChangedEventArgs e) => {
-				if (e.FromUser) {
-					tn.Text = string.Format ("{0}" ,e.Progress);
-					//v_nivel = e.Progress;
-				}
-			};
-
-			boton.Click += (sender, e) => {
-				new AlertDialog.Builder(this)
-					.SetMessage("Compromiso\nOrganización")
-					.Show();
-			};
+		}
 
 
-			// Get our button from the layout resource,
-			// and attach an event to it
-			//Button button = FindViewById<Button> (Resource.Id.myButton);
+		private void MostrarHabilidades()
+		{
+			LayoutInflater layoutInflater = (LayoutInflater) BaseContext.GetSystemService(Context.LayoutInflaterService);	
+			atributo.SQL_Atributo mensajero_atr = new MrTMaker.atributo.SQL_Atributo ();
+			atributo.SQL_Atributo1[] atri = mensajero_atr.getAllAtributos ();
 
-			//button.Click += delegate {
-			//button.Text = string.Format ("{0} clicks!", count++);
+			habilidad.SQL_Habilidad mensajero_hab = new MrTMaker.habilidad.SQL_Habilidad ();
+			hab = mensajero_hab.getHabilidadByIndividuo (ind_id,true);
+
+			foreach (atributo.SQL_Atributo1 at in atri) 
+			{
+				View habEva = layoutInflater.Inflate (Resource.Layout.HabilidadEvaluable, null);
+				TextView nombre = habEva.FindViewById<TextView> (Resource.Id.tvNombreAtri); 
+				SeekBar barra = habEva.FindViewById<SeekBar> (Resource.Id.sbBarraEvaluacion);
+				TextView numero = habEva.FindViewById<TextView> (Resource.Id.tvNumeroBarra);
+
+				nombre.Text = at.atr_name;
+				numero.Text = barra.Progress.ToString();
+				barra.ProgressChanged += delegate {					
+					numero.Text = barra.Progress.ToString();
+				};
+				contenedor.AddView (habEva);
+				atributos.Add (at.atr_id, habEva);
+			}
+
+			foreach (habilidad.SQL_Habilidad1 ha in hab) 
+			{					 
+				View habEva = atributos [ha.atr_id];
+				SeekBar barra = habEva.FindViewById<SeekBar> (Resource.Id.sbBarraEvaluacion);
+				TextView numero = habEva.FindViewById<TextView> (Resource.Id.tvNumeroBarra);
+				barra.Progress = int.Parse(ha.hab_FinalValue.ToString());
+			}
+		}
+
+		protected void GuardarEvaluacion()
+		{
+			foreach (var kvp in atributos) 
+			{
+				View habEva = kvp.Value;
+				SeekBar barra = habEva.FindViewById<SeekBar> (Resource.Id.sbBarraEvaluacion);
+				if(barra.Progress>0)
+					ValiadarEvaluacionExiste (kvp.Key, barra.Progress);				
+			}
+		}
+
+		protected void ValiadarEvaluacionExiste(int atrid,double valor)
+		{
+			evaluacion.SQL_Evaluacion mensajero_eva = new MrTMaker.evaluacion.SQL_Evaluacion ();
+			evaluacion.SQL_Evaluacion1 eva=mensajero_eva.searchEvaluacionByIndividuoAtributo (Login._usuario.ind_id, true, ind_id, true, atrid, true);
+			if (eva == null) 
+			{
+				eva = new MrTMaker.evaluacion.SQL_Evaluacion1 ();
+				eva.atr_id = atrid;
+				eva.atr_idSpecified = true;
+				eva.ind_idExaminer = Login._usuario.ind_id;
+				eva.ind_idExaminerSpecified = true;
+				eva.ind_idExamined = ind_id;
+				eva.ind_idExaminedSpecified = true;
+				eva.eva_value = valor;
+				eva.eva_valueSpecified = true;
+				eva.eva_date = DateTime.Now;
+				eva.eva_dateSpecified = true;
+				bool proceso = true;
+				mensajero_eva.createNewevaluacionInDB (eva, out eva.eva_id, out proceso);
+			}
+			else
+			{				
+				eva.atr_idSpecified = true;
+				eva.ind_idExaminerSpecified = true;
+				eva.ind_idExaminedSpecified = true;
+				eva.eva_value = valor;
+				eva.eva_valueSpecified = true;
+				eva.eva_date = DateTime.Now;
+				eva.eva_dateSpecified = true;
+				mensajero_eva.updateEvaluacionInDB (eva);
+			}
+
 		}
 	}
 }

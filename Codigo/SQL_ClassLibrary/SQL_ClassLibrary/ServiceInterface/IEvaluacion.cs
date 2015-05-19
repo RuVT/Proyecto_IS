@@ -12,12 +12,16 @@ namespace SQL_ClassLibrary.ServiceInterface
     public interface IEvaluacion
     {
         [OperationContract]
-        List<SQL_Evaluacion> searchEvaluacionByIndividuo(SQL_Individuo individuo);
+        List<SQL_Evaluacion> searchEvaluacionByIndividuo(int id);
         [OperationContract]
         int createNewevaluacionInDB(SQL_Evaluacion ev);
         [OperationContract]
         void updateEvaluacionInDB(SQL_Evaluacion ev);
         [OperationContract]
         void deleteEvaulacionInDB(SQL_Evaluacion ev);
+        [OperationContract]
+        SQL_Evaluacion searchEvaluacion(int examiner_id, int examined_id);
+        [OperationContract]
+        SQL_Evaluacion searchEvaluacionByIndividuoAtributo(int examiner_id, int examined_id, int atr_id);
     }
 }

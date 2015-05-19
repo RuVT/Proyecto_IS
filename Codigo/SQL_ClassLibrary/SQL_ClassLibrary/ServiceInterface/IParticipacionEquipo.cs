@@ -10,13 +10,13 @@ namespace SQL_ClassLibrary.ServiceInterface
     public interface IParticipacionEquipo
     {
         [OperationContract]
-        List<SQL_Individuo> getIndividuosFromEquipo(SQL_Equipo team);
+        List<SQL_Individuo> getIndividuosFromEquipo(int id);
         [OperationContract]
-        List<SQL_ParticipacionEquipo> getParticipacionesFromEquipo(SQL_Equipo team);
+        List<SQL_ParticipacionEquipo> getParticipacionesFromEquipo(int id);
         [OperationContract]
         List<SQL_ParticipacionEquipo> getAllParticipaciones();
         [OperationContract]
-        List<SQL_ParticipacionEquipo> getParticipacionFromIndividuo(SQL_Individuo person);
+        List<SQL_ParticipacionEquipo> getParticipacionFromIndividuo(int id);
         [OperationContract]
         int createNewParticipacionInDB(SQL_ParticipacionEquipo pa);
         [OperationContract]

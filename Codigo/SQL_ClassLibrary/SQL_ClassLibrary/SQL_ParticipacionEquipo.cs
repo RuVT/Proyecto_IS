@@ -37,13 +37,13 @@ namespace SQL_ClassLibrary
             return temp;
         }
 
-        public List<SQL_Individuo> getIndividuosFromEquipo(SQL_Equipo team)
+        public List<SQL_Individuo> getIndividuosFromEquipo(int id)
         {
             comando.CommandText = "select *" +
                              " From participacionEquipo" +
                              " where equ_id=@equ_id";
 
-            comando.Parameters.AddWithValue("@equ_id", team.equ_id);
+            comando.Parameters.AddWithValue("@equ_id", id);
 
             DataTable dato_I = SQL_manager.readTable(comando);
 
@@ -56,13 +56,13 @@ namespace SQL_ClassLibrary
             return lista_I;
 
         }
-        public List<SQL_ParticipacionEquipo> getParticipacionesFromEquipo(SQL_Equipo team)
+        public List<SQL_ParticipacionEquipo> getParticipacionesFromEquipo(int id)
         {
             comando.CommandText = "select *" +
                             " From participacionEquipo" +
                             " where equ_id=@equ_id";
 
-            comando.Parameters.AddWithValue("@equ_id", team.equ_id);
+            comando.Parameters.AddWithValue("@equ_id", id);
 
             DataTable dato_P = SQL_manager.readTable(comando);
 
@@ -80,13 +80,13 @@ namespace SQL_ClassLibrary
             DataTable table=SQL_manager.readTable(comando);
             return load(table);
         }
-        public List<SQL_ParticipacionEquipo> getParticipacionFromIndividuo(SQL_Individuo person)
+        public List<SQL_ParticipacionEquipo> getParticipacionFromIndividuo(int id)
         {
             comando.CommandText = "select *" +
                             " From participacionEquipo" +
                             " where ind_id=@ind_id";
 
-            comando.Parameters.AddWithValue("@equ_id", person.id);
+            comando.Parameters.AddWithValue("@ind_id", id);
 
             DataTable dato_P = SQL_manager.readTable(comando);
 

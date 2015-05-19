@@ -17,7 +17,7 @@ namespace SQL_ClassLibrary
         public string last_name2;
         public DateTime years;
         public string direction;
-        public int telephone;
+        public string telephone;
         public string email;
 
         
@@ -38,6 +38,8 @@ namespace SQL_ClassLibrary
                 ind.direction = "";
             if (ind.email == null)
                 ind.email = "";
+            if (ind.telephone == null)
+                ind.telephone = "";
             comando.Parameters.AddWithValue("@ind_name", ind.name);
             comando.Parameters.AddWithValue("@ind_lastName1", ind.last_name1);
             comando.Parameters.AddWithValue("@ind_lastName2", ind.last_name2);
@@ -61,7 +63,8 @@ namespace SQL_ClassLibrary
                                     " ind_telephone=@ind_telephone,"+
                                     " ind_email=@ind_email"+
                                     " where ind_id=@ind_id";
-            
+            if (ind.telephone == null)
+                ind.telephone = "";
             comando.Parameters.AddWithValue("@ind_id", ind.id);
             comando.Parameters.AddWithValue("@ind_name", ind.name);
             comando.Parameters.AddWithValue("@ind_lastName1", ind.last_name1);
@@ -125,7 +128,7 @@ namespace SQL_ClassLibrary
             Sql_I.last_name2 = dato.Field<string>("ind_lastName2");
             Sql_I.years = dato.Field<DateTime>("ind_years");
             Sql_I.direction = dato.Field<string>("ind_direction");
-            Sql_I.telephone = dato.Field<int>("ind_telephone");
+            Sql_I.telephone = dato.Field<string>("ind_telephone");
             Sql_I.email = dato.Field<string>("ind_email");
             return Sql_I;
         }

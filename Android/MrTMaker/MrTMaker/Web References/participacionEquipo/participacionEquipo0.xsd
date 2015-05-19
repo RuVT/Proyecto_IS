@@ -4,28 +4,28 @@
   <xs:element name="getIndividuosFromEquipo">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SQL_ClassLibrary" minOccurs="0" name="team" nillable="true" type="q1:SQL_Equipo" />
+        <xs:element minOccurs="0" name="id" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="getIndividuosFromEquipoResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SQL_ClassLibrary" minOccurs="0" name="getIndividuosFromEquipoResult" nillable="true" type="q2:ArrayOfSQL_Individuo" />
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SQL_ClassLibrary" minOccurs="0" name="getIndividuosFromEquipoResult" nillable="true" type="q1:ArrayOfSQL_Individuo" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="getParticipacionesFromEquipo">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/SQL_ClassLibrary" minOccurs="0" name="team" nillable="true" type="q3:SQL_Equipo" />
+        <xs:element minOccurs="0" name="id" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="getParticipacionesFromEquipoResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/SQL_ClassLibrary" minOccurs="0" name="getParticipacionesFromEquipoResult" nillable="true" type="q4:ArrayOfSQL_ParticipacionEquipo" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SQL_ClassLibrary" minOccurs="0" name="getParticipacionesFromEquipoResult" nillable="true" type="q2:ArrayOfSQL_ParticipacionEquipo" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -37,28 +37,28 @@
   <xs:element name="getAllParticipacionesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/SQL_ClassLibrary" minOccurs="0" name="getAllParticipacionesResult" nillable="true" type="q5:ArrayOfSQL_ParticipacionEquipo" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/SQL_ClassLibrary" minOccurs="0" name="getAllParticipacionesResult" nillable="true" type="q3:ArrayOfSQL_ParticipacionEquipo" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="getParticipacionFromIndividuo">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/SQL_ClassLibrary" minOccurs="0" name="person" nillable="true" type="q6:SQL_Individuo" />
+        <xs:element minOccurs="0" name="id" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="getParticipacionFromIndividuoResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/SQL_ClassLibrary" minOccurs="0" name="getParticipacionFromIndividuoResult" nillable="true" type="q7:ArrayOfSQL_ParticipacionEquipo" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/SQL_ClassLibrary" minOccurs="0" name="getParticipacionFromIndividuoResult" nillable="true" type="q4:ArrayOfSQL_ParticipacionEquipo" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="createNewParticipacionInDB">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/SQL_ClassLibrary" minOccurs="0" name="pa" nillable="true" type="q8:SQL_ParticipacionEquipo" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/SQL_ClassLibrary" minOccurs="0" name="pa" nillable="true" type="q5:SQL_ParticipacionEquipo" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -72,7 +72,7 @@
   <xs:element name="updateNewParticipacionInDB">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/SQL_ClassLibrary" minOccurs="0" name="pa" nillable="true" type="q9:SQL_ParticipacionEquipo" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/SQL_ClassLibrary" minOccurs="0" name="pa" nillable="true" type="q6:SQL_ParticipacionEquipo" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -84,7 +84,7 @@
   <xs:element name="deleteParticipacionInDB">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/SQL_ClassLibrary" minOccurs="0" name="pa" nillable="true" type="q10:SQL_ParticipacionEquipo" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/SQL_ClassLibrary" minOccurs="0" name="pa" nillable="true" type="q7:SQL_ParticipacionEquipo" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

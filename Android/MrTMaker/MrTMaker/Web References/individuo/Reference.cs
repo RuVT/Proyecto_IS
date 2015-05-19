@@ -26,8 +26,8 @@ namespace MrTMaker.individuo {
         
         /// <remarks/>
         public SQL_Individuo() {
-			this.Url = "http://192.168.43.5:8733/Design_Time_Addresses/HostWCF/ServicioWCF/individuo/individ" +
-                "uo";
+			this.Url = "http://192.168.43.5:8733/Design_Time_Addresses/HostWCF/ServicioWCF/individuo/individuo";
+			//this.Url = "http://192.168.1.67:8733/Design_Time_Addresses/HostWCF/ServicioWCF/individuo/individuo";
         }
         
         public SQL_Individuo(string url) {
@@ -174,11 +174,8 @@ namespace MrTMaker.individuo {
         public string name;
         
         /// <comentarios/>
-        public int telephone;
-        
-        /// <comentarios/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool telephoneSpecified;
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string telephone;
         
         /// <comentarios/>
         public System.DateTime years;

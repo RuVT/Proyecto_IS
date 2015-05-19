@@ -31,6 +31,18 @@
   <wsdl:message name="IEvaluacion_deleteEvaulacionInDB_OutputMessage">
     <wsdl:part name="parameters" element="tns:deleteEvaulacionInDBResponse" />
   </wsdl:message>
+  <wsdl:message name="IEvaluacion_searchEvaluacion_InputMessage">
+    <wsdl:part name="parameters" element="tns:searchEvaluacion" />
+  </wsdl:message>
+  <wsdl:message name="IEvaluacion_searchEvaluacion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:searchEvaluacionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEvaluacion_searchEvaluacionByIndividuoAtributo_InputMessage">
+    <wsdl:part name="parameters" element="tns:searchEvaluacionByIndividuoAtributo" />
+  </wsdl:message>
+  <wsdl:message name="IEvaluacion_searchEvaluacionByIndividuoAtributo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:searchEvaluacionByIndividuoAtributoResponse" />
+  </wsdl:message>
   <wsdl:portType name="IEvaluacion">
     <wsdl:operation name="searchEvaluacionByIndividuo">
       <wsdl:input wsaw:Action="http://tempuri.org/IEvaluacion/searchEvaluacionByIndividuo" message="tns:IEvaluacion_searchEvaluacionByIndividuo_InputMessage" />
@@ -47,6 +59,14 @@
     <wsdl:operation name="deleteEvaulacionInDB">
       <wsdl:input wsaw:Action="http://tempuri.org/IEvaluacion/deleteEvaulacionInDB" message="tns:IEvaluacion_deleteEvaulacionInDB_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IEvaluacion/deleteEvaulacionInDBResponse" message="tns:IEvaluacion_deleteEvaulacionInDB_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="searchEvaluacion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvaluacion/searchEvaluacion" message="tns:IEvaluacion_searchEvaluacion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvaluacion/searchEvaluacionResponse" message="tns:IEvaluacion_searchEvaluacion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="searchEvaluacionByIndividuoAtributo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEvaluacion/searchEvaluacionByIndividuoAtributo" message="tns:IEvaluacion_searchEvaluacionByIndividuoAtributo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEvaluacion/searchEvaluacionByIndividuoAtributoResponse" message="tns:IEvaluacion_searchEvaluacionByIndividuoAtributo_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IEvaluacion" type="tns:IEvaluacion">
@@ -80,6 +100,24 @@
     </wsdl:operation>
     <wsdl:operation name="deleteEvaulacionInDB">
       <soap:operation soapAction="http://tempuri.org/IEvaluacion/deleteEvaulacionInDB" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="searchEvaluacion">
+      <soap:operation soapAction="http://tempuri.org/IEvaluacion/searchEvaluacion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="searchEvaluacionByIndividuoAtributo">
+      <soap:operation soapAction="http://tempuri.org/IEvaluacion/searchEvaluacionByIndividuoAtributo" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
